@@ -30,10 +30,10 @@ Rules:
 
 const providers = [
   {
-    name: 'NVIDIA',
-    url: 'https://integrate.api.nvidia.com/v1/chat/completions',
-    apiKey: process.env.NVIDIA_API_KEY || '',
-    model: 'nvidia/nemotron-3-ultra-550b-a55b',
+    name: 'OpenRouter',
+    url: 'https://openrouter.ai/api/v1/chat/completions',
+    apiKey: process.env.OPENROUTER_API_KEY || '',
+    model: 'nvidia/llama-3.1-nemotron-70b-instruct',
   },
   {
     name: 'Kimi',
@@ -42,10 +42,10 @@ const providers = [
     model: 'moonshot-v1-8k',
   },
   {
-    name: 'OpenRouter',
-    url: 'https://openrouter.ai/api/v1/chat/completions',
-    apiKey: process.env.OPENROUTER_API_KEY || '',
-    model: 'nvidia/llama-3.1-nemotron-70b-instruct',
+    name: 'NVIDIA',
+    url: 'https://integrate.api.nvidia.com/v1/chat/completions',
+    apiKey: process.env.NVIDIA_API_KEY || '',
+    model: 'nvidia/nemotron-3-ultra-550b-a55b',
   },
   {
     name: 'Ollama',
@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
             max_tokens: 300,
             temperature: 0.7,
           }),
-          signal: AbortSignal.timeout(15000),
+          signal: AbortSignal.timeout(12000),
         });
 
         if (!response.ok) {
