@@ -69,7 +69,7 @@ export default function SecurityAIPage() {
 
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: data.answer,
+        content: data.content || data.answer || 'No response',
         provider: data.provider,
       }]);
     } catch (err) {
