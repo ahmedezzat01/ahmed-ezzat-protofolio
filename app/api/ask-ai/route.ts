@@ -19,14 +19,7 @@ function checkRateLimit(ip: string, limit = 20, windowMs = 60000): boolean {
   return true;
 }
 
-const SYSTEM_PROMPT = `You are a helpful AI assistant. You answer questions about ANY topic — cybersecurity, programming, science, history, math, general knowledge, life advice, and more.
-
-Rules:
-- Keep answers concise and helpful (max 3-5 sentences)
-- Be friendly, professional, and educational
-- If asked about illegal activities, redirect to legal alternatives
-- Use simple language that beginners can understand
-- You can discuss any topic: technology, science, math, history, geography, health, career advice, coding, etc.`;
+const SYSTEM_PROMPT = `You are a helpful AI assistant. Answer questions concisely (2-4 sentences). Topics: cybersecurity, programming, science, math, career advice, general knowledge.`;
 
 const providers = [
   {
@@ -36,22 +29,10 @@ const providers = [
     model: 'nvidia/llama-3.1-nemotron-70b-instruct',
   },
   {
-    name: 'Kimi',
-    url: 'https://api.moonshot.cn/v1/chat/completions',
-    apiKey: process.env.KIMI_API_KEY || '',
-    model: 'moonshot-v1-8k',
-  },
-  {
     name: 'NVIDIA',
     url: 'https://integrate.api.nvidia.com/v1/chat/completions',
     apiKey: process.env.NVIDIA_API_KEY || '',
     model: 'nvidia/nemotron-3-ultra-550b-a55b',
-  },
-  {
-    name: 'Ollama',
-    url: 'https://api.ollama.com/v1/chat/completions',
-    apiKey: process.env.OLLAMA_API_KEY || '',
-    model: 'llama3.1',
   },
 ];
 
@@ -60,37 +41,25 @@ export async function POST(req: NextRequest) {
     const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'unknown';
     
     if (!checkRateLimit(ip)) {
-      return NextResponse.json(
-        { error: 'Too many requests. Please wait a moment.' },
-        { status: 429 }
-      );
+      return NextResponse.json({ error: 'Too many requests.' }, { status: 429 });
     }
 
     const { message } = await req.json();
 
-    if (!message || typeof message !== 'string') {
-      return NextResponse.json({ error: 'Message is required' }, { status: 400 });
+    if (!message || typeof message !== 'string' || message.trim().length < 3) {
+      return NextResponse.json({ error: 'Invalid message.' }, { status: 400 });
+    }
+
+    if (message.length > 500) {
+      return NextResponse.json({ error: 'Message too long.' }, { status: 400 });
     }
 
     const trimmed = message.trim();
-    if (trimmed.length < 3) {
-      return NextResponse.json({ error: 'Question is too short' }, { status: 400 });
-    }
-
-    if (trimmed.length > 500) {
-      return NextResponse.json({ error: 'Question is too long (max 500 characters)' }, { status: 400 });
-    }
-
-    let lastError = '';
 
     for (const provider of providers) {
-      try {
-        if (!provider.apiKey) {
-          console.error(`[AI] ${provider.name}: no API key configured`);
-          continue;
-        }
+      if (!provider.apiKey) continue;
 
-        console.error(`[AI] Trying ${provider.name}...`);
+      try {
         const response = await fetch(provider.url, {
           method: 'POST',
           headers: {
@@ -103,56 +72,30 @@ export async function POST(req: NextRequest) {
               { role: 'system', content: SYSTEM_PROMPT },
               { role: 'user', content: trimmed },
             ],
-            max_tokens: 300,
+            max_tokens: 200,
             temperature: 0.7,
           }),
-          signal: AbortSignal.timeout(12000),
+          signal: AbortSignal.timeout(8000),
         });
 
-        if (!response.ok) {
-          console.error(`[AI] ${provider.name}: HTTP ${response.status}`);
-          lastError = `Service unavailable`;
-          continue;
-        }
-
-        const contentType = response.headers.get('content-type');
-        if (!contentType?.includes('application/json')) {
-          lastError = `Invalid response format`;
-          continue;
-        }
+        if (!response.ok) continue;
 
         const data = await response.json();
+        const content = data.choices?.[0]?.message?.content;
         
-        if (data.choices?.[0]?.message?.content) {
-          console.error(`[AI] ${provider.name}: SUCCESS`);
-          const content = data.choices[0].message.content
-            .replace(/<[^>]*>/g, '')
-            .trim();
-          
+        if (content) {
           return NextResponse.json({
-            content,
+            content: content.replace(/<[^>]*>/g, '').trim(),
             provider: provider.name,
           });
         }
-
-        lastError = `No response generated`;
-      } catch (error: any) {
-        if (error.name === 'TimeoutError') {
-          lastError = `Request timed out`;
-        } else {
-          lastError = `Service unavailable`;
-        }
+      } catch {
+        continue;
       }
     }
 
-    return NextResponse.json(
-      { error: 'All AI services are currently unavailable. Please try again later.' },
-      { status: 503 }
-    );
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'An error occurred. Please try again.' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'AI services unavailable.' }, { status: 503 });
+  } catch {
+    return NextResponse.json({ error: 'Server error.' }, { status: 500 });
   }
 }
