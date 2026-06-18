@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cybersecurity Portfolio - Technical Documentation</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 40px; line-height: 1.6; color: #333; }
+h1 { color: #df2531; border-bottom: 3px solid #df2531; padding-bottom: 10px; font-size: 28px; }
+h2 { color: #1a1a1a; border-bottom: 2px solid #ddd; padding-bottom: 8px; margin-top: 40px; font-size: 22px; }
+h3 { color: #333; margin-top: 30px; font-size: 18px; }
+h4 { color: #555; font-size: 16px; }
+table { border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 13px; }
+th { background: #df2531; color: white; padding: 10px 12px; text-align: left; }
+td { border: 1px solid #ddd; padding: 8px 12px; }
+tr:nth-child(even) { background: #f9f9f9; }
+code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 13px; font-family: 'Consolas', monospace; }
+pre { background: #1a1a1a; color: #0f0; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 12px; }
+pre code { background: none; color: inherit; }
+blockquote { border-left: 4px solid #df2531; margin: 15px 0; padding: 10px 20px; background: #fff5f5; }
+strong { color: #df2531; }
+hr { border: none; border-top: 2px solid #eee; margin: 30px 0; }
+@media print { body { padding: 20px; } h1 { font-size: 24px; } h2 { font-size: 20px; } }
+</style>
+</head>
+<body># Cybersecurity Portfolio â€” Technical Documentation
+## Complete System Architecture & Feature Reference
+### Author: Ahmed Ezzat | Version: 1.0 | Date: June 2026
+
+<hr>
+
+# Table of Contents
+
+1. Project Overview
+2. Technology Stack
+3. Pages & Routes
+4. Security Tools (21 Tools â€” Full Detail)
+5. API Routes (Full Detail)
+6. Dark Web Simulation (Full Detail)
+7. Cybersecurity Hub (Full Detail)
+8. AI Chat System
+9. Contact & Email System
+10. Notifications System
+11. Data Files & Structures
+12. Configuration & Theme
+13. Security Findings
+
+<hr>
+
+# 1. Project Overview
+
+<strong>Name:</strong> CyberSec Portfolio
+<strong>Author:</strong> Ahmed Ezzat
+<strong>URL:</strong> https://ahmedezzat01.github.io/ahmed-ezzat-protofolio
+<strong>Repository:</strong> https://github.com/ahmedezzat01/ahmed-ezzat-protofolio
+
+A professional multi-page cybersecurity portfolio featuring:
+- 10+ pages with dark theme (red/black/white palette)
+- 21 interactive security tools
+- Full Dark Web simulation (educational)
+- AI-powered chat assistant
+- Real-time security news
+- Spline 3D robot in hero section
+- Matrix Rain animated background
+- Custom cyber ring cursor
+- PDF certificate viewer (react-pdf)
+- Email contact form (EmailJS)
+
+<hr>
+
+# 2. Technology Stack
+
+| Category | Technology | Version | Purpose |
+|<hr><hr><hr>-|<hr><hr><hr>--|<hr><hr><hr>|<hr><hr><hr>|
+| Framework | Next.js | 16.2.9 | React SSR/SSG framework |
+| UI Library | React | 19.2.4 | Component rendering |
+| Language | TypeScript | â€” | Type safety |
+| Styling | Tailwind CSS | 4.x | Utility-first CSS |
+| Animation | GSAP | 3.15 | Scroll-triggered animations |
+| Animation | Framer Motion | 12.40 | Mount/transition animations |
+| 3D | Spline Runtime | 1.12.97 | 3D robot model |
+| PDF | react-pdf | 10.4.1 | Certificate PDF viewer |
+| Email | EmailJS | 4.4.1 | Contact form submission |
+| Password | zxcvbn | 4.4.2 | Password strength analysis |
+| UI Primitives | Radix UI | Various | Dialog, Tooltip, Avatar, etc. |
+| State | React Context | â€” | Language provider |
+| Search | Custom hook | â€” | Ctrl+K keyboard search |
+
+<hr>
+
+# 3. Pages & Routes
+
+## 3.1 Home Page (<code>/</code>)
+<strong>File:</strong> <code>app/page.tsx</code>
+
+The main landing page containing:
+- <strong>Matrix Rain Background</strong> â€” Fixed full-page canvas with falling Japanese characters in red. Uses <code>position: fixed; z-index: 0</code>. All content wrapped in <code>relative z-[1]</code> to render above.
+- <strong>Navigation Bar</strong> â€” Fixed top navbar with 10 links, Ctrl+K search trigger, CV download button, mobile hamburger menu.
+- <strong>Hero Section</strong> â€” Typed name animation ("ENG:\nAhmed Ezzat"), Spline 3D robot (850x850px), animated counters (1+ Years, 10+ Projects, 50+ Clients, 6+ Certifications), two CTA buttons (View Projects, Contact Me).
+- <strong>About Section</strong> â€” Profile card with photo placeholder, bio text, 6 skill highlights with icons, 11 certifications with PDF popup viewer.
+- <strong>Skills Section</strong> â€” 6 skill category cards with icons.
+- <strong>Experience Section</strong> â€” 4 role entries in timeline format.
+- <strong>Contact Section</strong> â€” EmailJS-powered form (name, email, subject, message).
+- <strong>Footer</strong> â€” Marquee ticker, navigation links, social media icons, copyright.
+
+## 3.2 Tools Page (<code>/tools</code>)
+<strong>File:</strong> <code>app/tools/page.tsx</code>
+
+Standalone page displaying all 21 security tools in a grid layout. Each tool is a self-contained widget with its own state, logic, and UI.
+
+## 3.3 Projects Page (<code>/projects</code>)
+<strong>File:</strong> <code>app/projects/page.tsx</code>
+
+Showcases 4 projects:
+1. Port Scanner â€” Python network scanning tool
+2. NIDS (Network Intrusion Detection System)
+3. Password Manager â€” Encrypted credential storage
+4. Malware Sandbox â€” Safe malware analysis environment
+
+Each project has: title, description, Unsplash image, tech tags, GitHub link.
+
+## 3.4 Roadmap Page (<code>/roadmap</code>)
+<strong>File:</strong> <code>app/roadmap/page.tsx</code>
+
+Career learning roadmap with:
+- 10 course categories (Networking, Linux, Security, Programming, Cloud, etc.)
+- 60+ curated YouTube channels organized by topic
+- External links to courses and certifications
+
+## 3.5 Team Page (<code>/team</code>)
+<strong>File:</strong> <code>app/team/page.tsx</code>
+
+TST team organizational chart:
+- CEO: Ahmed Ezzat
+- Vice Presidents: Dr. Mariam, Abdelhamid, Mohamed
+- Committee heads and members
+- Mobile-first vertical layout, desktop horizontal tree
+
+## 3.6 Security Hub (<code>/cyber-hub</code>)
+<strong>File:</strong> <code>app/cyber-hub/page.tsx</code>
+
+12-tab knowledge hub (detailed in Section 7).
+
+## 3.7 Security Sites (<code>/security-sites</code>)
+<strong>File:</strong> <code>app/security-sites/page.tsx</code>
+
+Filterable directory of 47 cybersecurity websites with categories: Learning, Tools, News, Community, Research, Practice.
+
+## 3.8 Dark Web Simulation (<code>/safe-gateway</code>)
+<strong>File:</strong> <code>app/safe-gateway/page.tsx</code>
+
+Full educational Dark Web simulation (detailed in Section 6).
+
+## 3.9 Security AI (<code>/security-ai</code>)
+<strong>File:</strong> <code>app/security-ai/page.tsx</code>
+
+Full-page AI chat interface with thinking animation, suggested questions, and unlimited messages.
+
+## 3.10 PentesterFlow (<code>/pentesterflow</code>)
+<strong>File:</strong> <code>app/pentesterflow/page.tsx</code>
+
+Product showcase page for PentesterFlow AI pentesting agent with terminal demo, install commands, features list, and slash commands.
+
+## 3.11 404 Page (<code>not-found.tsx</code>)
+<strong>File:</strong> <code>app/not-found.tsx</code>
+
+Custom 404 page with:
+- ShieldAlert icon with spinning rings
+- Glitch "404" text effect
+- Red gradient divider
+- "Return Home" and "Go Back" buttons
+- Terminal-style footer with fake curl output
+
+<hr>
+
+# 4. Security Tools â€” Complete Reference
+
+## Tool 1: Dark Web Email Check
+<strong>Component:</strong> <code>DarkWebCheck</code>
+<strong>State Variables:</strong> <code>email</code>, <code>isLoading</code>, <code>result</code>
+
+### How It Works:
+1. User enters email address
+2. Frontend sends <code>GET /api/check-breach?email={email}</code>
+3. Server-side route calls <strong>XposedOrNot API</strong>: <code>GET https://api.xposedornot.com/v1/check-email/{email}</code>
+4. API returns JSON with breach data
+5. Frontend displays results
+
+### External API:
+- <strong>Endpoint:</strong> <code>https://api.xposedornot.com/v1/check-email/{email}</code>
+- <strong>Authentication:</strong> None (free API)
+- <strong>Response:</strong> <code>{ status: "success", breaches: [["Breach1", "Breach2", ...]], email: "user@example.com" }</code>
+
+### UI Elements:
+- Title: "Dark Web Email Check"
+- Icon: <code>Search</code> (lucide-react)
+- Input placeholder: "Enter your email"
+- Button: "Check"
+- Loading animation: <code>DarkWebSearchLoader</code> with 7 steps (800ms each):
+  1. "Initializing Tor network connection..."
+  2. "Establishing encrypted circuit..."
+  3. "Connecting to relay nodes..."
+  4. "Routing through exit node..."
+  5. "Querying dark web databases..."
+  6. "Cross-referencing breach records..."
+  7. "Compiling results..."
+
+### Result Display:
+- <strong>If breached:</strong> Red <code>AlertTriangle</code> icon, "Compromised!" text, explanation about infostealer malware, 6-step remediation checklist, list of breach names with red dots
+- <strong>If safe:</strong> Green <code>CheckCircle</code> icon, "Safe" text, <code>SafeTipsPanel</code> with security best practices
+
+<hr>
+
+## Tool 2: Password Strength Checker
+<strong>Component:</strong> <code>PasswordStrengthChecker</code>
+<strong>State Variables:</strong> <code>password</code>, <code>showPassword</code>, <code>tab</code> ('strength'|'generator'), <code>genLength</code>, <code>genUpper/genLower/genNumbers/genSymbols</code>, <code>generated</code>, <code>copied</code>
+
+### How It Works:
+1. User enters password
+2. Client-side analysis using <code>estimatePasswordStrength()</code> from <code>lib/security-api.ts</code>
+3. No external API calls â€” everything runs in the browser
+
+### Scoring Algorithm (<code>estimatePasswordStrength</code>):
+``<code>
+score = 0
+if length >= 12: score += 1
+if length >= 16: score += 1
+if has uppercase: score += 1
+if has lowercase: score += 1
+if has digits: score += 1
+if has special chars: score += 1
+if has repeating chars: score -= 1
+if has common patterns: score -= 1
+normalized = Math.min(Math.floor(score / 1.5), 4)
+</code>`<code>
+
+### Labels:
+- Score 0: "Very Weak" â€” Crack time: "Instant"
+- Score 1: "Weak" â€” Crack time: "Minutes"
+- Score 2: "Fair" â€” Crack time: "Hours"
+- Score 3: "Strong" â€” Crack time: "Days"
+- Score 4: "Very Strong" â€” Crack time: "Years"
+
+### Password Generator Tab:
+- Uses </code>crypto.getRandomValues()<code> (Web Crypto API)
+- Character sets: uppercase (A-Z), lowercase (a-z), numbers (0-9), symbols (!@#$%^&*)
+- Length slider: 8â€“64 characters (default: 16)
+- Copy to clipboard functionality
+- Info note: "Generated locally using Web Crypto API. Nothing is sent to any server."
+
+<hr>
+
+## Tool 3: Hash Generator
+<strong>Component:</strong> </code>HashGenerator<code>
+<strong>State Variables:</strong> </code>input<code>, </code>hashes<code>, </code>copied<code>
+
+### How It Works:
+1. User enters text in textarea
+2. Generates 4 hash types simultaneously
+3. All processing client-side using Web Crypto API
+
+### Hash Algorithms:
+| Algorithm | Method | Notes |
+|<hr><hr><hr>--|<hr><hr>--|<hr><hr>-|
+| MD5 | Random hex (FAKE) | 32 random hex characters â€” NOT a real hash |
+| SHA-1 | </code>crypto.subtle.digest('SHA-1', data)<code> | Real hash via Web Crypto API |
+| SHA-256 | </code>crypto.subtle.digest('SHA-256', data)<code> | Real hash via Web Crypto API |
+| SHA-512 | </code>crypto.subtle.digest('SHA-512', data)<code> | Real hash via Web Crypto API |
+
+### UI:
+- Textarea input
+- "Generate Hashes" button
+- 4 result fields with individual copy buttons
+- Info note: "MD5 is shown for reference only â€” it is cryptographically broken."
+
+<hr>
+
+## Tool 4: IP Lookup
+<strong>Component:</strong> </code>IPLookup<code>
+<strong>State Variables:</strong> </code>ip<code>, </code>result<code>, </code>loading<code>, </code>error<code>
+
+### How It Works:
+1. User enters IP address
+2. Validates format with regex: </code>/^(\d{1,3}\.){3}\d{1,3}$/<code>
+3. Calls external API
+
+### External API:
+- <strong>Endpoint:</strong> </code>GET http://ip-api.com/json/{ip}?fields=66846721<code>
+- <strong>Authentication:</strong> None (free, 45 requests/minute)
+- <strong>Response fields:</strong> country, regionName, city, org, timezone, lat, lon, as
+
+### Result Display:
+- Country flag emoji (16 countries mapped)
+- IP address, City, Region, Country
+- Timezone, ISP/Organization
+- GPS coordinates
+
+<hr>
+
+## Tool 5: Port Scanner (Educational)
+<strong>Component:</strong> </code>PortScanner<code>
+<strong>State Variables:</strong> </code>target<code>, </code>isScanning<code>, </code>results<code>, </code>scanComplete<code>
+
+### How It Works:
+1. User enters target (IP or domain)
+2. Simulates scanning 16 common ports
+3. Random results based on port type (NOT a real scanner)
+
+### Port Simulation Logic:
+| Port | Service | Open Probability |
+|<hr><hr>|<hr><hr><hr>|<hr><hr><hr><hr><hr>--|
+| 21 | FTP | 15% |
+| 22 | SSH | 80% |
+| 23 | Telnet | 15% |
+| 25 | SMTP | 15% |
+| 53 | DNS | 15% |
+| 80 | HTTP | 80% |
+| 110 | POP3 | 15% |
+| 143 | IMAP | 15% |
+| 443 | HTTPS | 80% |
+| 445 | SMB | 15% |
+| 3306 | MySQL | 30% |
+| 3389 | RDP | 30% |
+| 5432 | PostgreSQL | 30% |
+| 8080 | HTTP-Proxy | 15% |
+| 8443 | HTTPS-Alt | 15% |
+| 27017 | MongoDB | 30% |
+
+### UI:
+- Input: "e.g., 192.168.1.1 or example.com"
+- "Scan" button
+- Progress bar
+- Results table: Port | Service | Status (color-coded)
+- Summary: "X open, Y filtered, Z closed"
+
+<hr>
+
+## Tool 6: URL Safety Checker
+<strong>Component:</strong> </code>URLSafetyChecker<code>
+<strong>State Variables:</strong> </code>url<code>, </code>result<code>, </code>checking<code>
+
+### How It Works:
+1. User enters URL
+2. Client-side heuristic analysis with 10 checks
+3. Score calculated (0â€“100)
+
+### Analysis Checks:
+| Check | Score Impact | Description |
+|<hr><hr>-|<hr><hr><hr><hr>-|<hr><hr><hr><hr>-|
+| IP address instead of domain | -30 | URL contains numeric IP |
+| Suspicious TLD | -25 | .tk, .ml, .ga, .cf, .gq, .xyz, .top, .buzz, .club, .online, .site, .tech |
+| @ symbol in URL | -30 | Used to hide real destination |
+| URL > 100 characters | -10 | Often used in phishing |
+| > 3 subdomains | -10 | Suspicious subdomain nesting |
+| Encoded characters | -10 | URL encoding tricks |
+| HTTP instead of HTTPS | -10 | No encryption |
+| Login keywords | -5 | "login", "secure", "update", "verify" |
+| Known legitimate domain | +10 | Google, Microsoft, Apple, etc. |
+| Typosquatting detected | -35 | g00gle, micr0soft, amaz0n, faceb00k |
+
+### Result:
+- Score 0â€“100 with progress bar
+- "Likely Safe" (green) or "Suspicious!" (red)
+- List of issues with danger/warning/info icons
+
+<hr>
+
+## Tool 7: QR Code Safety Checker
+<strong>Component:</strong> </code>QRCodeSafetyChecker<code>
+<strong>State Variables:</strong> </code>url<code>, </code>result<code>
+
+### How It Works:
+1. User pastes URL from QR code
+2. Client-side regex analysis
+
+### Checks:
+- Suspicious patterns (phish, login.*secure, verify.*account)
+- Shortened URLs (bit.ly, tinyurl, t.co, goo.gl, is.gd)
+- IP addresses instead of domains
+- Missing protocol
+- @ symbol in URL
+- > 4 subdomains
+- Executable extensions (.exe, .apk, .bat, .cmd, .scr)
+
+<hr>
+
+## Tool 8: WiFi Safety Checker
+<strong>Component:</strong> </code>WiFiSafetyChecker<code>
+<strong>State Variables:</strong> </code>networkName<code>, </code>isOpen<code>, </code>result<code>
+
+### How It Works:
+1. User enters network name and selects open/closed
+2. Client-side risk assessment
+
+### Dangerous Network Names:
+</code>Free WiFi<code>, </code>Airport WiFi<code>, </code>Hotel WiFi<code>, </code>Starbucks<code>, </code>McDonald<code>, </code>Connect Here<code>, </code>Click Here<code>, </code>Free Internet<code>
+
+### Risk Levels:
+- <strong>Critical:</strong> Dangerous name + open network
+- <strong>High:</strong> Dangerous name OR open network
+- <strong>Medium:</strong> Generic name + open
+- <strong>Low:</strong> Known name + secured
+
+<hr>
+
+## Tool 9: Digital Footprint Scanner
+<strong>Component:</strong> </code>DigitalFootprintScanner<code>
+<strong>State Variables:</strong> </code>email<code>, </code>name<code>, </code>phone<code>, </code>scanning<code>, </code>result<code>
+
+### How It Works:
+1. User enters email, name, phone
+2. Client-side simulation generates exposures
+3. Privacy score calculated: </code>Math.max(10, 100 - exposures.length * 8 - (high_risk * 5))<code>
+
+### Exposure Sources (simulated):
+- Email â†’ email provider, social media, data brokers, breach DBs, Google
+- Name â†’ public records, social media, people search, professional networks
+- Phone â†’ SMS lists, spam databases, data brokers
+
+### Result:
+- Privacy score (0â€“100)
+- Exposure list with risk badges (high/medium/low)
+- 6 tips to reduce digital footprint
+
+<hr>
+
+## Tool 10: Identity Theft Risk Calculator
+<strong>Component:</strong> </code>IdentityTheftRiskCalculator<code>
+<strong>State Variables:</strong> </code>answers<code>, </code>submitted<code>
+
+### How It Works:
+1. 8-question quiz with 4 options each
+2. Weighted scoring (0â€“5 per question)
+3. Risk percentage calculated
+
+### Questions:
+1. How many online accounts do you have? (1-5 / 6-15 / 16-30 / 30+)
+2. Do you reuse passwords? (Never / Sometimes / Often / Always)
+3. Have you been in a data breach? (No / Not sure / Yes, changed / Yes, didn't change)
+4. Social media privacy? (All private / Mostly private / Mixed / All public)
+5. Public WiFi usage? (Never / Rarely / Sometimes / Frequently)
+6. 2FA coverage? (All accounts / Most / Some / None)
+7. Bank statement checks? (Weekly / Monthly / Rarely / Never)
+8. Credit freeze? (Yes / Planning / No / Don't know)
+
+### Risk Levels:
+- â‰¤ 20%: Low
+- â‰¤ 45%: Moderate
+- â‰¤ 70%: High
+- > 70%: Critical
+
+<hr>
+
+## Tool 11: Two-Factor Authentication Guide
+<strong>Component:</strong> </code>TwoFactorGuide<code>
+<strong>State Variables:</strong> </code>search<code>
+
+### Content:
+20 services with 2FA setup information:
+Google, Apple ID, Microsoft, Facebook, Instagram, Twitter/X, LinkedIn, GitHub, Amazon, PayPal, Netflix, WhatsApp, Telegram, Discord, Steam, Binance, Coinbase, Zoom, Slack, TikTok
+
+Each entry shows: service name, 2FA method (Authenticator/Hardware Key/SMS), direct link to security settings.
+
+<hr>
+
+## Tool 12: Secure Password Sharing
+<strong>Component:</strong> </code>SecurePasswordShare<code>
+<strong>State Variables:</strong> </code>password<code>, </code>showPassword<code>, </code>expiry<code>, </code>maxViews<code>, </code>created<code>, </code>shareLink<code>, </code>copied<code>
+
+### How It Works:
+1. User enters password, selects expiry (1h/24h/7d), max views (1/3/5)
+2. Generates random 16-char alphanumeric ID using </code>crypto.getRandomValues()<code>
+3. Creates fake share link: </code>https://secure-share.app/s/{id}?exp={expiryMs}&max={maxViews}<code>
+
+<strong>Note:</strong> This is a demo â€” no actual server stores the password.
+
+<hr>
+
+## Tool 13: Secret Message Creator
+<strong>Component:</strong> </code>SecretMessageCreator<code>
+<strong>State Variables:</strong> </code>message<code>, </code>password<code>, </code>expiry<code>, </code>created<code>, </code>encrypted<code>, </code>copied<code>
+
+### How It Works:
+1. User enters message and password
+2. XOR encryption: pads key to 32 chars, XORs each message byte
+3. Result encoded as base64
+4. Format: </code>SECRET:{base64}:{expirySeconds}:{timestamp}<code>
+
+<hr>
+
+## Tool 14: Privacy Health Score
+<strong>Component:</strong> </code>PrivacyScore<code>
+<strong>State Variables:</strong> </code>answers<code>, </code>submitted<code>
+
+### How It Works:
+9 Yes/No questions with weighted scoring:
+
+| Question | Weight |
+|<hr><hr><hr>-|<hr><hr>--|
+| Unique passwords per account? | 20 |
+| 2FA on primary email? | 20 |
+| Using password manager? | 15 |
+| OS updates automatic? | 10 |
+| Antivirus active? | 10 |
+| Avoid suspicious emails? | 10 |
+| VPN on public WiFi? | 5 |
+| Review app permissions? | 5 |
+| Regular data backup? | 5 |
+
+### Score Labels:
+- 90â€“100: "Excellent"
+- 70â€“89: "Good"
+- 50â€“69: "Fair"
+- 0â€“49: "At Risk"
+
+<hr>
+
+## Tool 15: Data Breach Timeline
+<strong>Component:</strong> </code>DataBreachTimeline<code>
+<strong>State Variables:</strong> </code>expanded<code>
+
+### Content:
+12 real-world data breaches (2013â€“2024):
+
+| Year | Name | Records | Severity |
+|<hr><hr>|<hr><hr>|<hr><hr><hr>|<hr><hr><hr>-|
+| 2024 | National Public Data | 2.9B | Critical |
+| 2023 | T-Mobile | 77M | High |
+| 2023 | Twitter/X | 200M+ | High |
+| 2021 | Facebook | 533M | Critical |
+| 2021 | LinkedIn | 700M+ | Critical |
+| 2021 | Twitch | 7.5M | High |
+| 2019 | Facebook Cambridge | 540M | Critical |
+| 2018 | Marriott | 500M | Critical |
+| 2017 | Equifax | 147M | Critical |
+| 2016 | Yahoo | 3B | Critical |
+| 2014 | Adobe | 153M | High |
+| 2013 | Target | 110M | High |
+
+<hr>
+
+## Tool 16: Digital Footprint Eraser
+<strong>Component:</strong> </code>DigitalFootprintEraser<code>
+<strong>State Variables:</strong> </code>currentStep<code>, </code>completedSteps<code>, </code>name<code>, </code>email<code>, </code>phone<code>, </code>country<code>, </code>searchResults<code>, </code>showEmailTemplate<code>, </code>copiedTemplate<code>, </code>autoRunning<code>
+
+### 6 Steps:
+
+<strong>Step 1: Discover Exposure</strong>
+- Google search queries to find yourself
+- Search operators: </code>"your name" site:facebook.com<code>, etc.
+
+<strong>Step 2: Remove from Data Brokers</strong>
+8 opt-out links:
+1. Spokeo.com/optout
+2. BeenVerified.com/optout
+3. WhitePages.com/remove
+4. MyLife.com/cancel
+5. Intelius.com/optout
+6. USSearch.com/privacy
+7. TruePeopleSearch.com/removal
+8. FastPeopleSearch.com/removal
+
+<strong>Step 3: Kill Old Accounts</strong>
+- JustDeleteMe directory
+- Facebook app permission audit
+- Google account activity review
+- Twitter connected apps cleanup
+
+<strong>Step 4: Use Privacy Laws</strong>
+Auto-generated email templates for:
+- <strong>GDPR</strong> (EU/UK): Right to erasure under Article 17
+- <strong>CCPA</strong> (California): Right to delete under Section 1798.105
+- <strong>LGPD</strong> (Brazil): Right to deletion under Article 18
+
+Templates include user's name, email, phone, country-specific legal references.
+
+<strong>Step 5: Bury Negative Results</strong>
+- LinkedIn profile optimization
+- Personal website/portfolio
+- Social media presence building
+
+<strong>Step 6: Stop Data Bleeding</strong>
+- HaveIBeenPwned email check
+- Internal tool links (Email Breach Check, Password Breach Check)
+
+### Auto-Execute:
+Runs all 6 steps sequentially with 800ms interval between steps.
+
+<hr>
+
+## Tool 17: Comprehensive Security Report
+<strong>Component:</strong> </code>ComprehensiveSecurityReport<code>
+<strong>State Variables:</strong> </code>email<code>, </code>password<code>, </code>name<code>, </code>showPassword<code>, </code>generating<code>, </code>report<code>
+
+### How It Works:
+1. User enters email, password, name
+2. Client-side analysis generates 3-section report
+
+### Sections:
+1. <strong>Password Strength</strong> â€” Checks uppercase, lowercase, digits, special chars
+2. <strong>Email Security</strong> â€” Checks email provider, simulates breach finding
+3. <strong>Identity Exposure</strong> â€” Checks name in public records, social media
+
+Overall score = average of 3 section scores.
+
+<hr>
+
+## Tool 18: Dark Web Password Check
+<strong>Component:</strong> </code>DarkWebPasswordCheck<code>
+<strong>State Variables:</strong> </code>password<code>, </code>showPassword<code>, </code>isLoading<code>, </code>result<code>
+
+### How It Works:
+1. User enters password
+2. Checks against 32 common passwords (hardcoded list)
+3. If not in list: </code>Math.random() > 0.5<code> â†’ breached
+4. Count: </code>Math.floor(Math.random() * 8) + 1<code>
+5. Sources: randomly selected from 15 stealer log names
+
+### Common Passwords List:
+</code>password<code>, </code>123456<code>, </code>qwerty<code>, </code>admin<code>, </code>letmein<code>, </code>welcome<code>, </code>monkey<code>, </code>dragon<code>, </code>master<code>, </code>abc123<code>, </code>password1<code>, </code>12345678<code>, </code>sunshine<code>, </code>princess<code>, </code>football<code>, </code>charlie<code>, </code>shadow<code>, </code>michael<code>, </code>qwerty123<code>, </code>pass@123<code>, </code>Password1<code>, </code>Admin123<code>, </code>Test1234<code>, </code>Summer2024<code>, </code>Winter2023<code>, </code>Welcome1<code>, </code>Login123<code>, </code>Qwerty123<code>, </code>Abc@1234<code>, </code>P@ssw0rd<code>, </code>ChangeMe<code>, </code>Letmein1<code>
+
+### Stealer Log Sources:
+Raccoon Stealer, RedLine Stealer, Vidar Stealer, Lumar Stealer, FormBook, AgentTesla, Phoenix Keylogger, LokiBot, AZORult, NanoCore RAT, Orcus RAT, Quasar RAT, DarkComet, NetWire, njRAT
+
+<hr>
+
+## Tool 19: Dark Web Name Check
+<strong>Component:</strong> </code>DarkWebNameCheck<code>
+<strong>State Variables:</strong> </code>fullName<code>, </code>isLoading<code>, </code>result<code>
+
+### How It Works:
+1. User enters full name
+2. Extracts first word, lowercases
+3. Checks against hardcoded </code>breachDB<code> for 10 names
+
+### Database:
+| Name | Breaches |
+|<hr><hr>|<hr><hr><hr>-|
+| ahmed | National Public Data (2024), Facebook (2021), LinkedIn (2021), Equifax (2017) |
+| mohamed | National Public Data (2024), Adobe (2013), Canva (2019) |
+| omar | National Public Data (2024), Twitter (2023), Dropbox (2016) |
+| ali | National Public Data (2024), LinkedIn (2021), MyFitnessPal (2018) |
+| fatma | National Public Data (2024), Instagram (2019), TikTok (2022) |
+| sara | National Public Data (2024), Facebook (2021), Pinterest (2019) |
+| john | National Public Data (2024), LinkedIn (2021), Adobe (2013), Equifax (2017) |
+| david | National Public Data (2024), Facebook (2021), Twitter (2023) |
+| james | National Public Data (2024), LinkedIn (2021), Marriott (2018) |
+| michael | National Public Data (2024), Facebook (2021), LinkedIn (2021), Equifax (2017) |
+
+Unknown names: </code>Math.random() > 0.4<code> â†’ found with </code>['National Public Data (2024)', 'Facebook Leak (2019)']<code>
+
+<hr>
+
+## Tool 20: WiFi Password Viewer (Educational)
+<strong>Component:</strong> </code>WiFiPasswordCheck<code>
+<strong>State Variables:</strong> </code>showInstructions<code>, </code>copied<code>
+
+### Content:
+3-step guide to view saved WiFi passwords on Windows:
+
+<strong>Step 1:</strong> Open CMD as Administrator
+
+<strong>Step 2:</strong> Run command (copyable):
+</code>`<code>
+netsh wlan show profiles
+</code>`<code>
+
+<strong>Step 3:</strong> Run command (copyable):
+</code>`<code>
+netsh wlan show profile name="NETWORK_NAME" key=clear
+</code>`<code>
+
+<hr>
+
+## Tool 21: Identity Theft Risk Calculator
+(Already covered as Tool 10 above â€” same component)
+
+<hr>
+
+# 5. API Routes â€” Complete Reference
+
+## 5.1 Email Breach Check API
+
+<strong>Endpoint:</strong> </code>GET /api/check-breach?email={email}<code>
+
+<strong>File:</strong> </code>app/api/check-breach/route.ts<code>
+
+### Request:
+</code>`<code>
+GET /api/check-breach?email=ahmed@example.com
+</code>`<code>
+
+### Validation:
+- Email must contain </code>@<code> and </code>.<code>
+- Returns 400 if invalid
+
+### Server-Side Logic:
+1. Validates email format
+2. Calls XposedOrNot API: </code>GET https://api.xposedornot.com/v1/check-email/{email}<code>
+3. Parses response: </code>data.breaches<code> is nested array </code>[["Breach1", "Breach2", ...]]<code>
+4. Flattens array, caps at 50 breaches
+
+### External API:
+- <strong>Provider:</strong> XposedOrNot (https://xposedornot.com)
+- <strong>Endpoint:</strong> </code>https://api.xposedornot.com/v1/check-email/{email}<code>
+- <strong>Authentication:</strong> None (free)
+- <strong>Rate Limits:</strong> Generous (no strict limit documented)
+
+### Response:
+</code>`<code>json
+{
+  "breached": true,
+  "count": 150,
+  "breaches": [
+    { "Name": "LinkedIn", "Title": "LinkedIn" },
+    { "Name": "Adobe", "Title": "Adobe" }
+  ]
+}
+</code>`<code>
+
+### Error Handling:
+- Invalid email â†’ 400 with error message
+- API failure â†’ </code>{ breached: false, count: 0, breaches: [], error: "..." }<code>
+
+<hr>
+
+## 5.2 AI Chat API
+
+<strong>Endpoint:</strong> </code>POST /api/ask-ai<code>
+
+<strong>File:</strong> </code>app/api/ask-ai/route.ts<code>
+
+### Request:
+</code>`<code>json
+POST /api/ask-ai
+Content-Type: application/json
+
+{
+  "message": "What is penetration testing?"
+}
+</code>`<code>
+
+### Validation:
+- Message must be 3â€“500 characters
+- Returns 400 if invalid
+
+### System Prompt:
+</code>`<code>
+You are a helpful AI assistant. You answer questions about ANY topic â€” cybersecurity, programming, science, history, math, general knowledge, life advice, and more.
+
+Rules:
+- Keep answers concise (3-5 sentences)
+- Be friendly, professional, educational
+- If asked about illegal activities, redirect to legal alternatives
+- Use simple language
+</code>`<code>
+
+### Provider Fallback Chain:
+The API tries providers in order. If one fails, it tries the next:
+
+<strong>Provider 1: NVIDIA</strong>
+- Endpoint: </code>https://integrate.api.nvidia.com/v1/chat/completions<code>
+- Model: </code>nvidia/nemotron-3-ultra-550b-a55b<code>
+- API Key: </code>nvapi-uPhEs-H4...<code>
+
+<strong>Provider 2: Kimi (Moonshot)</strong>
+- Endpoint: </code>https://api.moonshot.cn/v1/chat/completions<code>
+- Model: </code>moonshot-v1-8k<code>
+- API Key: </code>sk-KrjFOWB1...<code>
+
+<strong>Provider 3: OpenRouter</strong>
+- Endpoint: </code>https://openrouter.ai/api/v1/chat/completions<code>
+- Model: </code>nvidia/llama-3.1-nemotron-70b-instruct<code>
+- API Key: </code>sk-zg7he7k...<code>
+
+<strong>Provider 4: Ollama</strong>
+- Endpoint: </code>https://api.ollama.com/v1/chat/completions<code>
+- Model: </code>llama3.1<code>
+- API Key: </code>846354ab...<code>
+
+### Request Format (to each provider):
+</code>`<code>json
+{
+  "model": "model-name",
+  "messages": [
+    { "role": "system", "content": "You are a helpful AI assistant..." },
+    { "role": "user", "content": "What is penetration testing?" }
+  ],
+  "temperature": 0.7,
+  "max_tokens": 1024,
+  "stream": false
+}
+</code>`<code>
+
+### Response:
+</code>`<code>json
+{
+  "answer": "Penetration testing is a...",
+  "provider": "NVIDIA"
+}
+</code>`<code>
+
+### Error Response (all providers fail):
+</code>`<code>json
+{
+  "error": "All AI providers are currently unavailable. Please try again later."
+}
+</code>`<code>
+Status: 503
+
+<hr>
+
+## 5.3 Security News API
+
+<strong>Endpoint:</strong> </code>GET /api/security-news<code>
+
+<strong>File:</strong> </code>app/api/security-news/route.ts<code>
+
+### Request:
+</code>`<code>
+GET /api/security-news
+</code>`<code>
+
+### External APIs (RSS Feeds):
+Tried in order:
+1. </code>https://feeds.feedburner.com/TheHackersNews<code>
+2. </code>https://www.securityweek.com/feed<code>
+
+### Parsing Logic:
+1. Fetch RSS XML
+2. Extract </code><item><code> blocks using regex
+3. Parse </code><title><code> (with CDATA support), </code><description><code>, </code><link><code>, </code><pubDate><code>
+4. Strip HTML tags from description
+5. Truncate description to 200 characters
+
+### Fallback:
+If both RSS feeds fail, returns 6 hardcoded news items with relative timestamps (30minâ€“4hr ago).
+
+### Response:
+</code>`<code>json
+{
+  "news": [
+    {
+      "title": "New Zero-Day Exploit...",
+      "description": "Researchers discovered...",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/...",
+      "publishedAt": "2024-01-15T10:30:00Z"
+    }
+  ],
+  "timestamp": "2024-01-15T12:00:00Z"
+}
+</code>`<code>
+
+<hr>
+
+# 6. Dark Web Simulation â€” Complete Reference
+
+<strong>File:</strong> </code>app/components/safe-gateway/SafeGatewayContent.tsx<code> (1658 lines)
+
+## Page States:
+</code>`<code>
+landing â†’ disclaimer â†’ tor-launch â†’ [hidden-wiki | marketplace | forum | chat | mixer | education] â†’ debrief
+</code>`<code>
+
+## 6.1 Landing Page
+
+### Elements:
+- "The Hidden Wiki" title with onion emoji
+- Subtitle: "Your gateway to understanding the dark web â€” safely, legally, and educationally."
+- Search bar (Ctrl+K) â€” searches wiki, marketplace, and forum
+- "Enter the Dark Web" button
+- 8 category cards with icons and link counts
+- Stats bar: "1,247 online users | 45,892 hidden services | 12,847 forums"
+
+### Search Functionality:
+- Searches across wiki categories, market products, and forum threads
+- Results displayed in dropdown with category labels
+
+## 6.2 Disclaimer Step
+
+### Requirements:
+- 15-second countdown timer (button disabled until complete)
+- 4 required checkboxes:
+  1. "I understand this is a SIMULATION"
+  2. "All content is FICTIONAL and for EDUCATIONAL purposes"
+  3. "No real connections are made to any dark web services"
+  4. "I will NOT attempt to access real dark web content"
+- Scroll-to-bottom requirement
+- Button: "I Understand & Agree â€” Enter Simulation"
+
+## 6.3 Tor Launch Animation
+
+### 11-Step Progress (5% â†’ 100%):
+1. "Initializing secure browser..."
+2. "Generating encryption keys..."
+3. "Connecting to relay network..."
+4. "Establishing guard node..."
+5. "Building circuit path..."
+6. "Connecting to middle relay..."
+7. "Routing through exit node..."
+8. "Verifying network connection..."
+9. "Loading dark web modules..."
+10. "Finalizing secure connection..."
+11. "Connection established!"
+
+### Console Logs:
+</code>`<code>
+[SYSTEM] Loading secure browser v3.2.1...
+[CRYPTO] Generating 4096-bit RSA key pair...
+[NETWORK] Connecting to guard relay: Relay-A (10.0.0.1)...
+[CIRCUIT] Path: You â†’ Guard â†’ Middle â†’ Exit â†’ Internet
+[NETWORK] Exit node IP: 10.0.0.{random}
+[SYSTEM] Connection verified. Ready.
+</code>`<code>
+
+### Circuit Display:
+</code>`<code>
+You â†’ ðŸŒ This Browser
+  â†’ ðŸ‡«ðŸ‡® Guard: 10.0.0.1 (Relay-A)
+  â†’ ðŸ‡©ðŸ‡ª Middle: 10.0.0.2 (Relay-B)
+  â†’ ðŸ‡³ðŸ‡± Exit: 10.0.0.3 (Relay-C)
+</code>`<code>
+
+## 6.4 Hidden Wiki
+
+### 6 Categories with 27 Total Links:
+
+<strong>Financial Services (5 links):</strong>
+| Name | Status | Upvotes | Last Seen |
+|<hr><hr>|<hr><hr>--|<hr><hr><hr>|<hr><hr><hr>--|
+| Lazarus Exchange | SCAM | 234 | 2h ago |
+| Wasabi Tumbler | ONLINE | 1,892 | 5m ago |
+| Carding Academy | SEIZED | 0 | 30d ago |
+| BTC Generator Pro | SCAM | 89 | 1d ago |
+| LocalMonero | ONLINE | 3,421 | 1m ago |
+
+<strong>Anonymity & Privacy (5 links):</strong>
+| Name | Status | Upvotes | Last Seen |
+|<hr><hr>|<hr><hr>--|<hr><hr><hr>|<hr><hr><hr>--|
+| PGP Key Server | ONLINE | 2,156 | 10m ago |
+| Tor Metrics Portal | ONLINE | 4,523 | 2m ago |
+| Tails OS | ONLINE | 8,921 | 1m ago |
+| Mullvad VPN | ONLINE | 6,234 | 3m ago |
+| OnionShare | ONLINE | 1,876 | 15m ago |
+
+<strong>Cracked Software (4 links):</strong>
+| Name | Status | Upvotes | Last Seen |
+|<hr><hr>|<hr><hr>--|<hr><hr><hr>|<hr><hr><hr>--|
+| Windows Activator | SCAM | 156 | 3h ago |
+| IDM Full Patch | SCAM | 234 | 2h ago |
+| Office 365 Keys | SEIZED | 0 | 60d ago |
+| Adobe CC Suite | SCAM | 89 | 1d ago |
+
+<strong>Malware & Exploits (4 links):</strong>
+| Name | Status | Upvotes | Last Seen |
+|<hr><hr>|<hr><hr>--|<hr><hr><hr>|<hr><hr><hr>--|
+| RaaS Builder Kit | ONLINE | 3,456 | 30m ago |
+| Zero-Day Market | ONLINE | 2,891 | 1h ago |
+| Botnet-as-Service | SEIZED | 0 | 45d ago |
+| Emotet Loader | ONLINE | 1,234 | 2h ago |
+
+<strong>Forums (4 links):</strong>
+| Name | Status | Upvotes | Last Seen |
+|<hr><hr>|<hr><hr>--|<hr><hr><hr>|<hr><hr><hr>--|
+| BreachForums v3 | SEIZED | 0 | 90d ago |
+| Exploit.in | ONLINE | 5,678 | 5m ago |
+| XSS.is | ONLINE | 4,321 | 10m ago |
+| Dread | ONLINE | 7,890 | 1m ago |
+
+<strong>Legitimate Services (3 links):</strong>
+| Name | Status | Upvotes | Last Seen |
+|<hr><hr>|<hr><hr>--|<hr><hr><hr>|<hr><hr><hr>--|
+| ProtonMail | ONLINE âœ“ | 12,345 | 1m ago |
+| Signal | ONLINE âœ“ | 9,876 | 1m ago |
+| Keybase | ONLINE âœ“ | 3,456 | 5m ago |
+
+### Link Click Modal:
+Shows danger explanation, educational warning, and "This is a simulation" disclaimer.
+
+## 6.5 Marketplace
+
+### 6 Products:
+
+| Product | Price | Vendor | Rating | Sales |
+|<hr><hr><hr>|<hr><hr>-|<hr><hr>--|<hr><hr>--|<hr><hr>-|
+| Stolen Database (10M records) | â‚¿0.0523 | DataMiner_42 | â­ 4.2 | 89 |
+| RaaS Builder Kit | â‚¿0.1200 | CryptoLocker_dev | â­ 3.8 | 23 |
+| Fake Documents Package | â‚¿0.0834 | IDForger_Pro | â­ 4.5 | 156 |
+| Zero-Day Exploit (CVE-2024-XXXX) | â‚¿2.5000 | ShadowBroker0 | â­ 4.9 | 7 |
+| Stresser Pro (DDoS) | â‚¿0.0345 | BotMaster_X | â­ 3.2 | 312 |
+| Credential Stuffing Pack | â‚¿0.0156 | ComboRunner | â­ 4.1 | 445 |
+
+### Buy Flow:
+1. Product detail modal with educational warnings
+2. "Buy Now" â†’ Checkout page with fake BTC address
+3. "Payment Sent!" (3-second delay)
+4. "SCAM DETECTED" modal â€” explains that 90% of dark web markets are scams
+
+## 6.6 Forum
+
+### 6 Threads:
+
+| Thread | Author | Role | Replies | Views | Tags |
+|<hr><hr>--|<hr><hr>--|<hr><hr>|<hr><hr><hr>|<hr><hr>-|<hr><hr>|
+| "Welcome to the Forum" | Admin_System | Moderator | 45 | 12,890 | pinned, announcement |
+| "Best VPN for 2024?" | PrivacySeeker | Member | 23 | 4,567 | vpn, privacy |
+| "Review: Wasabi Tumbler" | CryptoClean | VIP | 67 | 8,923 | bitcoin, mixer |
+| "How to stay anonymous?" | Newbie_2024 | Member | 89 | 15,678 | anon, beginner |
+| "RDP Brute Force Tips" | HackNinja | Member | 12 | 2,345 | rdp, attack |
+| "Data Broker Opt-Out Guide" | PrivacyPro | VIP | 156 | 23,456 | privacy, guide |
+
+### Thread Content:
+Each thread shows full post content + educational notes explaining why this content is dangerous/illegal.
+
+## 6.7 Chat Room
+
+### IRC-Style Interface:
+- Pre-scripted bot messages every 5 seconds
+- User can type messages
+- Commands: </code>/help<code>, </code>/ask {topic}<code>
+
+### FAQ Topics (21):
+</code>tor<code>, </code>dark web<code>, </code>silk road<code>, </code>bitcoin<code>, </code>marketplace<code>, </code>phishing<code>, </code>malware<code>, </code>encryption<code>, </code>forensics<code>, </code>career<code>, </code>oscp<code>, </code>bug bounty<code>, </code>ransomware<code>, </code>vpn<code>, </code>signal<code>, </code>protonmail<code>, </code>hacking<code>, </code>password<code>, </code>2fa<code>, </code>data breach<code>
+
+### Example Response:
+</code>`<code>
+User: /ask tor
+Bot: Encrypted browsers route your traffic through 3 encrypted relays. They are legitimate 
+privacy tools used by journalists, activists, and law enforcement. The dark web is just a 
+small part of what they host.
+</code>`<code>
+
+## 6.8 Mixer
+
+### Flow:
+1. Shows fake deposit address and output address
+2. "Mix Coins" button
+3. 2-second delay
+4. "SIMULATION BLOCKED" modal â€” explains blockchain analysis and why mixing doesn't guarantee anonymity
+
+## 6.9 Education
+
+### 5 Modules:
+
+<strong>Module 1: How Encrypted Browsers Work</strong>
+- Circuit Building (Guard â†’ Middle â†’ Exit)
+- Encryption Layers (3 layers of onion routing)
+- Exit Node Risks
+- What Can Go Wrong
+
+<strong>Module 2: Real-World Takedowns</strong>
+- Silk Road (2013) â€” operator caught via email reuse
+- AlphaBay / Hansa (2017) â€” Operation Bayonet
+- Blockchain Analysis â€” how companies trace Bitcoin
+- International Cooperation â€” MLATs and cross-border ops
+
+<strong>Module 3: Digital Forensics</strong>
+- Blockchain Analysis
+- Metadata Extraction
+- Browser Fingerprinting
+- Correlation Attacks
+
+<strong>Module 4: Legal Framework</strong>
+- US Laws (CFAA, 18 U.S.C. Â§ 1030)
+- EU & International (NIS2, Budapest Convention)
+- Egyptian Law 175/2018
+- Real Penalties (prison sentences, fines)
+
+<strong>Module 5: Legal Career Paths</strong>
+- Penetration Tester ($75K-$150K/yr)
+- SOC Analyst ($60K-$120K/yr)
+- Digital Forensics ($80K-$160K/yr)
+- Bug Bounty Hunter ($50K-$500K+/yr)
+- Security Consultant ($100K-$250K/yr)
+
+## 6.10 Debrief
+
+### Security Tips (10):
+1. Use unique passwords for every account
+2. Enable 2FA everywhere
+3. Keep software updated
+4. Be skeptical of unsolicited messages
+5. Use encrypted communications
+6. Monitor your accounts regularly
+7. Use a VPN on public WiFi
+8. Back up your data
+9. Learn about social engineering
+10. Report suspicious activity
+
+<hr>
+
+# 7. Cybersecurity Hub â€” Complete Reference
+
+<strong>File:</strong> </code>app/components/cyber-hub/CyberHubContent.tsx<code> (610 lines)
+
+## 12 Tabs:
+
+### Tab 1: Career Paths
+6 career paths with 4 milestones each, progress tracking in localStorage:
+
+1. <strong>Blue Team (Defensive Security)</strong>
+   - Milestone 1: CompTIA Security+ (3 months)
+   - Milestone 2: CEH + SOC Analyst cert (6 months)
+   - Milestone 3: CCNA + Linux admin (9 months)
+   - Milestone 4: CISSP + cloud security (12 months)
+
+2. <strong>Red Team (Offensive Security)</strong>
+   - Milestone 1: CompTIA Security+ (3 months)
+   - Milestone 2: OSCP preparation (6 months)
+   - Milestone 3: OSCP certification (9 months)
+   - Milestone 4: OSWE + advanced pentesting (12 months)
+
+3. <strong>Purple Team (Combined)</strong>
+4. <strong>GRC (Governance, Risk, Compliance)</strong>
+5. <strong>Cloud Security</strong>
+6. <strong>DevSecOps</strong>
+
+### Tab 2: Current Threats
+6 threats with severity levels:
+
+| Threat | Severity | Description |
+|<hr><hr>--|<hr><hr><hr>-|<hr><hr><hr><hr>-|
+| Supply Chain Attacks | Critical | Compromised software updates |
+| AI-Powered Phishing | High | Deepfake voice/video phishing |
+| Zero-Day Exploits | Critical | Unknown vulnerabilities |
+| Ransomware-as-a-Service | Critical | RaaS platforms for criminals |
+| LLM Jailbreaks | High | AI safety bypasses |
+| Quishing | High | QR code phishing |
+
+### Tab 3: Security Tools
+12 tools with descriptions:
+
+| Tool | Category | Purpose |
+|<hr><hr>|<hr><hr><hr>-|<hr><hr><hr>|
+| Nmap | Network | Port scanning, service detection |
+| Wireshark | Network | Packet analysis |
+| Burp Suite | Web | Web application testing |
+| Metasploit | Exploit | Exploit framework |
+| John the Ripper | Password | Password cracking |
+| BloodHound | AD | Active Directory analysis |
+| Mimikatz | Credentials | Credential extraction |
+| Sliver | C2 | Command & control |
+| Havoc | C2 | Advanced C2 framework |
+| RTL-SDR | Hardware | Software-defined radio |
+| HackRF One | Hardware | RF analysis |
+| Proxmark3 | Hardware | RFID/NFC cloning |
+
+### Tab 4: Red Flags
+8 danger signs:
+
+1. <strong>Urgency Tactics</strong> â€” "Act now or lose access!"
+2. <strong>Suspicious Sender</strong> â€” Unknown or spoofed email address
+3. <strong>Unexpected Attachments</strong> â€” .exe, .scr, .zip files
+4. <strong>Unusual Traffic Patterns</strong> â€” Spike in network activity
+5. <strong>Failed Login Attempts</strong> â€” Multiple failed logins from different IPs
+6. <strong>Privilege Escalation</strong> â€” Unauthorized admin access
+7. <strong>USB Drops</strong> â€” Found USB drives left intentionally
+8. <strong>Authority Impersonation</strong> â€” Fake IT support calls
+
+### Tab 5: Hidden Gems (Advanced Knowledge)
+9 advanced topics:
+
+1. <strong>Hardware Attacks</strong> â€” TEMPEST, cold boot, evil maid
+2. <strong>Covert Channels</strong> â€” Storage, timing, network channels
+3. <strong>Advanced Persistence</strong> â€” UEFI rootkits, firmware implants
+4. <strong>Cloud Side-Channel</strong> â€” VM co-location, cache attacks
+5. <strong>Memory Forensics</strong> â€” Volatility, RAM analysis
+6. <strong>Kernel Rootkits</strong> â€” DKOM, hooking, direct kernel objects
+7. <strong>Supply Chain Poisoning</strong> â€” Dependency confusion, typosquatting
+8. <strong>AD Attack Paths</strong> â€” Kerberoasting, AS-REP roasting
+9. <strong>Advanced LOLBAS</strong> â€” Living-off-the-land binaries
+
+### Tab 6: Real Stories (Case Studies)
+5 real-world incidents:
+
+| Year | Incident | Impact |
+|<hr><hr>|<hr><hr><hr>-|<hr><hr>--|
+| 2017 | Equifax | 147M records, $1.4B cost |
+| 2020 | SolarWinds | 18,000 organizations, government agencies |
+| 2021 | Colonial Pipeline | Fuel shortage, $4.4M ransom |
+| 2023 | MOVEit | 2,500+ organizations, 60M+ records |
+| 2023 | MGM Resorts | $100M+ loss, 10 days downtime |
+
+### Tab 7: WiFi Security
+5 attacks + hardening checklist:
+
+<strong>Attacks:</strong>
+1. Evil Twin â€” Fake access point
+2. PMKID â€” Clientless attack
+3. KRACK â€” WPA2 key reinstallation
+4. Dragonblood â€” WPA3 downgrade
+5. Karma â€” Evil twin with response
+
+<strong>Hardening Checklist (10 items):</strong>
+1. Change default router credentials
+2. Use WPA3 or WPA2-AES
+3. Disable WPS
+4. Enable MAC filtering
+5. Create guest network
+6. Update firmware regularly
+7. Disable remote management
+8. Use strong WiFi password
+9. Enable network isolation
+10. Monitor connected devices
+
+### Tab 8: Hacking Concepts
+7 concepts:
+
+1. <strong>Social Engineering</strong> â€” Pretexting, baiting, tailgating
+2. <strong>Lock Picking</strong> â€” Pin tumbler, wafer, tubular locks
+3. <strong>RFID/NFC Cloning</strong> â€” Proxmark3, card emulation
+4. <strong>Car Hacking</strong> â€” CAN bus, OBD-II, keyless relay
+5. <strong>Drone Interception</strong> â€” GPS spoofing, protocol analysis
+6. <strong>USB Attacks</strong> â€” Rubber Ducky, BadUSB, HID injection
+7. <strong>Web Exploitation</strong> â€” XSS, CSRF, SSRF, SQLi
+
+### Tab 9: Security Tips
+9 tips from beginner to expert:
+
+1. Start with CompTIA Security+
+2. Practice on HackTheBox/TryHackMe
+3. Learn Linux command line
+4. Set up a home lab
+5. Read security news daily
+6. Join CTF competitions
+7. Get OSCP certified
+8. Contribute to open source
+9. Mentor others
+
+### Tab 10: Self-Assessment
+5 quiz questions:
+
+1. What is the first step in a penetration test?
+   - a) Scanning (correct)
+   - b) Exploitation
+   - c) Enumeration
+   - d) Reconnaissance
+
+2. Which type of vulnerability allows attackers to inject SQL code?
+   - a) XSS
+   - b) SQL Injection (correct)
+   - c) CSRF
+   - d) SSRF
+
+3. What protocol is used for encrypted email?
+   - a) FTP
+   - b) SMTP
+   - c) PGP/GPG (correct)
+   - d) HTTP
+
+4. What is a zero-day vulnerability?
+   - a) A virus that activates on day zero
+   - b) A vulnerability unknown to the vendor (correct)
+   - c) A patched security hole
+   - d) A type of malware
+
+5. Which port is used by HTTPS?
+   - a) 80
+   - b) 443 (correct)
+   - c) 8080
+   - d) 22
+
+<hr>
+
+# 8. AI Chat System
+
+## Two Implementations:
+
+### 8.1 Global Floating Chat
+<strong>File:</strong> </code>app/components/global-ai-chat.tsx<code>
+- Floating button (bottom-right, z-90)
+- 380px chat panel
+- Hidden on </code>/security-ai<code> page
+- Same API calls as full-page version
+- Mutually exclusive with Notifications (custom events)
+
+### 8.2 Full-Page Chat
+<strong>File:</strong> </code>app/security-ai/page.tsx<code>
+- Full-screen chat interface
+- ShaderBackground visual effect
+- 5 suggested questions
+- Unlimited messages (no localStorage limit)
+
+### Thinking Animation:
+5 steps cycling every 1200ms:
+1. "Analyzing your question..."
+2. "Accessing neural pathways..."
+3. "Querying security database..."
+4. "Cross-referencing threat intel..."
+5. "Generating response..."
+
+### Message Format:
+</code>`<code>typescript
+{
+  role: 'user' | 'assistant',
+  content: string,
+  provider?: string  // "NVIDIA" | "Kimi" | "OpenRouter" | "Ollama"
+}
+</code>`<code>
+
+<hr>
+
+# 9. Contact & Email System
+
+<strong>File:</strong> </code>app/sections/Contact.tsx<code>
+
+### EmailJS Configuration:
+- <strong>Service ID:</strong> </code>service_itfgvfb<code>
+- <strong>Template ID:</strong> </code>template_6vgdqzr<code>
+- <strong>Public Key:</strong> </code>6aUg1rf33INnxz7Pl<code>
+
+### Form Fields:
+| Field | Type | Required |
+|<hr><hr>-|<hr><hr>|<hr><hr><hr>-|
+| </code>from_name<code> | text | Yes |
+| </code>from_email<code> | email | Yes |
+| </code>subject<code> | text | Yes |
+| </code>message<code> | textarea | Yes |
+
+### Submission:
+</code>`<code>typescript
+emailjs.sendForm('service_itfgvfb', 'template_6vgdqzr', formRef.current, '6aUg1rf33INnxz7Pl')
+</code>`<code>
+
+### Success: Shows "Sent!" for 4 seconds
+### Error: Shows "Error sending" for 4 seconds
+
+### Contact Information:
+- Email: ahmed.ezzat@students.du.edu.eg
+- Phone: +20 102 473 8360
+- Location: Damietta, Egypt
+- LinkedIn: /in/ahmed-ezzat01/
+- GitHub: /ahmedezzat01
+- Facebook: /ahmed.ezzat.0001
+- Instagram: /ahmed.ezzaat.01/
+
+<hr>
+
+# 10. Notifications System
+
+<strong>File:</strong> </code>app/components/notifications.tsx<code>
+
+### Fetch:
+- Endpoint: </code>GET /api/security-news<code>
+- Initial fetch: 1 second after mount
+- Re-fetch: Every 60 seconds (if last fetch > 300s ago)
+
+### Notification Types:
+- First 2 items â†’ </code>critical<code> (red)
+- Next 2 items â†’ </code>warning<code> (yellow)
+- Rest â†’ </code>info<code> (blue)
+
+### Features:
+- Deduplication by title
+- Max 15 notifications
+- Unread count badge (max "9+")
+- "Mark all read" button
+- Individual delete
+- External link per notification
+
+### UI:
+- Fixed bottom-right Bell button
+- Dropdown panel with notification list
+- Custom events: </code>close-ai-chat<code> (dispatches when opened)
+
+<hr>
+
+# 11. Data Files
+
+## 11.1 Translations (</code>lib/translations.ts<code>)
+- 495 lines
+- 3 languages: English, Arabic, Spanish
+- <strong>Note:</strong> Only English is active (LanguageProvider hardcoded)
+
+## 11.2 Safe Gateway Data (</code>lib/safe-gateway-data.ts<code>)
+- 5 fake onion URLs (.sim)
+- 6 wiki categories with 27 links
+- 6 market products
+- 6 forum threads
+- 15 chat messages
+- 5 educational modules
+- 10 security tips
+- 21 FAQ entries
+
+## 11.3 Team Data (</code>lib/team-data.ts<code>)
+- CEO: Ahmed Ezzat
+- VPs: Dr. Mariam, Abdelhamid, Mohamed
+- Committee heads and members
+
+## 11.4 Security Sites Data (</code>lib/security-sites-data.ts<code>)
+- 47 cybersecurity websites
+- Categories: Learning, Tools, News, Community, Research, Practice
+
+## 11.5 PentesterFlow Data (</code>lib/pentesterflow-data.ts<code>)
+- Feature data, challenges, capabilities
+- Providers, built-in skills
+- Slash commands, CLI flags, tools, config paths
+
+## 11.6 Cyber Hub Data (</code>lib/cyber-hub-data.ts<code>)
+- 6 career paths (4 milestones each)
+- 6 threats
+- 12 tools
+- 8 red flags
+- 5 case studies
+- 9 advanced knowledge sections
+- 5 WiFi attacks
+- 7 hacking concepts
+- 9 tips
+- 5 quiz questions
+
+<hr>
+
+# 12. Configuration & Theme
+
+### Color Palette:
+| Color | Hex | Usage |
+|<hr><hr>-|<hr>--|<hr><hr>-|
+| Primary Black | #000000 | Backgrounds |
+| Primary White | #ffffff | Text |
+| Cyber Red | #df2531 | Primary accent |
+| Dark Red | #b01e28 | Buttons |
+| Hover Red | #8b1520 | Button hover |
+
+### Typography:
+- <strong>Sans:</strong> Inter (300-900 weights)
+- <strong>Mono:</strong> JetBrains Mono (400-700 weights)
+
+### Custom CSS Effects:
+- </code>.cyber-cursor<code> â€” Custom ring cursor
+- </code>.glass-panel<code> â€” Glassmorphism (blur 6px)
+- </code>.neon-text<code> â€” Neon glow effect
+- </code>.scanline<code> â€” CRT scanline overlay
+- </code>.matrix-bg<code> â€” Matrix rain background
+- </code>.animated-border<code> â€” Animated border gradient
+
+### Global Styles:
+- </code>cursor: none !important<code> on </code>*<code> (hides native cursor)
+- Dark mode via class strategy
+- CSS variables for theme colors
+
+<hr>
+
+# 13. Security Findings
+
+### HIGH: Exposed API Keys
+4 API keys hardcoded in </code>app/api/ask-ai/route.ts<code>:
+- NVIDIA API key
+- Moonshot/Kimi API key
+- OpenRouter API key
+- Ollama API key
+
+### MEDIUM: Exposed EmailJS Credentials
+In </code>app/sections/Contact.tsx<code>:
+- Service ID, Template ID, Public Key
+
+### LOW: Fake MD5 Hash
+In </code>HashGenerator<code>: MD5 output is random hex, not a real hash.
+
+### INFO: Duplicate Pages
+</code>/cyber-hub<code> and </code>/security-hub` render identical content.
+
+### INFO: Unused Language Support
+Arabic and Spanish translations exist but are not wired up.
+
+<hr>
+
+*Document generated from codebase analysis. All API keys shown are for reference only.*
+</body></html>

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>تقرير شامل - موقع Portfolio الأمني</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Cairo', 'Segoe UI', Arial, sans-serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.8;
+  color: #1a1a1a;
+  background: #fff;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 20mm 25mm;
+}
+
+@media print {
+  body { padding: 15mm 20mm; }
+  .page-break { page-break-before: always; }
+}
+
+.cover {
+  text-align: center;
+  padding: 60px 0;
+  border-bottom: 4px solid #df2531;
+  margin-bottom: 40px;
+}
+
+.cover h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #df2531;
+  margin-bottom: 10px;
+}
+
+.cover h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.cover .subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-top: 15px;
+}
+
+.cover .date {
+  font-size: 14px;
+  color: #999;
+  margin-top: 30px;
+}
+
+h1 { font-size: 28px; font-weight: 900; color: #df2531; margin: 30px 0 15px 0; border-bottom: 3px solid #df2531; padding-bottom: 10px; }
+h2 { font-size: 22px; font-weight: 800; color: #1a1a1a; margin: 25px 0 12px 0; border-right: 5px solid #df2531; padding-right: 15px; }
+h3 { font-size: 18px; font-weight: 700; color: #333; margin: 20px 0 10px 0; }
+h4 { font-size: 16px; font-weight: 600; color: #555; margin: 15px 0 8px 0; }
+
+p { margin: 8px 0; font-size: 14px; line-height: 1.9; }
+
+ul, ol { margin: 10px 20px 10px 0; }
+li { margin: 5px 0; font-size: 14px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 13px;
+}
+
+th {
+  background: #df2531;
+  color: white;
+  padding: 10px 12px;
+  text-align: right;
+  font-weight: 700;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f9f9f9; }
+
+.highlight {
+  background: #fff5f5;
+  border-right: 4px solid #df2531;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.warning {
+  background: #fff3cd;
+  border-right: 4px solid #ffc107;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.success {
+  background: #d4edda;
+  border-right: 4px solid #28a745;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.danger {
+  background: #f8d7da;
+  border-right: 4px solid #dc3545;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+code {
+  background: #f4f4f4;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'Consolas', monospace;
+  direction: ltr;
+  display: inline-block;
+}
+
+pre {
+  background: #1a1a1a;
+  color: #0f0;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 12px;
+  direction: ltr;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.section-number {
+  display: inline-block;
+  background: #df2531;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  font-weight: 700;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.toc {
+  background: #f8f9fa;
+  padding: 20px 30px;
+  border-radius: 12px;
+  margin: 20px 0;
+  border: 1px solid #dee2e6;
+}
+
+.toc h2 { border: none; padding: 0; margin: 0 0 15px 0; }
+.toc ol { margin: 0 20px 0 0; }
+.toc li { margin: 8px 0; font-size: 15px; }
+.toc a { color: #df2531; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+.feature-box {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 10px 0;
+}
+
+.feature-box h4 { color: #df2531; margin: 0 0 8px 0; }
+.feature-box p { margin: 0; font-size: 13px; }
+
+hr { border: none; border-top: 2px solid #eee; margin: 30px 0; }
+</style>
+</head>
+<body>
+
+<!-- ==================== صفحة الغلاف ==================== -->
+<div class="cover">
+  <h1>تقرير تقني شامل</h1>
+  <h2>موقع Portfolio الأمني - Ahmed Ezzat</h2>
+  <div class="subtitle">تحليل كامل للموقع، الميزات، الأدوات، اختبار الثغرات، ومرحله Software Testing</div>
+  <div class="date">تاريخ الإعداد: 13 يونيو 2026</div>
+  <div class="date">الإصدار: 1.0</div>
+</div>
+
+<!-- ==================== فهرس المحتويات ==================== -->
+<div class="toc">
+  <h2>فهرس المحتويات</h2>
+  <ol>
+    <li><a href="#sec1">نظرة عامة على المشروع</a></li>
+    <li><a href="#sec2">البنية التقنية للمشروع</a></li>
+    <li><a href="#sec3">تحليل الصفحات والميزات بالتفصيل الممل</a></li>
+    <li><a href="#sec4">الأدوات الأمنية (21 أداة)</a></li>
+    <li><a href="#sec5">محاكاة الويب المظلم</a></li>
+    <li><a href="#sec6">مساعد الذكاء الاصطناعي</a></li>
+    <li><a href="#sec7">مركز المعرفة الأمني</a></li>
+    <li><a href="#sec8">مواقع الأمن المتاحة</a></li>
+    <li><a href="#sec9">تحليل الثغرات الأمنية واختبارها</a></li>
+    <li><a href="#sec10">مرحله Software Testing بالتفصيل</a></li>
+    <li><a href="#sec11">تحليل الأمان الداخلي</a></li>
+    <li><a href="#sec12">الخاتمة والتوصيات</a></li>
+  </ol>
+</div>
+
+<hr>
+
+<!-- ==================== القسم الأول ==================== -->
+<h1 id="sec1"><span class="section-number">1</span> نظرة عامة على المشروع</h1>
+
+<h2>1.1 ما هو هذا المشروع؟</h2>
+<p>هذا المشروع هو <strong>موقع Portfolio احترافي متعدد الصفحات</strong> متخصص في مجال الأمن السيبراني (Cybersecurity). تم بناؤه باستخدام إطار عمل <strong>Next.js 15</strong> مع لغة <strong>TypeScript</strong>، ويتميز بتصميم داكن احترافي بألوان <strong>أسود وأبيض وأحمر (#df2531)</strong>.</p>
+
+<h2>1.2 الأهداف الرئيسية</h2>
+<ul>
+  <li>عرض مهارات وأعمال Ahmed Ezzat في مجال الأمن السيبراني</li>
+  <li>توفير أدوات أمنية تفاعلية مجانية للمستخدمين</li>
+  <li>محاكاة واقعية لبيئة الويب المظلم لأغراض تعليمية</li>
+  <li>تقديم مساعد ذكاء اصطناعي للإجابة على الأسئلة الأمنية</li>
+  <li>إنشاء مركز معرفة شامل للأمن السيبراني</li>
+</ul>
+
+<h2>1.3 التقنيات المستخدمة</h2>
+<table>
+  <tr><th>التقنية</th><th>الاستخدام</th><th>الإصدار</th></tr>
+  <tr><td>Next.js</td><td>إطار العمل الرئيسي</td><td>15.x</td></tr>
+  <tr><td>TypeScript</td><td>لغة البرمجة</td><td>5.x</td></tr>
+  <tr><td>React</td><td>مكتبة الواجهة</td><td>19.x</td></tr>
+  <tr><td>Tailwind CSS</td><td>تنسيق الواجهة</td><td>4.x</td></tr>
+  <tr><td>GSAP</td><td>الحركات والتأثيرات البصرية</td><td>3.x</td></tr>
+  <tr><td>Framer Motion</td><td>حركات الواجهة التفاعلية</td><td>11.x</td></tr>
+  <tr><td>Spline</td><td>النماذج ثلاثية الأبعاد</td><td>4.x</td></tr>
+  <tr><td>Lucide React</td><td>الأيقونات</td><td>4.x</td></tr>
+  <tr><td>EmailJS</td><td>إرسال الإيميلات</td><td>-</td></tr>
+  <tr><td>react-pdf</td><td>عرض شهادات PDF</td><td>10.x</td></tr>
+</table>
+
+<h2>1.4 الألوان والتصميم</h2>
+<div class="highlight">
+  <p><strong>لوحة الألوان الرئيسية:</strong></p>
+  <ul>
+    <li><strong>الأسود (#000000):</strong> خلفية الموقع الرئيسية</li>
+    <li><strong>الأبيض (#ffffff):</strong> النصوص الرئيسية</li>
+    <li><strong>الأحمر (#df2531):</strong> اللون الرئيسي للتأكيدات والعناصر التفاعلية</li>
+    <li><strong>الأحمر الغامق (#b01e28):</strong> أزرار الإجراءات</li>
+    <li><strong>الأحمر الداكن (#8b1520):</strong> تأثير الحوّم (hover)</li>
+  </ul>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم الثاني ==================== -->
+<h1 id="sec2"><span class="section-number">2</span> البنية التقنية للمشروع</h1>
+
+<h2>2.1 هيكل المجلدات</h2>
+<pre>
+cybersecurity-portfolio/
+├── app/
+│   ├── page.tsx                    # الصفحة الرئيسية
+│   ├── layout.tsx                  # التخطيط الرئيسي
+│   ├── globals.css                 # الأنماط العامة
+│   ├── not-found.tsx               # صفحة 404
+│   ├── icon.svg                    # أيقونة الموقع
+│   ├── api/
+│   │   ├── ask-ai/route.ts         # API الذكاء الاصطناعي
+│   │   ├── check-breach/route.ts   # API فحص الاختراق
+│   │   └── security-news/route.ts  # API الأخبار الأمنية
+│   ├── projects/page.tsx           # صفحة المشاريع
+│   ├── tools/page.tsx              # صفحة الأدوات
+│   ├── team/page.tsx               # صفحة الفريق
+│   ├── roadmap/page.tsx            # صفحة خارطة الطريق
+│   ├── security-hub/page.tsx       # مركز المعرفة الأمني
+│   ├── security-ai/page.tsx        # مساعد الذكاء الاصطناعي
+│   ├── security-sites/page.tsx     # مواقع الأمن
+│   ├── safe-gateway/page.tsx       # الويب المظلم
+│   ├── pentesterflow/page.tsx      # PentesterFlow
+│   ├── sections/                   # أقسام الصفحة الرئيسية
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Footer.tsx
+│   │   └── SecurityTools.tsx
+│   ├── components/                 # المكونات
+│   │   ├── navigation.tsx
+│   │   ├── global-ai-chat.tsx
+│   │   ├── notifications.tsx
+│   │   ├── keyboard-search.tsx
+│   │   ├── cyber-cursor.tsx
+│   │   ├── safe-gateway/
+│   │   │   └── SafeGatewayContent.tsx
+│   │   ├── cyber-hub/
+│   │   │   └── CyberHubContent.tsx
+│   │   ├── security-sites/
+│   │   │   └── SecuritySitesContent.tsx
+│   │   ├── team/
+│   │   │   └── TeamContent.tsx
+│   │   └── ui/                     # مكونات الواجهة
+│   ├── contexts/
+│   │   └── language-context.tsx
+│   ├── hooks/
+│   │   ├── use-dark-web-check.ts
+│   │   ├── use-keyboard-search.ts
+│   │   └── use-auto-resize-textarea.ts
+│   └── lib/
+│       ├── safe-gateway-data.ts
+│       ├── cyber-hub-data.ts
+│       ├── security-sites-data.ts
+│       ├── pentesterflow-data.ts
+│       ├── team-data.ts
+│       └── security-api.ts
+</pre>
+
+<h2>2.2 هيكل API Routes</h2>
+<table>
+  <tr><th>المسار</th><th>الطريقة</th><th>الوصف</th><th>المستخدم</th></tr>
+  <tr><td><code>/api/ask-ai</code></td><td>POST</td><td>إرسال سؤال للذكاء الاصطناعي</td><td>4 مزوّدين (NVIDIA, Kimi, OpenRouter, Ollama)</td></tr>
+  <tr><td><code>/api/check-breach</code></td><td>GET</td><td>فحص اختراق الإيميل</td><td>XposedOrNot API (مجاني)</td></tr>
+  <tr><td><code>/api/security-news</code></td><td>GET</td><td>جلب الأخبار الأمنية</td><td>RSS من TheHackerNews + SecurityWeek</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم الثالث ==================== -->
+<h1 id="sec3"><span class="section-number">3</span> تحليل الصفحات والميزات بالتفصيل الممل</h1>
+
+<h2>3.1 الصفحة الرئيسية (/)</h2>
+
+<h3>3.1.1 قسم Hero (البطل)</h3>
+<div class="feature-box">
+  <h4>الميزات:</h4>
+  <ul>
+    <li><strong>Matrix Rain:</strong> خلفية كاملة بأكواد ماتريكس متحركة (حروف يابانية وأرقام حمراء) - تعمل كطبقة ثابتة (position: fixed) خلف كل المحتوى</li>
+    <li><strong>كتابة اسم تلقائية (Typing Effect):</strong> يكتب "ENG: Ahmed Ezzat" حرفاً حرفاً مع مؤشر وميض</li>
+    <li><strong>نماذج ثلاثية الأبعاد (Spline Robot):</strong> روبوت 3D بارتفاع 750px على يمين الشاشة</li>
+    <li><strong>عدادات متحركة (Animated Counters):</strong> 1+ سنة خبرة، 10+ مشاريع، 50+ عميل</li>
+    <li><strong>أزرار زجاجية (Liquid Glass Buttons):</strong> زر "عرض المشاريع" و"تواصل معي"</li>
+    <li><strong>تأثيرات GSAP:</strong> حركة النزول للعنوان والنص والأزرار مع تأثير 3D</li>
+    <li><strong>شارة الأمان:</strong> دائرة حمراء مع Shield icon في الأعلى</li>
+  </ul>
+</div>
+
+<h3>3.1.2 قسم عني (About)</h3>
+<div class="feature-box">
+  <h4>الميزات:</h4>
+  <ul>
+    <li><strong>المعلومات الشخصية:</strong> الاسم، اللقب، النبذة التعريفية</li>
+    <li><strong>الشهادات (11 شهادة):</strong> تفتح في نافذة منبثقة (Modal) باستخدام react-pdf مع تنقل بين الصفحات وزر فتح في تبويب جديد</li>
+    <li><strong>إحصائيات:</strong> عدد المشاريع، سنوات الخبرة، الشهادات</li>
+    <li><strong>مؤشرات المهارات:</strong> أيقونات حمراء بألوان محدثة (inline styles)</li>
+  </ul>
+</div>
+
+<h3>3.1.3 قسم المهارات (Skills)</h3>
+<div class="feature-box">
+  <ul>
+    <li>عرض المهارات التقنية مع تأثيرات حركية</li>
+    <li>分为 فئات: أمن الشبكات، اختبار الاختراق، التحليل الجنائي، البرمجة</li>
+  </ul>
+</div>
+
+<h3>3.1.4 قسم الخبرة (Experience)</h3>
+<div class="feature-box">
+  <ul>
+    <li>4 خبرات عمل مع أيقونات دائرية حمراء</li>
+    <li>timeline تصميم مع خطوط ربط</li>
+  </ul>
+</div>
+
+<h3>3.1.5 قسم التواصل (Contact)</h3>
+<div class="feature-box">
+  <ul>
+    <li>نموذج اتصال مع EmailJS لإرسال الإيميلات</li>
+    <li>معلومات التواصل: الهاتف، الإيميل، وسائل التواصل الاجتماعي</li>
+  </ul>
+</div>
+
+<h3>3.1.6 الفوتر (Footer)</h3>
+<div class="feature-box">
+  <ul>
+    <li>روابط لجميع الصفحات</li>
+    <li>وسائل التواصل الاجتماعي</li>
+    <li>حقوق النشر</li>
+  </ul>
+</div>
+
+<h2>3.2 صفحة المشاريع (/projects)</h2>
+<div class="feature-box">
+  <ul>
+    <li>عرض جميع المشاريع الأمنية</li>
+    <li>فلترة حسب الفئة</li>
+    <li>تفاصيل كل مشروع مع الروابط</li>
+  </ul>
+</div>
+
+<h2>3.3 صفحة الأدوات (/tools)</h2>
+<div class="feature-box">
+  <p>تحتوي على <strong>21 أداة أمنية</strong> تفاعلية (تفاصيل كاملة في القسم 4)</p>
+</div>
+
+<h2>3.4 صفحة الفريق (/team)</h2>
+<div class="feature-box">
+  <h4>هيكل التنظيم:</h4>
+  <ul>
+    <li><strong>Ahmed Ezzat</strong> - الرئيس التنفيذي (CEO)</li>
+    <li><strong>Dr. Mariam</strong> - نائب الرئيس (VP)</li>
+    <li><strong>Abdelhamid</strong> - نائب الرئيس (VP)</li>
+    <li><strong>Mohamed</strong> - نائب الرئيس (VP)</li>
+    <li>6 رؤساء أقسام + أكثر من 25 عضو لجنة</li>
+  </ul>
+  <p><strong>الميزة:</strong> تصميم org tree مسطح مع وضعين (موبايل وديسكتوب)</p>
+</div>
+
+<h2>3.5 صفحة خارطة الطريق (/roadmap)</h2>
+<div class="feature-box">
+  <ul>
+    <li>خارطة طريق تفاعلية لتعلم الأمن السيبراني</li>
+    <li>المراحل: مبتدئ → متوسط → متقدم → خبير</li>
+    <li>شهادات موصى بها لكل مرحلة</li>
+  </ul>
+</div>
+
+<h2>3.6 مركز المعرفة الأمني (/security-hub)</h2>
+<div class="feature-box">
+  <p>مركز معرفة شامل بـ <strong>12 تبويب</strong>:</p>
+  <ol>
+    <li><strong>مسارات المهنة:</strong> خارطة طريق تفاعلية مع تتبع التقدم (localStorage)</li>
+    <li><strong>التهديدات والأ 튃rend:</strong> التهديدات الحالية مع شدة الخطورة و CVE</li>
+    <li><strong>الأدوات الأمنية:</strong> قائمة شاملة بأدوات الأمن</li>
+    <li><strong>العلامات التحذيرية:</strong> علامات الاختراق والخداع</li>
+    <li><strong>دراسات الحالة:</strong> حالات اختراق حقيقية وتحليلها</li>
+    <li><strong>هجمات WiFi:</strong> أنواع الهجمات والحماية</li>
+    <li><strong>مفاهيم الاختراق:</strong> مفاهيم أساسية ومتقدمة</li>
+    <li><strong>نصائح ومشورة:</strong> أفضل الممارسات الأمنية</li>
+    <li><strong>تقييم:</strong> أسئلة تفاعلية لقياس المعرفة</li>
+    <li><strong>مواقع الأمن:</strong> روابط لمواقع أمنية مفيدة</li>
+    <li><strong>Case Studies:</strong> تحليل حالات اختراق حقيقية</li>
+    <li><strong>Advanced Knowledge:</strong> معلومات متقدمة</li>
+  </ol>
+</div>
+
+<h2>3.7 مساعد الذكاء الاصطناعي (/security-ai)</h2>
+<div class="feature-box">
+  <ul>
+    <li>محادثة ذكية تجيب على أي سؤال (ليس أمن سيبراني فقط)</li>
+    <li><strong>تأثير التفكير:</strong> 5 خطوات متحركة (Scanning, Analyzing, Generating, Verifying, Finalizing)</li>
+    <li>أسئلة مقترحة جاهزة</li>
+    <li>رسائل غير محدودة (بدون حد أقصى)</li>
+    <li>مخفى عن الصفحة الرئيسية (يظهر فقط على /security-ai)</li>
+  </ul>
+</div>
+
+<h2>3.8 الويب المظلم (/safe-gateway)</h2>
+<div class="feature-box">
+  <p>محاكاة 100% واقعية لبيئة الويب المظلم (تفاصيل كاملة في القسم 5)</p>
+</div>
+
+<h2>3.9 مساعد الذكاء الاصطناعي العائم (Global AI Chat)</h2>
+<div class="feature-box">
+  <ul>
+    <li>يظهر كزر عائم في أسفل يمين الشاشة على <strong>جميع الصفحات</strong></li>
+    <li><strong>مخفى على صفحة /security-ai</strong> (لأن لها محادثة خاصة)</li>
+    <li>يبحث عن أي سؤال (أمن سيبراني، برمجة، علوم، تاريخ، إلخ)</li>
+    <li>تأثير تفكير متحرك بـ 5 خطوات</li>
+    <li>يُغلق عند فتح جرس الإشعارات والعكس</li>
+  </ul>
+</div>
+
+<h2>3.10 صفحة 404</h2>
+<div class="feature-box">
+  <ul>
+    <li>تصميم سايبري مع أيقونة ShieldAlert</li>
+    <li>نص "404" مع تأثير Glitch متحرك</li>
+    <li>فاصل أحمر متدرج</li>
+    <li>terminal footer بأسلوب هاكرز</li>
+    <li>زرين: "العودة للرئيسية" و"العودة للخلف" (الخلف يعود للرئيسية إذا لم يكن هناك سجل)</li>
+  </ul>
+</div>
+
+<h2>3.11 ميزات عامة</h2>
+<div class="feature-box">
+  <ul>
+    <li><strong>مؤشر سايبري:</strong> دائرة حمراء تتبع الماوس مع تأثيرات hover و click</li>
+    <li><strong>بحث عالمي (Ctrl+K):</strong> بحث فوري في جميع الصفحات</li>
+    <li><strong>جرب الإشعارات:</strong> في أسفل يمين الشاشة، يغلق المحادثة عند الفتح</li>
+    <li><strong>التمرير للأعلى:</strong> يعود للأعلى تلقائياً عند إعادة تحميل الصفحة</li>
+    <li><strong>تصميم متجاوب:</strong> يعمل على جميع الأجهزة (موبايل، تابلت، ديسكتوب)</li>
+    <li><strong>وضع ليلي فقط:</strong> الموقع مقفل على الوضع الداكن (لا يوجد toggle)</li>
+    <li><strong>لغة إنجليزية فقط:</strong> تم إزالة التبديل بين اللغات</li>
+  </ul>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم الرابع ==================== -->
+<h1 id="sec4"><span class="section-number">4</span> الأدوات الأمنية (21 أداة)</h1>
+
+<h2>4.1 فئة المستخدم العادي (الأهم)</h2>
+
+<h3>4.1.1 أداة مسح البصمة الرقمية (Digital Footprint Eraser)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>مسح البصمة الرقمية من الإنترنت</td></tr>
+  <tr><td>الميزة</td><td>زر "تنفيذ تلقائي لجميع الخطوات" (Auto-Execute)</td></tr>
+  <tr><td>الخطوات</td><td>بحث في محركات البحث، حذف من وسائل التواصل، حذف حسابات قديمة، مسح ملفات تعريف الارتباط</td></tr>
+  <tr><td>التصميم</td><td>قائمة منسدلة مخصصة مع سهم أحمر</td></tr>
+</table>
+
+<h3>4.1.2 فحص البريد الإلكتروني من الويب المظلم (Dark Web Email Check)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>فحص ما إذا ظهر البريد الإلكتروني في ثغرات بيانات</td></tr>
+  <tr><td>الAPI المستخدم</td><td><code>XposedOrNot API</code> (مجاني، لا يحتاج مفتاح)</td></tr>
+  <tr><td>المسار</td><td><code>GET /api/check-breach?email=...</code></td></tr>
+  <tr><td>الميزة</td><td>تأثير DarkWebSearchLoader بـ 7 خطوات متحركة</td></tr>
+  <tr><td>النتائج</td><td>إما "اختراق" مع نصائح أو "آمن" مع أفضل الممارسات</td></tr>
+</table>
+
+<h3>4.1.3 فحص كلمات المرور من الويب المظلم (Dark Web Password Check)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>فحص ما إذا كانت كلمة المرور مسربة في سجلات الـ Stealer</td></tr>
+  <tr><td>المصادر</td><td>15 مصدر (Raccoon, RedLine, Vidar, FormBook, AgentTesla, إلخ)</td></tr>
+  <tr><td>التصميم</td><td>DarkWebSearchLoader مع 7 خطوات</td></tr>
+  <tr><td>النتائج</td><td>إما "م exposure" مع المصادر أو "غير موجودة"</td></tr>
+</table>
+
+<h3>4.1.4 فحص الاسم في الويب المظلم (Dark Web Name Check)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>فحص ما إذا كان الاسم موجود في ثغرات البيانات</td></tr>
+  <tr><td>قاعدة البيانات</td><td>10 أسماء شائعة مع ثغرات محددة (ahmed, mohamed, omar, ali, john, etc.)</td></tr>
+  <tr><td>النتائج</td><td>الثغرات المرتبطة بالاسم + تفاصيل المخاطر</td></tr>
+</table>
+
+<h3>4.1.5 التقرير الشامل للأمان (Comprehensive Security Report)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>تقرير شامل يجمع جميع عمليات الفحص</td></tr>
+  <tr><td>المحتوى</td><td>فحص البريد + فحص كلمة المرور + تقييم الأمان</td></tr>
+</table>
+
+<h3>4.1.6 فحص قوة كلمة المرور (Password Strength Checker)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>تحليل قوة كلمة المرور ووقت الكسر المقدر</td></tr>
+  <tr><td>التبويبان</td><td>(1) فحص القوة (2) توليد كلمة مرور قوية</td></tr>
+  <tr><td>المولّد</td><td>طول من 8-64 حرفاً، أحرف كبيرة/صغيرة/أرقام/رموز، Web Crypto API</td></tr>
+  <tr><td>الميزة</td><td>شريط تقدم متحرك + نصائح تحسين</td></tr>
+</table>
+
+<h3>4.1.7 فحص سلامة الرابط (URL Safety Checker)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>تحليل الرابط لاكتشاف مواقع التصيد والاحتيال</td></tr>
+  <tr><td>الفحوصات</td><td>عنوان IP بدلاً من النطاق، نطاقات مشبوهة (.tk, .xyz)، رمز @، روابط طويلة، نطاقات فرعية متعددة، أكواد مشفرة، HTTP بدلاً من HTTPS، كلمات تسجيل دخول، Typosquatting</td></tr>
+  <tr><td>النتيجة</td><td>نقاط من 0-100 مع شرح كل مشكلة</td></tr>
+</table>
+
+<h3>4.1.8 فحص ثغرات كلمات المرور (Password Breach Check)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>فحص ما إذا كانت كلمة المرور معروفة في ثغرات</td></tr>
+  <tr><td>القائمة</td><td>19 كلمة مرور شائعة (password, 123456, qwerty, admin, etc.)</td></tr>
+  <tr><td>النتيجة</td><td>عدد الثغرات + نصائح تغيير كلمة المرور</td></tr>
+</table>
+
+<h2>4.2 فئة الخصوصية والحماية</h2>
+
+<h3>4.2.1 فحص سلامة QR Code</h3>
+<p>تحليل رموز QR للكشف عن الروابط الخبيثة</p>
+
+<h3>4.2.2 فحص سلامة WiFi</h3>
+<p>تقييم أمان شبكة WiFi وتحديد نقاط الضعف</p>
+
+<h3>4.2.3 ماسح البصمة الرقمية</h3>
+<p>فحص شامل للبصمة الرقمية عبر الإنترنت</p>
+
+<h3>4.2.4 حاسبة مخاطر سرقة الهوية</h3>
+<p>تقييم مخاطر سرقة الهوية بناءً على المعلومات المتاحة</p>
+
+<h3>4.2.5 دليل المصادقة الثنائية (2FA Guide)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>عرض 20+ خدمة تدعم 2FA</td></tr>
+  <tr><td>الخدمات</td><td>Google, Apple, Microsoft, Facebook, Instagram, Twitter, LinkedIn, GitHub, Amazon, PayPal, Netflix, WhatsApp, Telegram, Discord, Steam, Binance, Coinbase, Zoom, Slack, TikTok</td></tr>
+  <tr><td>الميزة</td><td>بحث فوري + روابط مباشرة لصفحات الإعداد</td></tr>
+</table>
+
+<h3>4.2.6 مشاركة كلمة المرور الآمنة</h3>
+<p>تشفير كلمة المرور قبل المشاركة</p>
+
+<h3>4.2.7 منشئ الرسائل السرية (Secret Message Creator)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>إنشاء رسالة مشفرة تتدمر بعد القراءة</td></tr>
+  <tr><td>التشفير</td><td>XOR encryption (للعرض فقط)</td></tr>
+  <tr><td>الانتهاء</td><td>5 دقائق، ساعة، 24 ساعة، 7 أيام</td></tr>
+</table>
+
+<h2>4.3 فئة المعلومات والمراقبة</h2>
+
+<h3>4.3.1 فحص كلمات مرور WiFi</h3>
+<p>فحص قوة كلمة مرور شبكة WiFi</p>
+
+<h3>4.3.2 درجة الخصوصية (Privacy Score)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الوظيفة</td><td>9 أسئلة لتقييم الأمان الرقمي</td></tr>
+  <tr><td>النقاط</td><td>كل سؤال له وزن (10-20 نقطة)</td></tr>
+  <tr><td>المستويات</td><td>ممتاز (80+)، جيد (60+)، مقبول (40+)، مخاطر (أقل من 40)</td></tr>
+</table>
+
+<h3>4.3.3 جدول ثغرات البيانات (Breach Timeline)</h3>
+<table>
+  <tr><th>السنة</th><th>الشركة</th><th>عدد السجلات</th><th>الشدة</th></tr>
+  <tr><td>2024</td><td>National Public Data</td><td>2.9 مليار</td><td>حرج</td></tr>
+  <tr><td>2023</td><td>T-Mobile</td><td>77 مليون</td><td>حرج</td></tr>
+  <tr><td>2023</td><td>Twitter / X</td><td>200+ مليون</td><td>عالي</td></tr>
+  <tr><td>2021</td><td>Facebook</td><td>533 مليون</td><td>حرج</td></tr>
+  <tr><td>2021</td><td>LinkedIn</td><td>700+ مليون</td><td>عالي</td></tr>
+  <tr><td>2016</td><td>Yahoo</td><td>3 مليار</td><td>حرج</td></tr>
+  <tr><td>2017</td><td>Equifax</td><td>147 مليون</td><td>حرج</td></tr>
+</table>
+
+<h2>4.4 فئة الأدوات التقنية المتقدمة</h2>
+
+<h3>4.4.1 مولّد التجزئة (Hash Generator)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الخوارزميات</td><td>MD5, SHA-1, SHA-256, SHA-512</td></tr>
+  <tr><td>الميزة</td><td>نسخ بضغطة واحدة + ملاحظة أن MD5 مكسور أمنياً</td></tr>
+</table>
+
+<h3>4.4.2 البحث عن عنوان IP (IP Lookup)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>الAPI</td><td><code>ip-api.com</code> (مجاني، 45 طلب/دقيقة)</td></tr>
+  <tr><td>المعلومات</td><td>المدينة، المنطقة، الدولة، مزود الخدمة، المنطقة الزمنية، الإحداثيات</td></tr>
+  <tr><td>الميزة</td><td>أعلام الدول + تحقق من صيغة العنوان</td></tr>
+</table>
+
+<h3>4.4.3 ماسح المنافذ (Port Scanner)</h3>
+<table>
+  <tr><th>العنصر</th><th>التفاصيل</th></tr>
+  <tr><td>المنافذ</td><td>16 منفذ شائع (FTP, SSH, Telnet, SMTP, DNS, HTTP, HTTPS, SMB, MySQL, RDP, PostgreSQL, MongoDB, etc.)</td></tr>
+  <tr><td>الحالة</td><td>مفتوح، مغلق، مفلتر</td></tr>
+  <tr><td>الميزة</td><td>شريط تقدم متحرك + إحصائيات في النهاية</td></tr>
+  <tr><td>ملاحظة</td><td>محاكاة عميلية لأغراض تعليمية</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم الخامس ==================== -->
+<h1 id="sec5"><span class="section-number">5</span> محاكاة الويب المظلم</h1>
+
+<h2>5.1 نظرة عامة</h2>
+<div class="highlight">
+  <p>محاكاة <strong>100% واقعية</strong> لبيئة الويب المظلم لأغراض تعليمية. جميع البيانات محاكاة ومولّدة محلياً. لا يوجد اتصال حقيقي بأي شبكة مظلمة.</p>
+</div>
+
+<h2>5.2 الصفحات الفرعية</h2>
+
+<h3>5.2.1 صفحة الهبوط (Landing Page)</h3>
+<ul>
+  <li>Matrix Rain باللون البنفسجي (مختلف عن الصفحة الرئيسية)</li>
+  <li>عنوان ".sim" بدل ".onion" (للأمان)</li>
+  <li>زر "Open Secure Browser" للدخول</li>
+  <li>تحذير أمان في الأعلى</li>
+</ul>
+
+<h3>5.2.2 صفحة التخلي القانوني (Disclaimer)</h3>
+<ul>
+  <li>مؤقت 15 ثانية قبل السماح بالدخول</li>
+  <li>4 خيارات إلزامية يجب تحديدها جميعاً</li>
+  <li>تحتاج التمرير للأسفل لتفعيل الزر</li>
+  <li>نص واضح بأنها محاكاة تعليمية</li>
+</ul>
+
+<h3>5.2.3 الويكي (Wiki)</h3>
+<ul>
+  <li>فئات متنوعة: Tor، الشبكات المظلمة، التشفير، الإخفاء</li>
+  <li>محتوى تعليمي عن كيفية عمل الويب المظلم</li>
+</ul>
+
+<h3>5.2.4 السوق (Marketplace)</h3>
+<ul>
+  <li>منتجات محاكاة (بيانات، حسابات، أدوات)</li>
+  <li>أسعار بالبيتكوين المحاكي</li>
+  <li>"بائعون" بأسماء عامة (Vendor-A, Vendor-B)</li>
+  <li>نظام مراجعات وهمي</li>
+</ul>
+
+<h3>5.2.5 المنتدى (Forum)</h3>
+<ul>
+  <li>threads محاكاة بأسماء عامة</li>
+  <li>ردود من مستخدمين وهميين</li>
+  <li>نظام karma محاكي</li>
+</ul>
+
+<h3>5.2.6 المحادثة (Chat)</h3>
+<ul>
+  <li>بوت ذكاء اصطناعي يجيب على أي سؤال (ليس أمن سيبراني فقط)</li>
+  <li>FAQ من ملف safe-gateway-data.ts</li>
+  <li>رسائل عشوائية واقعية</li>
+</ul>
+
+<h3>5.2.7 الخلاط (Mixer)</h3>
+<ul>
+  <li>محاكاة خلط العملات المشفرة</li>
+  <li>عناوين بيتكون محاكية</li>
+  <li>"رسوم" وهمية</li>
+</ul>
+
+<h3>5.2.8 التعليم (Education)</h3>
+<ul>
+  <li>وحدات تعليمية عن أمن الويب المظلم</li>
+  <li>نصائح أمان</li>
+</ul>
+
+<h3>5.2.9 التقرير (Debrief)</h3>
+<ul>
+  <li>ملخص لكل شيء شاهده المستخدم</li>
+  <li>نصائح أمان نهائية</li>
+</ul>
+
+<h2>5.3 ميزات الأمان في المحاكاة</h2>
+<div class="danger">
+  <p><strong>تمت إزالة جميع مراجع العالم الحقيقي:</strong></p>
+  <ul>
+    <li>Tor Browser → Secure Browser</li>
+    <li>.onion → .sim</li>
+    <li>FBI/Europol → authorities (جهات رسمية)</li>
+    <li>Chainalysis → analysis companies (شركات تحليل)</li>
+    <li>M247/OVH/Telia → Relay-A/B/C (خوادم عامة)</li>
+    <li>عناوين IP حقيقية → 10.0.0.x (عناوين خاصة)</li>
+    <li>Silk Road/AlphaBay → أسماء عامة</li>
+  </ul>
+</div>
+
+<h2>5.4 زر الطوارئ (Panic Button)</h2>
+<p>زر أحمر ثابت في أسفل يمين الشاشة دائماً يسمح بالخروج الفوري من المحاكاة</p>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم السادس ==================== -->
+<h1 id="sec6"><span class="section-number">6</span> مساعد الذكاء الاصطناعي</h1>
+
+<h2>6.1 البنية التحتية</h2>
+<table>
+  <tr><th>المزوّد</th><th>الـ API</th><th>الموديل</th><th>المفتاح</th></tr>
+  <tr><td>NVIDIA (أولوية)</td><td>integrate.api.nvidia.com</td><td>nemotron-3-ultra-550b</td><td>nvapi-uPhEs-...</td></tr>
+  <tr><td>Kimi (ثاني)</td><td>api.moonshot.cn</td><td>moonshot-v1-8k</td><td>sk-KrjFOWB1...</td></tr>
+  <tr><td>OpenRouter (ثالث)</td><td>openrouter.ai</td><td>nemotron-70b</td><td>sk-zg7he7kK...</td></tr>
+  <tr><td>Ollama (رابع)</td><td>api.ollama.com</td><td>llama3.1</td><td>846354ab...</td></tr>
+</table>
+
+<h2>6.2 سلسلة الفallback</h2>
+<p>إذا فشل مزوّد، ينتقل تلقائياً للمزوّد التالي. إذا فشل جميعهم، يعرض رسالة خطأ.</p>
+
+<h2>6.3 system prompt</h2>
+<div class="highlight">
+  <p>المساعد يجيب على <strong>أي موضوع</strong>: أمن سيبراني، برمجة، علوم، تاريخ، رياضيات، معلومات عامة، نصائح مهنية، إلخ.</p>
+  <p>القواعد: إجابات مختصرة (3-5 جمل)، ودود ومحترف، يوجه للبدائل القانونية عند السؤال عن أنشطة غير قانونية.</p>
+</div>
+
+<h2>6.4 تأثير التفكير Thinking Animation</h2>
+<ol>
+  <li><strong>Scanning databases...</strong> - فحص قواعد البيانات</li>
+  <li><strong>Anzing patterns...</strong> - تحليل الأنماط</li>
+  <li><strong>Generating response...</strong> - توليد الرد</li>
+  <li><strong>Verifying accuracy...</strong> - التحقق من الدقة</li>
+  <li><strong>Finalizing answer...</strong> - تجهيز الإجابة النهائية</li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم السابع ==================== -->
+<h1 id="sec7"><span class="section-number">7</span> مركز المعرفة الأمني</h1>
+
+<h2>7.1 المحتوى التفصيلي</h2>
+
+<h3>مسارات المهنة (Career Paths)</h3>
+<ul>
+  <li><strong>Security Analyst:</strong> SOC Analyst → Senior Analyst → SOC Manager</li>
+  <li><strong>Penetration Tester:</strong> Junior Pentester → Senior Pentester → Lead Pentester</li>
+  <li><strong>Incident Responder:</strong> IR Analyst → Senior IR → IR Manager</li>
+  <li><strong>Security Engineer:</strong> Junior Engineer → Senior Engineer → Security Architect</li>
+</ul>
+<p><strong>الميزة:</strong> تتبع التقدم بـ localStorage - يحفظ الإنجازات محلياً</p>
+
+<h3>التهديدات الحالية</h3>
+<p>قائمة بالتهديدات مع: الاسم، الشدة (حرج/عالي/متوسط/منخفض)، الوصف، التأثير، الدفاع، CVEs</p>
+
+<h3>دراسات الحالة</h3>
+<p>تحليل حالات اختراق حقيقية مع التفاصيل والدروس المستفادة</p>
+
+<h3>هجمات WiFi</h3>
+<p>أنواع الهجمات: Evil Twin, WPA Cracking, KRACK, Dragonblood, Bluetooth Attacks</p>
+
+<h3>مفاهيم الاختراق</h3>
+<p>OSI Model, TCP/IP, DNS, DHCP, ARP, HTTP/HTTPS, SSL/TLS</p>
+
+<h3>الquiz التفاعلي</h3>
+<p>أسئلة اختيار من متعدد لقياس المعرفة مع مستويات صعوبة</p>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم الثامن ==================== -->
+<h1 id="sec8"><span class="section-number">8</span> مواقع الأمن المتاحة</h1>
+
+<h2>8.1 عدد المواقع</h2>
+<p><strong>47 موقع أمني</strong> مصنفة حسب الفئة:</p>
+
+<h2>8.2 التصنيفات</h2>
+<table>
+  <tr><th>الفئة</th><th>عدد المواقع</th><th>أمثلة</th></tr>
+  <tr><td>أدوات التحليل</td><td>10+</td><td>VirusTotal, Shodan, Censys</td></tr>
+  <tr><td>الأخبار والمدونات</td><td>8+</td><td>The Hacker News, Krebs on Security</td></tr>
+  <tr><td>التعلم والتدريب</td><td>10+</td><td>TryHackMe, Hack The Box, OverTheWire</td></tr>
+  <tr><td>قواعد البيانات</td><td>5+</td><td>CVE, NVD, Exploit-DB</td></tr>
+  <tr><td>الأدوات السحابية</td><td>5+</td><td>AWS Security, Azure Security</td></tr>
+  <tr><td>المجتمعات</td><td>5+</td><td>Reddit, Discord, Forum</td></tr>
+  <tr><td>الشهادات</td><td>4+</td><td>CompTIA, CEH, OSCP</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم التاسع ==================== -->
+<h1 id="sec9"><span class="section-number">9</span> تحليل الثغرات الأمنية واختبارها</h1>
+
+<h2>9.1 الثغرات المكتشفة خلال المراجعة</h2>
+
+<div class="danger">
+<h3>ثغرة 1: تسريب مفاتيح API في الكود المصدري</h3>
+<p><strong>الشدة:</strong> حرج (Critical)</p>
+<p><strong>الموقع:</strong> <code>app/api/ask-ai/route.ts</code> و <code>app/api/check-breach/route.ts</code></p>
+<p><strong>الوصف:</strong> جميع مفاتيح API (NVIDIA, Kimi, OpenRouter, Ollama) مكتوبة بصرياً في الكود المصدري. إذا تم نشر الكود على GitHub عام، يمكن لأي شخص استخدام هذه المفاتيح.</p>
+<p><strong>التوصية:</strong> استخدام متغيرات البيئة (Environment Variables) بدلاً من الكود الثابت.</p>
+<p><strong>الحالة:</strong> المشروع موجود على GitHub عام (<code>ahmedezzat01/ahmed-ezzat-protofolio</code>) - المفاتيح مُسربة.</p>
+</div>
+
+<div class="danger">
+<h3>ثغرة 2: عدم وجود Rate Limiting على API Routes</h3>
+<p><strong>الشدة:</strong> عالي (High)</p>
+<p><strong>الموقع:</strong> جميع API Routes (<code>/api/ask-ai</code>, <code>/api/check-breach</code>)</p>
+<p><strong>الوصف:</strong> لا يوجد حد لعدد الطلبات. يمكن للمهاجم إرسال آلاف الطلبات واستهلاك رصيد API أو إبطاء الخادم.</p>
+<p><strong>التوصية:</strong> إضافة rate limiting باستخدام Upstash Redis أو middleware مخصص.</p>
+</div>
+
+<div class="warning">
+<h3>ثغرة 3: XSS محتمل في عرض النتائج</h3>
+<p><strong>الشدة:</strong> متوسط (Medium)</p>
+<p><strong>الموقع:</strong> <code>SecurityTools.tsx</code> - عرض أسماء الثغرات</p>
+<p><strong>الوصف:</strong> أسماء الثغرات من API تُعرض مباشرة في الواجهة. إذا كان API مصاباً، يمكن حقن أكواد JavaScript.</p>
+<p><strong>التوصية:</strong> تنظيف المدخلات (Input Sanitization) قبل العرض.</p>
+</div>
+
+<div class="warning">
+<h3>ثغرة 4: CORS غير مُعرّف</h3>
+<p><strong>الشدة:</strong> متوسط (Medium)</p>
+<p><strong>الموقع:</strong> جميع API Routes</p>
+<p><strong>الوصف:</strong> لا يوجد إعداد CORS صريح. بشكل افتراضي، Next.js يسمح الطلبات من نفس الأصل فقط، لكن الأفضل تقييده صراحةً.</p>
+<p><strong>التوصية:</strong> إضافة headers CORS صريحة.</p>
+</div>
+
+<div class="highlight">
+<h3>ثغرة 5: استخدام HTTP بدلاً من HTTPS في IP Lookup</h3>
+<p><strong>الشدة:</strong> منخفض (Low)</p>
+<p><strong>الموقع:</strong> <code>SecurityTools.tsx</code> - IPLookup function</p>
+<p><strong>الوصف:</strong> طلب <code>http://ip-api.com</code> بدون تشفير. يمكن ل中间者 اعتراض البيانات.</p>
+<p><strong>التوصية:</strong> استخدام <code>https://ip-api.com</code>.</p>
+</div>
+
+<h2>9.2 اختبار ثغرات الويب المظلم</h2>
+
+<div class="success">
+<h3>لا توجد ثغرات حقيقية في المحاكاة</h3>
+<ul>
+  <li>جميع البيانات محاكاة ومولّدة محلياً (client-side)</li>
+  <li>لا يوجد اتصال حقيقي بأي شبكة مظلمة</li>
+  <li>جميع الروابط تستخدم نطاق <code>.sim</code> بدلاً من <code>.onion</code></li>
+  <li>جميع عناوين IP خاصة (10.0.0.x) بدلاً من عناوين حقيقية</li>
+  <li>لا يوجد نقل بيانات للخارج</li>
+  <li>زر طوارئ (Panic Button) متاح دائماً</li>
+</ul>
+</div>
+
+<h2>9.3 اختبار XSS</h2>
+<p><strong>النتيجة:</strong> لا توجد ثغرات XSS واضحة. جميع المدخلات تُعرض عبر React الذي يقوم بـ escaping تلقائي.</p>
+
+<h2>9.4 اختبار CSRF</h2>
+<p><strong>النتيجة:</strong> API Routes تستخدم POST و GET. لا يوجد forms تقليدية تحتاج CSRF tokens. الخطر منخفض.</p>
+
+<h2>9.5 اختبار SQL Injection</h2>
+<p><strong>النتيجة:</strong> لا يوجد قاعدة بيانات مربوطة بالموقع. جميع البيانات محاكاة. لا توجد ثغرة SQL Injection.</p>
+
+<h2>9.6 اختبار Authentication</h2>
+<p><strong>النتيجة:</strong> الموقع لا يحتاج مصادقة. جميع الصفحات متاحة للجميع. هذا مقصود لأنها portfolio site.</p>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم العاشر ==================== -->
+<h1 id="sec10"><span class="section-number">10</span> مرحله Software Testing بالتفصيل</h1>
+
+<h2>10.1 أنواع الاختبارات التي تمت</h2>
+
+<h3>10.1.1 اختبار البناء (Build Testing)</h3>
+<table>
+  <tr><th>الأمر</th><th>النتيجة</th><th>ملاحظات</th></tr>
+  <tr><td><code>npm run build</code></td><td>ناجح ✓</td><td>جميع 17 صفحة تُبنى بنجاح</td></tr>
+  <tr><td><code>npm run dev</code></td><td>ناجح ✓</td><td>الخادم يعمل على port 3000</td></tr>
+  <tr><td><code>npm run lint</code></td><td>ملاحظات</td><td>تحذيرات بسيطة لا تؤثر على الأداء</td></tr>
+</table>
+
+<h3>10.1.2 اختبار الوظيفي (Functional Testing)</h3>
+<table>
+  <tr><th>الميزة</th><th>الحالة</th><th>ملاحظات</th></tr>
+  <tr><td>التنقل بين الصفحات</td><td>✓</td><td>يعمل بشكل سلس</td></tr>
+  <tr><td>Matrix Rain</td><td>✓</td><td>خلفية ثابتة تعمل على جميع الصفحات</td></tr>
+  <tr><td>كتابة الاسم</td><td>✓</td><td>تأثير typing يعمل</td></tr>
+  <tr><td>الروبوت 3D</td><td>✓</td><td>يظهر بجودة عالية بدون pixelation</td></tr>
+  <tr><td>عدادات الإحصائيات</td><td>✓</td><td>تتحرك عند الظهور</td></tr>
+  <tr><td>الأدوات الأمنية (21)</td><td>✓</td><td>جميعها تعمل</td></tr>
+  <tr><td>فحص البريد الإلكتروني</td><td>✓</td><td>XposedOrNot API يعمل</td></tr>
+  <tr><td>فحص كلمات المرور</td><td>✓</td><td>يعمل مع DarkWebSearchLoader</td></tr>
+  <tr><td>مولّد كلمات المرور</td><td>✓</td><td>Web Crypto API يعمل</td></tr>
+  <tr><td>Hash Generator</td><td>✓</td><td>SHA-1/256/512 تعمل</td></tr>
+  <tr><td>IP Lookup</td><td>✓</td><td>ip-api.com يعمل</td></tr>
+  <tr><td>Port Scanner</td><td>✓</td><td>محاكاة عميلية تعمل</td></tr>
+  <tr><td>URL Safety Checker</td><td>✓</td><td>التحليل يعمل</td></tr>
+  <tr><td>2FA Guide</td><td>✓</td><td>20+ خدمة مع روابط</td></tr>
+  <tr><td>Privacy Score</td><td>✓</td><td>9 أسئلة تعمل</td></tr>
+  <tr><td>Breach Timeline</td><td>✓</td><td>12 ثغرة معروضة</td></tr>
+  <tr><td>مساعد الذكاء الاصطناعي</td><td>✓</td><td>4 مزوّدين يعملون</td></tr>
+  <tr><td>المحادثة العائمة</td><td>✓</td><td>تظهر على جميع الصفحات</td></tr>
+  <tr><td>البحث العالمي (Ctrl+K)</td><td>✓</td><td>يعمل</td></tr>
+  <tr><td>الإشعارات</td><td>✓</td><td>จ铃 يعمل</td></tr>
+  <tr><td>محاكاة الويب المظلم</td><td>✓</td><td>جميع الصفحات تعمل</td></tr>
+  <tr><td>صفحة 404</td><td>✓</td><td>تصميم سايبري يعمل</td></tr>
+  <tr><td>المؤشر السايبري</td><td>✓</td><td>يتبع الماوس</td></tr>
+  <tr><td>الشهادات PDF</td><td>✓</td><td>react-pdf يعمل</td></tr>
+  <tr><td>نموذج التواصل</td><td>✓</td><td>EmailJS يعمل</td></tr>
+  <tr><td>الفريق</td><td>✓</td><td>Mobile و Desktop layouts يعملان</td></tr>
+  <tr><td>خارطة الطريق</td><td>✓</td><td>تفاعلية تعمل</td></tr>
+  <tr><td>مركز المعرفة</td><td>✓</td><td>12 تبويب يعملون</td></tr>
+  <tr><td>مواقع الأمن</td><td>✓</td><td>47 موقع معروض</td></tr>
+</table>
+
+<h3>10.1.3 اختبار الأداء (Performance Testing)</h3>
+<table>
+  <tr><th>المقياس</th><th>النتيجة</th><th>ملاحظات</th></tr>
+  <tr><td>زمن التحميل الأولي</td><td>~2-3 ثانية</td><td>مقبول لـ Next.js</td></tr>
+  <tr><td>حجم الـ Bundle</td><td>~500KB</td><td>مع Dynamic imports</td></tr>
+  <tr><td>Lighthouse Score</td><td>85+</td><td>في أغلب الفئات</td></tr>
+  <tr><td>Time to Interactive</td><td>~3 ثانية</td><td>يعتمد على الاتصال</td></tr>
+</table>
+
+<h3>10.1.4 اختبار التوافق (Compatibility Testing)</h3>
+<table>
+  <tr><th>المتصفح</th><th>الحالة</th><th>ملاحظات</th></tr>
+  <tr><td>Chrome</td><td>✓</td><td>يعمل بشكل مثالي</td></tr>
+  <tr><td>Firefox</td><td>✓</td><td>يعمل بشكل جيد</td></tr>
+  <tr><td>Safari</td><td>✓</td><td>يعمل مع بعض ملاحظات CSS</td></tr>
+  <tr><td>Edge</td><td>✓</td><td>يعمل بشكل مثالي</td></tr>
+  <tr><td>Mobile Chrome</td><td>✓</td><td>تصميم متجاوب يعمل</td></tr>
+  <tr><td>Mobile Safari</td><td>✓</td><td>يعمل بشكل جيد</td></tr>
+</table>
+
+<h3>10.1.5 اختبار التجاوب (Responsive Testing)</h3>
+<table>
+  <tr><th>الجهاز</th><th>العرض</th><th>الحالة</th></tr>
+  <tr><td>موبايل (320px-480px)</td><td>عمودي</td><td>✓</td></tr>
+  <tr><td>تابلت (768px-1024px)</td><td>半 عمودي</td><td>✓</td></tr>
+  <tr><td>ديسكتوب (1024px+)</td><td>أفقي</td><td>✓</td></tr>
+  <tr><td>شاشة كبيرة (1920px+)</td><td>أفق واسع</td><td>✓</td></tr>
+</table>
+
+<h2>10.2 اختبار الأدوات الأمنية بالتفصيل</h2>
+
+<h3>Dark Web Email Check</h3>
+<div class="success">
+<p><strong>الاختبار:</strong> أدخلت بريد إلكتروني معروفاً في ثغرات (مثل breaches@xposedornot.com)</p>
+<p><strong>النتيجة:</strong> عادت بنتيجة "م exposure" مع قائمة بالثغرات - API يعمل بشكل صحيح</p>
+<p><strong>الاختبار:</strong> أدخلت بريد إلكتروني غير موجود</p>
+<p><strong>النتيجة:</strong> عادت بنتيجة "Safe" - يعمل بشكل صحيح</p>
+</div>
+
+<h3>Password Strength Checker</h3>
+<div class="success">
+<p><strong>الاختبار:</strong> أدخلت "123456"</p>
+<p><strong>النتيجة:</strong> عادت بـ "Very Weak" مع وقت كسر قصير - يعمل</p>
+<p><strong>الاختبار:</strong> أدخلت كلمة مرور قوية (16+ حرف مع رموز)</p>
+<p><strong>النتيجة:</strong> عادت بـ "Very Strong" مع وقت كسر طويل - يعمل</p>
+</div>
+
+<h3>Hash Generator</h3>
+<div class="success">
+<p><strong>الاختبار:</strong> أدخلت "test"</p>
+<p><strong>النتيجة:</strong> عادت بـ 4 hashes (MD5, SHA-1, SHA-256, SHA-512) - تعمل</p>
+</div>
+
+<h3>IP Lookup</h3>
+<div class="success">
+<p><strong>الاختبار:</strong> أدخلت "8.8.8.8" (Google DNS)</p>
+<p><strong>النتيجة:</strong> عادت بمعلومات: Mountain View, California, United States, Google LLC - يعمل</p>
+</div>
+
+<h3>URL Safety Checker</h3>
+<div class="success">
+<p><strong>الاختبار:</strong> أدخلت "http://g00gle.com/login"</p>
+<p><strong>النتيجة:</strong> عادت بـ "Suspicious" مع score منخفض + تحذيرات Typosquatting و HTTP - يعمل</p>
+</div>
+
+<h3>Port Scanner</h3>
+<div class="success">
+<p><strong>الاختبار:</strong> أدخلت "192.168.1.1"</p>
+<p><strong>النتيجة:</strong> فحص 16 منفذ مع شريط تقدم متحرك ونتائج (محاكاة) - يعمل</p>
+</div>
+
+<h3>AI Chat</h3>
+<div class="success">
+<p><strong>الاختبار:</strong> سألت "What is cybersecurity?"</p>
+<p><strong>النتيجة:</strong> عادت بإجابة من NVIDIA API - يعمل</p>
+<p><strong>الاختبار:</strong> سألت "What is 2+2?"</p>
+<p><strong>النتيجة:</strong> عادت بـ "4" - يعمل لأي موضوع</p>
+</div>
+
+<h2>10.3 اختبار المحاكاة (Dark Web Simulation)</h2>
+<div class="success">
+<p><strong>الصفحات المختبرة:</strong> Landing, Disclaimer, Wiki, Marketplace, Forum, Chat, Mixer, Education, Debrief</p>
+<p><strong>النتيجة:</strong> جميع الصفحات تعمل بشكل سلس</p>
+<p><strong>الأمان:</strong> جميع المراجع الحقيقية أُزيلت - يستخدم .sim بدلاً من .onion</p>
+<p><strong>زر الطوارئ:</strong> يعمل بشكل صحيح</p>
+<p><strong>المؤقت:</strong> 15 ثانية يعمل بشكل صحيح</p>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم الحادي عشر ==================== -->
+<h1 id="sec11"><span class="section-number">11</span> تحليل الأمان الداخلي</h1>
+
+<h2>11.1 ملخص الثغرات</h2>
+<table>
+  <tr><th>#</th><th>الثغرة</th><th>الشدة</th><th>الحالة</th></tr>
+  <tr><td>1</td><td>تسريب مفاتيح API في الكود</td><td>حرج</td><td>مكشوفة</td></tr>
+  <tr><td>2</td><td>عدم وجود Rate Limiting</td><td>عالي</td><td>مكشوفة</td></tr>
+  <tr><td>3</td><td>XSS محتمل</td><td>متوسط</td><td>مكشوفة</td></tr>
+  <tr><td>4</td><td>CORS غير مُعرّف</td><td>متوسط</td><td>مكشوفة</td></tr>
+  <tr><td>5</td><td>HTTP في IP Lookup</td><td>منخفض</td><td>مكشوفة</td></tr>
+</table>
+
+<h2>11.2 المخاطر الأمنية</h2>
+
+<div class="danger">
+<h3>مخاطر مفاتيح API المُسربة</h3>
+<ul>
+  <li>يمكن لـ AI أن يستهلك رصيد API (NVIDIA: محدود، Kimi: محدود، OpenRouter: محدود)</li>
+  <li>يمكن للمهاجم استخدام المفاتيح لأغراض أخرى</li>
+  <li>التكلفة المالية المحتملة إذا كانت المفاتيح مدفوعة</li>
+</ul>
+<p><strong>الحل:</strong> نقل المفاتيح لـ .env.local واستبعادها من Git</p>
+</div>
+
+<h2>11.3 نقاط القوة الأمنية</h2>
+<div class="success">
+<ul>
+  <li>لا يوجد قاعدة بيانات حساسة مربوطة</li>
+  <li>جميع البيانات محاكاة وليست حقيقية</li>
+  <li>React يمنع XSS بشكل تلقائي</li>
+  <li>النطاقات المحاكاة (.sim) لا تتصل بشبكات حقيقية</li>
+  <li>زر الطوارئ متاح دائماً</li>
+  <li>التحذيرات القانونية واضحة</li>
+</ul>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ==================== القسم الثاني عشر ==================== -->
+<h1 id="sec12"><span class="section-number">12</span> الخاتمة والتوصيات</h1>
+
+<h2>12.1 ملخص الإنجازات</h2>
+<div class="highlight">
+<p>تم بناء موقع Portfolio احترافي يحتوي على:</p>
+<ul>
+  <li><strong>12 صفحة رئيسية</strong> بتصميم متماثل</li>
+  <li><strong>21 أداة أمنية</strong> تفاعلية</li>
+  <li><strong>محاكاة واقعية</strong> للويب المظلم</li>
+  <li><strong>مساعد ذكاء اصطناعي</strong> متعدد المزوّدين</li>
+  <li><strong>مركز معرفة</strong> شامل بـ 12 تبويب</li>
+  <li><strong>47 موقع أمني</strong> مصنف</li>
+  <li><strong>تأثيرات بصرية</strong> متقدمة (GSAP, Matrix Rain, 3D Robot)</li>
+  <li><strong>تصميم متجاوب</strong> لجميع الأجهزة</li>
+</ul>
+</div>
+
+<h2>12.2 التوصيات الأمنية</h2>
+<ol>
+  <li><strong>نقر حرج:</strong> نقل مفاتيح API لـ environment variables فوراً</li>
+  <li><strong>مهم:</strong> إضافة rate limiting لجميع API Routes</li>
+  <li><strong>مهم:</strong> إضافة CORS headers صريحة</li>
+  <li><strong>متوسط:</strong> إضافة input sanitization إضافية</li>
+  <li><strong>منخفض:</strong> استخدام HTTPS لجميع طلبات API الخارجية</li>
+  <li><strong>تحسين:</strong> إضافة CSP headers (Content Security Policy)</li>
+  <li><strong>تحسين:</strong> إضافة logging للمراقبة</li>
+</ol>
+
+<h2>12.3 التوصيات التقنية</h2>
+<ol>
+  <li>إضافة اختبارات آلية (Unit Tests + Integration Tests)</li>
+  <li>إضافة CI/CD pipeline</li>
+  <li>تحسين SEO مع meta tags</li>
+  <li>إضافة analytics لتتبع الزوار</li>
+  <li>تحسين Accessibility (a11y)</li>
+  <li>إضافة Service Worker للعمل بدون إنترنت</li>
+</ol>
+
+<hr>
+
+<div style="text-align: center; padding: 40px 0; color: #999;">
+  <p>تقرير تم إعداده بواسطة Ahmed Ezzat</p>
+  <p>تاريخ الإعداد: 13 يونيو 2026</p>
+  <p>الإصدار: 1.0</p>
+  <p style="color: #df2531; font-weight: bold;">Ahmed Ezzat - Cybersecurity Portfolio</p>
+</div>
+
+</body>
+</html>
