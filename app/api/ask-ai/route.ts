@@ -85,8 +85,12 @@ export async function POST(req: NextRequest) {
 
     for (const provider of providers) {
       try {
-        if (!provider.apiKey) continue;
+        if (!provider.apiKey) {
+          console.error(`[AI] ${provider.name}: no API key configured`);
+          continue;
+        }
 
+        console.error(`[AI] Trying ${provider.name}...`);
         const response = await fetch(provider.url, {
           method: 'POST',
           headers: {
@@ -106,6 +110,7 @@ export async function POST(req: NextRequest) {
         });
 
         if (!response.ok) {
+          console.error(`[AI] ${provider.name}: HTTP ${response.status}`);
           lastError = `Service unavailable`;
           continue;
         }
@@ -119,6 +124,7 @@ export async function POST(req: NextRequest) {
         const data = await response.json();
         
         if (data.choices?.[0]?.message?.content) {
+          console.error(`[AI] ${provider.name}: SUCCESS`);
           const content = data.choices[0].message.content
             .replace(/<[^>]*>/g, '')
             .trim();
