@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import { useLanguage } from '@/contexts/language-context';
 
+import Spline from '@splinetool/react-spline';
+
 class SplineErrorBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { hasError: boolean }> {
   state = { hasError: false };
   static getDerivedStateFromError() { return { hasError: true }; }
@@ -149,21 +151,6 @@ function CyberRobotFallback() {
   );
 }
 
-function SplineLoader() {
-  const [Comp, setComp] = useState<React.ComponentType<{ scene: string; className?: string }> | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    import('@splinetool/react-spline').then((mod) => {
-      if (!cancelled) setComp(() => mod.default);
-    }).catch(() => {});
-    return () => { cancelled = true; };
-  }, []);
-
-  if (!Comp) return <CyberRobotFallback />;
-  return <Comp scene="/scene.splinecode" className="w-full h-full" />;
-}
-
 function SplineDeferred() {
   const [load, setLoad] = useState(false);
   useEffect(() => {
@@ -175,7 +162,7 @@ function SplineDeferred() {
 
   return (
     <SplineErrorBoundary fallback={<CyberRobotFallback />}>
-      <SplineLoader />
+      <Spline scene="/scene.splinecode" className="w-full h-full" />
     </SplineErrorBoundary>
   );
 }
