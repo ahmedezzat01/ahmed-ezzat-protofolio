@@ -26,9 +26,14 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const isMobile = window.innerWidth < 768;
+    const scaleFactor = isMobile ? 0.5 : 1;
+
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth * scaleFactor;
+      canvas.height = window.innerHeight * scaleFactor;
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
     };
 
     resizeCanvas();
@@ -43,11 +48,12 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
     }
 
     let lastTime = 0;
-    const interval = 50 / speed;
+    const interval = isMobile ? 100 / speed : 50 / speed;
+    let animId: number;
 
     const draw = (time: number) => {
       if (time - lastTime < interval) {
-        requestAnimationFrame(draw);
+        animId = requestAnimationFrame(draw);
         return;
       }
       lastTime = time;
@@ -68,10 +74,10 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
         drops[i] += speed;
       }
 
-      requestAnimationFrame(draw);
+      animId = requestAnimationFrame(draw);
     };
 
-    const animId = requestAnimationFrame(draw);
+    animId = requestAnimationFrame(draw);
 
     return () => {
       cancelAnimationFrame(animId);
