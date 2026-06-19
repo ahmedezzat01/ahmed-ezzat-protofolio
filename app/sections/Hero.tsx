@@ -1,171 +1,21 @@
 'use client';
-import { useEffect, useRef, useState, Component, ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Shield, ChevronDown, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import Link from 'next/link';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 import { useLanguage } from '@/contexts/language-context';
+import dynamic from 'next/dynamic';
 
-import Spline from '@splinetool/react-spline';
-
-class SplineErrorBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { hasError: boolean }> {
-  state = { hasError: false };
-  static getDerivedStateFromError() { return { hasError: true }; }
-  render() {
-    if (this.state.hasError) return this.props.fallback;
-    return this.props.children;
-  }
-}
-
-function CyberRobotFallback() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const size = 400;
-    canvas.width = size;
-    canvas.height = size;
-    const cx = size / 2;
-    const cy = size / 2;
-    let frame = 0;
-    let animId: number;
-
-    const draw = () => {
-      frame++;
-      ctx.clearRect(0, 0, size, size);
-      const time = frame * 0.02;
-
-      // Outer rotating ring
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(time * 0.3);
-      ctx.strokeStyle = 'rgba(223, 37, 49, 0.15)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.ellipse(0, 0, 160, 160, 0, 0, Math.PI * 2);
-      ctx.stroke();
-      for (let i = 0; i < 24; i++) {
-        const angle = (i / 24) * Math.PI * 2;
-        const x = Math.cos(angle) * 160;
-        const y = Math.sin(angle) * 160;
-        ctx.fillStyle = `rgba(223, 37, 49, ${0.3 + Math.sin(time + i) * 0.2})`;
-        ctx.beginPath();
-        ctx.arc(x, y, 1.5, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.restore();
-
-      // Inner ring
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(-time * 0.5);
-      ctx.strokeStyle = 'rgba(223, 37, 49, 0.1)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.ellipse(0, 0, 120, 120, 0, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.restore();
-
-      // Grid
-      ctx.strokeStyle = 'rgba(223, 37, 49, 0.06)';
-      ctx.lineWidth = 0.5;
-      for (let i = -200; i <= 200; i += 40) {
-        ctx.beginPath();
-        ctx.moveTo(cx + i, 0);
-        ctx.lineTo(cx + i, size);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(0, cy + i);
-        ctx.lineTo(size, cy + i);
-        ctx.stroke();
-      }
-
-      // Glow
-      const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 80);
-      grd.addColorStop(0, 'rgba(223, 37, 49, 0.2)');
-      grd.addColorStop(0.5, 'rgba(223, 37, 49, 0.05)');
-      grd.addColorStop(1, 'transparent');
-      ctx.fillStyle = grd;
-      ctx.fillRect(0, 0, size, size);
-
-      // Shield
-      ctx.save();
-      ctx.translate(cx, cy);
-      const pulse = 1 + Math.sin(time * 2) * 0.03;
-      ctx.scale(pulse, pulse);
-      ctx.strokeStyle = 'rgba(223, 37, 49, 0.9)';
-      ctx.lineWidth = 2;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(0, -35);
-      ctx.lineTo(28, -20);
-      ctx.lineTo(28, 8);
-      ctx.quadraticCurveTo(28, 30, 0, 40);
-      ctx.quadraticCurveTo(-28, 30, -28, 8);
-      ctx.lineTo(-28, -20);
-      ctx.closePath();
-      ctx.stroke();
-      ctx.fillStyle = 'rgba(223, 37, 49, 0.1)';
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(223, 37, 49, 0.6)';
-      ctx.lineWidth = 1.5;
-      for (let i = 0; i < 4; i++) {
-        const y = -15 + i * 12;
-        const w = 20 - Math.abs(i - 1.5) * 4;
-        ctx.beginPath();
-        ctx.moveTo(-w, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
-      }
-
-      // Particles
-      for (let i = 0; i < 6; i++) {
-        const angle = time * 0.5 + (i / 6) * Math.PI * 2;
-        const r = 100 + Math.sin(time + i * 2) * 20;
-        const px = Math.cos(angle) * r;
-        const py = Math.sin(angle) * r;
-        ctx.fillStyle = `rgba(223, 37, 49, ${0.3 + Math.sin(time * 2 + i) * 0.2})`;
-        ctx.beginPath();
-        ctx.arc(px, py, 2, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.restore();
-
-      animId = requestAnimationFrame(draw);
-    };
-
-    animId = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(animId);
-  }, []);
-
-  return (
+const SplineScene = dynamic(() => import('@/components/ui/splite').then(m => m.SplineScene), {
+  ssr: false,
+  loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <canvas ref={canvasRef} style={{ width: 400, height: 400, maxWidth: '100%' }} />
+      <div className="w-32 h-32 border-4 border-cyber-red/20 border-t-cyber-red rounded-full animate-spin" />
     </div>
-  );
-}
-
-function SplineDeferred() {
-  const [load, setLoad] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setLoad(true), 100);
-    return () => clearTimeout(t);
-  }, []);
-
-  if (!load) return <CyberRobotFallback />;
-
-  return (
-    <SplineErrorBoundary fallback={<CyberRobotFallback />}>
-      <Spline scene="/scene.splinecode" className="w-full h-full" />
-    </SplineErrorBoundary>
-  );
-}
+  ),
+});
 
 function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -190,6 +40,30 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
   }, [isInView, target]);
 
   return <div ref={ref} className="text-2xl md:text-3xl font-bold text-gradient-blue-red">{count}{suffix}</div>;
+}
+
+function SplineDeferred() {
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoad(true), 100);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (!load) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <div className="w-24 h-24 border-4 border-cyber-red/20 border-t-cyber-red rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  return (
+    <SplineScene
+      scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+      className="w-full h-full"
+    />
+  );
 }
 
 export function Hero() {
@@ -283,6 +157,7 @@ export function Hero() {
           </motion.div>
         </div>
 
+        {/* 3D Robot — deferred load */}
         <div className="hidden lg:flex items-center justify-center relative" style={{ width: '750px', height: '750px', marginLeft: '-100px' }}>
           <SplineDeferred />
         </div>

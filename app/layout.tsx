@@ -3,7 +3,6 @@ import "./globals.css";
 import { GlobalSearch } from "@/components/global-search";
 import { GlobalAIChat } from "@/components/global-ai-chat";
 import { CyberCursor } from "@/components/cyber-cursor";
-import { GlobalErrorBoundary } from "@/components/global-error-boundary";
 
 export const metadata: Metadata = {
   title: "CyberSec Portfolio | Cybersecurity Professional",
@@ -54,9 +53,7 @@ export default function RootLayout({
         <GlobalSearch />
         <GlobalAIChat />
         <CyberCursor />
-        <GlobalErrorBoundary>
-          {children}
-        </GlobalErrorBoundary>
+        {children}
       </body>
     </html>
   );
