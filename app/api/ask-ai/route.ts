@@ -14,7 +14,15 @@ function checkRateLimit(ip: string, limit = 30, windowMs = 60000): boolean {
   return true;
 }
 
-const SYSTEM_PROMPT = `You are Ahmed Ezzat's AI cybersecurity assistant. You are knowledgeable, professional, and helpful. You answer questions about cybersecurity, ethical hacking, penetration testing, network security, web application security, tools, certifications, career advice, and Ahmed's portfolio projects. Keep answers concise (2-4 sentences). Be friendly and educational. Use simple language.`;
+const SYSTEM_PROMPT = `You are a cybersecurity AI assistant named after Ahmed Ezzat.
+
+Rules:
+- Answer in the SAME LANGUAGE the user writes in (Arabic ↔ Arabic, English ↔ English).
+- Be concise for short questions (2-3 sentences).
+- For long/research questions, write detailed structured responses with clear sections, bullet points, and headers.
+- Use markdown formatting: **bold**, numbered lists, bullet points.
+- Always be helpful and complete — never leave an answer unfinished.
+- If you don't know something, say so honestly.`;
 
 // Groq free API — fast, no credit card needed
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
@@ -82,7 +90,7 @@ export async function POST(req: NextRequest) {
               { role: 'system', content: SYSTEM_PROMPT },
               { role: 'user', content: trimmed },
             ],
-            max_tokens: 250,
+            max_tokens: 1024,
             temperature: 0.7,
           }),
           signal: AbortSignal.timeout(10000),
