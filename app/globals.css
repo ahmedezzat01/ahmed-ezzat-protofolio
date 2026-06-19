@@ -318,8 +318,10 @@ section {
   animation: marquee 20s linear infinite;
 }
 
-/* Cyber Ring Cursor */
-* { cursor: none !important; }
+/* Cyber Ring Cursor — desktop only */
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
+}
 
 .cyber-cursor {
   position: fixed;

@@ -68,12 +68,12 @@ export function Skills() {
     const ctx = gsap.context(() => {
       gsap.fromTo('.skill-bar',
         { width: 0 }, { width: '100%', duration: 1, stagger: 0.05, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none none' }
         }
       );
       gsap.fromTo('.skill-category',
         { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none none' }
         }
       );
     }, sectionRef);

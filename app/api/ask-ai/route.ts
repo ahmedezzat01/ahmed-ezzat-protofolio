@@ -14,15 +14,15 @@ function checkRateLimit(ip: string, limit = 30, windowMs = 60000): boolean {
   return true;
 }
 
-const SYSTEM_PROMPT = `You are a cybersecurity AI assistant named after Ahmed Ezzat.
+const SYSTEM_PROMPT = `أنت مساعد ذكي للcybersecurity اسمك Ahmed Ezzat.
 
-Rules:
-- Answer in the SAME LANGUAGE the user writes in (Arabic ↔ Arabic, English ↔ English).
-- Be concise for short questions (2-3 sentences).
-- For long/research questions, write detailed structured responses with clear sections, bullet points, and headers.
-- Use markdown formatting: **bold**, numbered lists, bullet points.
-- Always be helpful and complete — never leave an answer unfinished.
-- If you don't know something, say so honestly.`;
+قواعد صارمة:
+- تكلّم بالعربي بس. دايماً بالعربي. حتى لو السؤال بالإنجليزي، رد بالعربي.
+- لو السؤال قصير، رد قصير (2-3 جمل).
+- لو السؤال بحث/تفصيل، اكتب تفصيل مع عناوين ونقاط ومجلدات.
+- استخدم markdown: **غامق**، قوائم مرقمة، نقاط.
+- لو معرفتش حاجة، قول بوضوح "مش عارف".
+- ابدأ ردك دائماً بجملة مباشرة تجاوب على السؤال.`;
 
 // Groq free API — fast, no credit card needed
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
@@ -31,32 +31,43 @@ const GROQ_KEY = process.env.GROQ_API_KEY || '';
 function findLocalResponse(query: string): string {
   const lower = query.toLowerCase();
 
-  if (lower.includes('penetration test') || lower.includes('pentest'))
-    return "Penetration testing is the authorized practice of bypassing security controls to identify vulnerabilities before attackers do. It follows phases: Reconnaissance → Scanning → Exploitation → Post-Exploitation → Ahmed is skilled in network and web app pentesting, using tools like Nmap, Burp Suite, and Metasploit.";
-  if (lower.includes('ahmed') || lower.includes('who') || lower.includes('portfolio'))
-    return "Ahmed Ezzat is a cybersecurity professional and IT Manager based in Egypt. He holds CCNA, CCEP, Red Hat Linux Administration, and Google Cybersecurity Professional certifications. This portfolio showcases his projects, tools, and expertise across 15+ security domains.";
-  if (lower.includes('tool') || lower.includes('scanner'))
-    return "Essential cybersecurity tools: Nmap (network scanning), Burp Suite (web app testing), Metasploit (exploitation), Wireshark (packet analysis), John the Ripper (password cracking), and OWASP ZAP (vulnerability scanning). Ahmed's Security Hub covers 21+ tools with detailed guides.";
-  if (lower.includes('career') || lower.includes('job') || lower.includes('salary'))
-    return "Cybersecurity career paths: SOC Analyst L1 ($60-80K) → Senior ($100-130K), Pentester ($90-170K), Security Architect ($130-180K), CISO ($200K+). Key certifications: Security+, CEH, OSCP, CISSP. The field has a 3.5M professional shortage globally.";
-  if (lower.includes('cert') || lower.includes('oscp') || lower.includes('ceh'))
-    return "Ahmed holds CCNA, CCEP, Red Hat Linux Administration, and Google Cybersecurity certifications. Recommended for pentesters: Security+ (entry), CEH (mid), OSCP (hands-on pentest), CISSP (management).";
-  if (lower.includes('linux') || lower.includes('command'))
-    return "Essential Linux commands: nmap (scan), netstat (connections), tcpdump (traffic), chmod/chown (permissions), grep/awk (text), find (files), ps/top (processes), iptables (firewall). Ahmed is RHCSA certified.";
-  if (lower.includes('network') || lower.includes('firewall'))
-    return "Network security fundamentals: firewalls (pfSense, iptables), IDS/IPS (Snort, Suricata), segmentation, VPNs, Zero Trust Architecture. Ahmed's CCNA covers routing, switching, VLANs, ACLs, and NAT.";
-  if (lower.includes('malware') || lower.includes('ransomware'))
-    return "Malware types: Ransomware (encrypts files), Trojans (disguised), worms (self-replicating), rootkits (hidden). Prevention: updated AV/EDR, user training, offline backups. Average ransomware cost: $4.54M per incident.";
-  if (lower.includes('xss') || lower.includes('cross-site'))
-    return "XSS injects malicious scripts into web pages. Types: Reflected (URL), Stored (database), DOM-based. Prevention: output encoding, CSP, HTTPOnly cookies. XSS can steal sessions, redirect users, or deface sites.";
-  if (lower.includes('sql') || lower.includes('injection'))
-    return "SQL Injection exploits unsafe database queries. Types: Union-based, Blind (boolean/time), Error-based. Prevention: parameterized queries, prepared statements, ORM. SQLMap automates detection and exploitation.";
-  if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey'))
-    return "Hello! I'm Ahmed's AI cybersecurity assistant. I can help with penetration testing, security tools, certifications, career advice, network security, web vulnerabilities, and more. What would you like to know?";
-  if (lower.includes('thank'))
-    return "You're welcome! Feel free to ask more questions about cybersecurity, tools, certifications, or Ahmed's projects. I'm here to help!";
+  if (lower.includes('penetration test') || lower.includes('pentest') || lower.includes('اختراق') || lower.includes(' اختبار'))
+    return "الاختراق الأخلاقي (Penetration Testing) هو عملية اختبار أمني مصرّح بيها للكشف عن الثغرات قبل المهاجمين. بيتبع مراحل: الاستطلاع → الفحص → الاستغلال → ما بعد الاستغلال. Ahmed متخصص في اختبار اختراق الشبكات وتطبيقات الويب باستخدام أدوات زي Nmap و Burp Suite و Metasploit.";
 
-  return `That's a great question! While I specialize in cybersecurity topics like penetration testing, network security, web app security, tools, certifications, and career advice — I'd be happy to try answering your question. Could you tell me more about what you'd like to know?`;
+  if (lower.includes('ahmed') || lower.includes('who') || lower.includes('portfolio') || lower.includes('اهمد') || lower.includes('ポート'))
+    return "Ahmed Ezzat متخصص في الأمن السيبراني و Manager IT مقيم في مصر. عنده شهادات CCNA و CCEP و Red Hat Linux Administration و Google Cybersecurity Professional. البورتفوليو ده بياور على مشاريعه وأدواته وخبراته في أكثر من 15 مجال أمني.";
+
+  if (lower.includes('tool') || lower.includes('scanner') || lower.includes('ادوات') || lower.includes('أداة'))
+    return "أهم أدوات الأمن السيبراني: Nmap (فحص الشبكات), Burp Suite (اختبار تطبيقات الويب), Metasploit (الاستغلال), Wireshark (تحليل الحزم), John the Ripper (كسر كلمات المرور), OWASP ZAP (فحص الثغرات). Ahmed في Security Hub بتاعه بيغطي 21+ أداة مع شرح تفصيلي.";
+
+  if (lower.includes('career') || lower.includes('job') || lower.includes('salary') || lower.includes('وظيفة') || lower.includes('راتب'))
+    return "مسارات الوظائف في الأمن السيبراني: SOC Analyst L1 ($60-80K) → Senior ($100-130K), Pentester ($90-170K), Security Architect ($130-180K), CISO ($200K+). أهم الشهادات: Security+, CEH, OSCP, CISSP. المجال ناقصه 3.5 مليون محترف حول العالم.";
+
+  if (lower.includes('cert') || lower.includes('oscp') || lower.includes('ceh') || lower.includes('شهادة') || lower.includes('certification'))
+    return "Ahmed عنده CCNA و CCEP و Red Hat Linux Administration و Google Cybersecurity. للـ Pentesters: Security+ (入门), CEH (متوسط), OSCP (عملي), CISSP (إداري).";
+
+  if (lower.includes('linux') || lower.includes('command') || lower.includes('لنكس') || lower.includes('أوامر'))
+    return "أهم أوامر Linux: nmap (فحص), netstat (اتصالات), tcpdump (حركة), chmod/chown (صلاحيات), grep/awk (نص), find (ملفات), ps/top (عمليات), iptables (جدار حماية). Ahmed عنده شهادة RHCSA.";
+
+  if (lower.includes('network') || lower.includes('firewall') || lower.includes('شبكة') || lower.includes('جدار'))
+    return "أساسيات أمن الشبكات: جدران الحماية (pfSense, iptables), IDS/IPS (Snort, Suricata), الت segmentation, VPNs, الصفر ثقة. Ahmed شهادة CCNA بتغطي الـ routing و switching و VLANs و ACLs و NAT.";
+
+  if (lower.includes('malware') || lower.includes('ransomware') || lower.includes(' Program') || lower.includes('勒索'))
+    return "أنواع البرمجيات الخبيثة: Ransomware (مشفر الملفات), Trojans (متنكر), Worms (بيتكاثر لوحده), Rootkits (مختفي). الوقاية: مكافحة فيروسات محدثة, تدريب المستخدمين, نسخ احتياطي. متوسط تكلفة الهجوم: $4.54 مليون.";
+
+  if (lower.includes('xss') || lower.includes('cross-site') || lower.includes('ثغرة'))
+    return "XSS بحقن سكريبتات خبيثة في صفحات الويب. الأنواع: Reflected (في الرابط), Stored (في قاعدة البيانات), DOM-based. الوقاية: تشفير المخرجات, CSP, cookies HTTPOnly. XSS ممكن يسرق الجلسات ويوجه المستخدمين.";
+
+  if (lower.includes('sql') || lower.includes('injection') || lower.includes('حقن') || lower.includes('SQL'))
+    return "SQL Injection بيستغل استعلامات قاعدة البيانات غير الآمنة. الأنواع: Union-based, Blind (boolean/time), Error-based. الوقاية: استعلامات مُعدّة مسبقاً, ORM. SQLMap بيكشف وبيستغل تلقائياً.";
+
+  if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey') || lower.includes('مرحبا') || lower.includes('اهلا') || lower.includes('السلام'))
+    return "أهلاً! أنا مساعد Ahmed للأمن السيبراني. أقدر أساعدك في اختبار الاختراق, أدوات الأمان, الشهادات, نصائح الوظائف, أمن الشبكات, ثغرات الويب, والمزيد. عايز تعرف إيه؟";
+
+  if (lower.includes('thank') || lower.includes('شكر') || lower.includes('ممنون'))
+    return "عفواً! تقدر تسأل أي سؤال تاني عن الأمن السيبراني, الأدوات, الشهادات, أو مشاريع Ahmed. أنا موجود أساعدك!";
+
+  return `سؤال حلو! أنا متخصص في مواضيع الأمن السيبراني زي اختبار الاختراق, أمن الشبكات, أمن تطبيقات الويب, الأدوات, الشهادات, ونصائح الوظائف — بس أقدر أساعدك في أي سؤال. اسألني عن أي حاجة!`;
 }
 
 export async function POST(req: NextRequest) {

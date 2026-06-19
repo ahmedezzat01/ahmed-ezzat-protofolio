@@ -111,17 +111,18 @@ export function SecurityTools() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
     const ctx = gsap.context(() => {
       gsap.fromTo('.tool-card',
-        { opacity: 0, y: 60, scale: 0.9 },
+        { opacity: 0, y: isMobile ? 30 : 60, scale: isMobile ? 1 : 0.9 },
         {
           opacity: 1, y: 0, scale: 1,
-          duration: 0.8, stagger: 0.2,
-          ease: 'back.out(1.7)',
+          duration: isMobile ? 0.4 : 0.8, stagger: isMobile ? 0.05 : 0.2,
+          ease: isMobile ? 'power2.out' : 'back.out(1.7)',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none reverse'
+            start: 'top 80%',
+            toggleActions: 'play none none none'
           }
         }
       );

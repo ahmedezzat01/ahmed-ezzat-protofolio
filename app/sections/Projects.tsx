@@ -64,7 +64,7 @@ export function Projects() {
             trigger: sectionRef.current,
             start: 'top 70%',
             end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
+            toggleActions: 'play none none none'
           }
         }
       );

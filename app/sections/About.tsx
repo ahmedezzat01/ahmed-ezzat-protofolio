@@ -174,13 +174,13 @@ export function About() {
       gsap.fromTo('.about-card',
         { opacity: 0, y: 50, rotateX: 15 },
         { opacity: 1, y: 0, rotateX: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none none' }
         }
       );
       gsap.fromTo('.stat-item',
         { opacity: 0, scale: 0.8 },
         { opacity: 1, scale: 1, duration: 0.5, stagger: 0.1, ease: 'back.out(1.7)',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 60%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 60%', toggleActions: 'play none none none' }
         }
       );
     }, sectionRef);

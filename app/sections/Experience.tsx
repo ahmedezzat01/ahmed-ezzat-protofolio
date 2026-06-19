@@ -98,12 +98,12 @@ export function Experience() {
       gsap.fromTo('.timeline-item',
         { opacity: 0, x: -50, scale: 0.95 },
         { opacity: 1, x: 0, scale: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', toggleActions: 'play none none none' }
         }
       );
       gsap.fromTo('.timeline-line',
         { scaleY: 0 }, { scaleY: 1, duration: 1.5, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play none none reverse' }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', toggleActions: 'play none none none' }
         }
       );
     }, sectionRef);
