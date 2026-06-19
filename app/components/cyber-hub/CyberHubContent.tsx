@@ -18,7 +18,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
-      className="p-1 hover:bg-muted rounded transition-colors"
+      className="p-2 hover:bg-muted rounded transition-colors"
     >
       {copied ? <Check className="w-3 h-3 text-cyber-red" /> : <Copy className="w-3 h-3 text-muted-foreground" />}
     </button>
@@ -173,7 +173,7 @@ function ToolsSection() {
       <div className="flex flex-wrap gap-2 mb-6">
         {categories.map((c) => (
           <button key={c} onClick={() => setFilter(c)}
-            className={`px-3 py-1 text-xs rounded-lg border transition-all ${filter === c ? 'border-cyber-red bg-cyber-red/10 text-cyber-red' : 'border-border text-muted-foreground hover:border-border/80'}`}>
+            className={`px-3 py-2 text-xs rounded-lg border transition-all ${filter === c ? 'border-cyber-red bg-cyber-red/10 text-cyber-red' : 'border-border text-muted-foreground hover:border-border/80'}`}>
             {c}
           </button>
         ))}
@@ -399,7 +399,7 @@ function HackingConceptsSection() {
       <div className="flex flex-wrap gap-2 mb-6">
         {categories.map((c) => (
           <button key={c} onClick={() => setSelectedCategory(c)}
-            className={`px-3 py-1 text-xs rounded-lg border transition-all ${selectedCategory === c ? 'border-cyber-red bg-cyber-red/10 text-cyber-red' : 'border-border text-muted-foreground hover:border-border/80'}`}>
+            className={`px-3 py-2 text-xs rounded-lg border transition-all ${selectedCategory === c ? 'border-cyber-red bg-cyber-red/10 text-cyber-red' : 'border-border text-muted-foreground hover:border-border/80'}`}>
             {c}
           </button>
         ))}
@@ -438,7 +438,7 @@ function TipsSection() {
       <div className="flex flex-wrap gap-2 mb-6">
         {levels.map((l) => (
           <button key={l} onClick={() => setSelectedLevel(l)}
-            className={`px-3 py-1 text-xs rounded-lg border transition-all ${selectedLevel === l ? 'border-cyber-red bg-cyber-red/10 text-cyber-red' : 'border-border text-muted-foreground hover:border-border/80'}`}>
+            className={`px-3 py-2 text-xs rounded-lg border transition-all ${selectedLevel === l ? 'border-cyber-red bg-cyber-red/10 text-cyber-red' : 'border-border text-muted-foreground hover:border-border/80'}`}>
             {l}
           </button>
         ))}

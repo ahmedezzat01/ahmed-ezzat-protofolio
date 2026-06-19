@@ -83,7 +83,7 @@ export function Navigation() {
                 <FileText className="w-3.5 h-3.5" /> CV
               </a>
 
-              <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden w-9 h-9 rounded-lg bg-muted/50 border border-border flex items-center justify-center">
+              <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden w-11 h-11 rounded-lg bg-muted/50 border border-border flex items-center justify-center">
                 {isOpen ? <X className="w-4 h-4 text-foreground" /> : <Menu className="w-4 h-4 text-foreground" />}
               </button>
             </div>
@@ -94,17 +94,21 @@ export function Navigation() {
       <AnimatePresence>
         {isOpen && (
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-20 px-4">
-            <div className="flex flex-col gap-2">
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-20 px-4 overflow-y-auto">
+            <div className="flex flex-col gap-2 max-h-[calc(100vh-80px)]">
+              <button onClick={() => { setSearchOpen(true); setIsOpen(false); }}
+                className="px-4 py-4 text-lg text-foreground hover:text-cyber-red hover:bg-muted/50 rounded-lg transition-colors flex items-center gap-3">
+                <Search className="w-5 h-5" /> Search
+              </button>
               {navItems.map((item) => (
                 item.href.startsWith('/#') ? (
                   <a key={item.label} href={item.href} onClick={() => setIsOpen(false)}
-                    className="px-4 py-3 text-lg text-foreground hover:text-cyber-red hover:bg-muted/50 rounded-lg transition-colors">
+                    className="px-4 py-4 text-lg text-foreground hover:text-cyber-red hover:bg-muted/50 rounded-lg transition-colors">
                     {item.label}
                   </a>
                 ) : (
                   <Link key={item.label} href={item.href} onClick={() => setIsOpen(false)}
-                    className="px-4 py-3 text-lg text-foreground hover:text-cyber-red hover:bg-muted/50 rounded-lg transition-colors">
+                    className="px-4 py-4 text-lg text-foreground hover:text-cyber-red hover:bg-muted/50 rounded-lg transition-colors">
                     {item.label}
                   </Link>
                 )

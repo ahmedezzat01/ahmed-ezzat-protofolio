@@ -111,8 +111,8 @@ export function GlobalAIChat() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-36 right-5 z-[90] w-[380px] max-w-[calc(100vw-3rem)] bg-card border border-border rounded-2xl shadow-2xl overflow-hidden flex flex-col"
-            style={{ height: '500px', maxHeight: 'calc(100vh - 150px)' }}
+            className="fixed bottom-20 right-2 z-[90] w-[calc(100vw-1rem)] md:right-5 md:w-[380px] md:max-w-[calc(100vw-2rem)] bg-card border border-border rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            style={{ height: 'min(500px, calc(100vh - 100px))' }}
           >
             {/* Header */}
             <div className="bg-cyber-red/10 border-b border-border px-4 py-3 flex items-center gap-3">
@@ -243,7 +243,7 @@ export function GlobalAIChat() {
                 <button
                   onClick={() => handleSubmit()}
                   disabled={!input.trim() || isLoading}
-                  className="absolute right-2 w-8 h-8 rounded-lg bg-cyber-red flex items-center justify-center hover:bg-cyber-red/80 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                  className="absolute right-2 w-10 h-10 rounded-lg bg-cyber-red flex items-center justify-center hover:bg-cyber-red/80 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 >
                   {isLoading ? (
                     <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />

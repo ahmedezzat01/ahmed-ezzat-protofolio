@@ -126,7 +126,7 @@ export function Notifications() {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-16 right-0 w-80 bg-card border border-border rounded-xl shadow-2xl overflow-hidden"
+            className="absolute bottom-16 right-0 w-80 max-w-[calc(100vw-2.5rem)] bg-card border border-border rounded-xl shadow-2xl overflow-hidden"
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-border">
               <h3 className="text-foreground font-semibold">Security News</h3>
@@ -143,7 +143,7 @@ export function Notifications() {
               </div>
             </div>
 
-            <div className="max-h-[400px] overflow-y-auto">
+            <div className="max-h-[60vh] overflow-y-auto">
               {notifications.length > 0 ? (
                 notifications.map((notif) => (
                   <div
@@ -156,11 +156,11 @@ export function Notifications() {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
                           <h4 className="text-sm text-foreground font-medium truncate">{notif.title}</h4>
-                          <button
+                           <button
                             onClick={(e) => { e.stopPropagation(); removeNotification(notif.id); }}
-                            className="text-muted-foreground hover:text-foreground ml-2"
+                            className="w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-foreground ml-2 shrink-0"
                           >
-                            <X size={12} />
+                            <X size={14} />
                           </button>
                         </div>
                         <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{notif.message}</p>
@@ -190,7 +190,7 @@ export function Notifications() {
 
             <div className="px-4 py-2 border-t border-border text-center">
               <button onClick={fetchNews}
-                className="text-xs text-cyber-red hover:text-cyber-red/80 transition-colors">
+                className="text-xs text-cyber-red hover:text-cyber-red/80 transition-colors min-h-[44px] inline-flex items-center">
                 Refresh news
               </button>
             </div>

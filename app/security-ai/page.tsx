@@ -260,7 +260,7 @@ export default function SecurityAIPage() {
             <button
               onClick={() => handleSubmit()}
               disabled={!input.trim() || isLoading}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-xl bg-cyber-red flex items-center justify-center hover:bg-cyber-red/80 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-xl bg-cyber-red flex items-center justify-center hover:bg-cyber-red/80 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
             >
               {isLoading ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

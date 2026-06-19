@@ -148,23 +148,23 @@ export function Contact() {
                     <div>
                       <label className="text-sm text-muted-foreground mb-1 block">{t.contact.name}</label>
                       <input type="text" name="from_name" value={formState.name} onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        className="w-full px-4 py-2 bg-muted border border-border rounded-lg text-foreground focus:outline-none focus:border-cyber-red transition-colors" required />
+                        className="w-full px-4 py-3 bg-muted border border-border rounded-lg text-foreground focus:outline-none focus:border-cyber-red transition-colors" required />
                     </div>
                     <div>
                       <label className="text-sm text-muted-foreground mb-1 block">{t.contact.email}</label>
                       <input type="email" name="from_email" value={formState.email} onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        className="w-full px-4 py-2 bg-muted border border-border rounded-lg text-foreground focus:outline-none focus:border-cyber-red transition-colors" required />
+                        className="w-full px-4 py-3 bg-muted border border-border rounded-lg text-foreground focus:outline-none focus:border-cyber-red transition-colors" required />
                     </div>
                   </div>
                   <div>
                     <label className="text-sm text-muted-foreground mb-1 block">{t.contact.subject}</label>
                     <input type="text" name="subject" value={formState.subject} onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                      className="w-full px-4 py-2 bg-muted border border-border rounded-lg text-foreground focus:outline-none focus:border-cyber-red transition-colors" required />
+                      className="w-full px-4 py-3 bg-muted border border-border rounded-lg text-foreground focus:outline-none focus:border-cyber-red transition-colors" required />
                   </div>
                   <div>
                     <label className="text-sm text-muted-foreground mb-1 block">{t.contact.message}</label>
                     <textarea name="message" value={formState.message} onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      className="w-full px-4 py-2 bg-muted border border-border rounded-lg text-foreground focus:outline-none focus:border-cyber-red transition-colors min-h-[120px] resize-none" required />
+                      className="w-full px-4 py-3 bg-muted border border-border rounded-lg text-foreground focus:outline-none focus:border-cyber-red transition-colors min-h-[120px] resize-none" required />
                   </div>
                   <LiquidButton type="submit" variant="default" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? (

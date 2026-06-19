@@ -350,13 +350,13 @@ function DarkWebCheck() {
             Check if your email appeared in any data breach — find out if your personal info was leaked
           </p>
           <div className="flex gap-2 mb-4">
-            <input
+              <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && checkEmail()}
               placeholder="Enter your email"
-              className="flex-1 px-3 py-2 bg-muted border border-border rounded-lg text-foreground text-sm focus:outline-none focus:border-cyber-red transition-colors"
+              className="flex-1 px-3 py-3 min-h-[44px] bg-muted border border-border rounded-lg text-foreground text-sm focus:outline-none focus:border-cyber-red transition-colors"
             />
             <LiquidButton variant="default" size="sm" onClick={checkEmail} disabled={isLoading}>
               {isLoading ? <RefreshCw className="w-4 h-4 animate-spin" /> : 'Check'}
@@ -496,12 +496,12 @@ function PasswordBreachCheck() {
               onChange={(e) => { setPassword(e.target.value); setResult(null); }}
               onKeyDown={(e) => e.key === 'Enter' && checkPassword()}
               placeholder="Enter a password to check"
-              className="w-full px-3 py-2 pr-10 bg-muted border border-border rounded-lg text-foreground text-sm focus:outline-none focus:border-cyber-red transition-colors"
+              className="w-full px-3 py-3 pr-12 min-h-[44px] bg-muted border border-border rounded-lg text-foreground text-sm focus:outline-none focus:border-cyber-red transition-colors"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </button>
@@ -736,7 +736,7 @@ function PasswordStrengthChecker() {
                     <div className="flex items-center gap-1.5">
                       <button
                         onClick={() => setGenLength(Math.max(8, genLength - 1))}
-                        className="w-7 h-7 rounded-lg bg-muted border border-border text-foreground text-sm font-bold hover:bg-cyber-red/20 hover:border-cyber-red/30 transition-all flex items-center justify-center"
+                        className="w-10 h-10 rounded-lg bg-muted border border-border text-foreground text-sm font-bold hover:bg-cyber-red/20 hover:border-cyber-red/30 transition-all flex items-center justify-center"
                       >
                         −
                       </button>
@@ -749,11 +749,11 @@ function PasswordStrengthChecker() {
                           const v = parseInt(e.target.value);
                           if (!isNaN(v) && v >= 8 && v <= 64) setGenLength(v);
                         }}
-                        className="w-14 h-7 text-center bg-background border-2 border-cyber-red/30 rounded-lg text-foreground text-sm font-mono font-bold focus:outline-none focus:border-cyber-red"
+                        className="w-16 h-10 text-center bg-background border-2 border-cyber-red/30 rounded-lg text-foreground text-sm font-mono font-bold focus:outline-none focus:border-cyber-red"
                       />
                       <button
                         onClick={() => setGenLength(Math.min(64, genLength + 1))}
-                        className="w-7 h-7 rounded-lg bg-muted border border-border text-foreground text-sm font-bold hover:bg-cyber-red/20 hover:border-cyber-red/30 transition-all flex items-center justify-center"
+                        className="w-10 h-10 rounded-lg bg-muted border border-border text-foreground text-sm font-bold hover:bg-cyber-red/20 hover:border-cyber-red/30 transition-all flex items-center justify-center"
                       >
                         +
                       </button>
@@ -823,7 +823,7 @@ function PasswordStrengthChecker() {
                       <span className="text-[10px] uppercase font-bold text-cyber-red tracking-wider">Generated Password</span>
                       <button
                         onClick={copyGenerated}
-                        className={`text-[10px] flex items-center gap-1 px-2 py-1 rounded-lg transition-all ${
+                        className={`text-xs flex items-center gap-1 px-2 py-2 rounded-lg transition-all min-h-[36px] ${
                           copied ? 'bg-cyber-red/20 text-cyber-red' : 'text-muted-foreground hover:text-cyber-red hover:bg-cyber-red/10'
                         }`}
                       >
@@ -922,7 +922,7 @@ function HashGenerator() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Enter text to hash..."
             rows={2}
-            className="w-full px-3 py-2 bg-muted border border-border rounded-lg text-foreground text-sm focus:outline-none focus:border-cyber-red transition-colors resize-none mb-4"
+            className="w-full px-3 py-3 min-h-[44px] bg-muted border border-border rounded-lg text-foreground text-sm focus:outline-none focus:border-cyber-red transition-colors resize-none mb-4"
           />
           <LiquidButton variant="default" size="sm" onClick={generateHashes} disabled={!input} className="w-full">
             <Hash className="w-4 h-4 mr-2" />
@@ -943,9 +943,9 @@ function HashGenerator() {
                       <span className="text-[10px] uppercase font-bold text-cyber-red tracking-wider">{algo}</span>
                       <button
                         onClick={() => copyToClipboard(hashes[algo], algo)}
-                        className="text-[10px] text-muted-foreground hover:text-cyber-red transition-colors"
-                      >
-                        {copied === algo ? '✓ Copied' : 'Copy'}
+                         className="text-xs text-muted-foreground hover:text-cyber-red transition-colors min-h-[36px] flex items-center"
+                       >
+                         {copied === algo ? '✓ Copied' : 'Copy'}
                       </button>
                     </div>
                     <p className="text-[11px] font-mono text-foreground break-all leading-relaxed">
@@ -1775,7 +1775,7 @@ function PrivacyScore() {
                     <div className="flex gap-1.5 mt-2">
                       <button
                         onClick={() => setAnswers({ ...answers, [i]: true })}
-                        className={`flex-1 px-2 py-1 rounded-md text-[10px] font-medium transition-all ${
+                        className={`flex-1 px-2 py-2 rounded-md text-xs font-medium transition-all min-h-[36px] ${
                           answers[i] === true
                             ? 'bg-cyber-red/20 text-cyber-red border border-cyber-red/30'
                             : 'bg-muted text-muted-foreground border border-border hover:border-cyber-red/30'
@@ -1785,7 +1785,7 @@ function PrivacyScore() {
                       </button>
                       <button
                         onClick={() => setAnswers({ ...answers, [i]: false })}
-                        className={`flex-1 px-2 py-1 rounded-md text-[10px] font-medium transition-all ${
+                        className={`flex-1 px-2 py-2 rounded-md text-xs font-medium transition-all min-h-[36px] ${
                           answers[i] === false
                             ? 'bg-cyber-red/20 text-cyber-red border border-cyber-red/30'
                             : 'bg-muted text-muted-foreground border border-border hover:border-cyber-red/30'
@@ -2285,7 +2285,7 @@ function WiFiPasswordCheck() {
                 <code className="text-[11px] text-cyber-red font-mono">netsh wlan show profiles</code>
                 <button
                   onClick={() => copyCommand('netsh wlan show profiles', 'list')}
-                  className="text-[10px] text-muted-foreground hover:text-cyber-red transition-colors flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-cyber-red/10"
+                  className="text-xs text-muted-foreground hover:text-cyber-red transition-colors flex items-center gap-1 px-2 py-2 rounded-lg hover:bg-cyber-red/10 min-h-[36px]"
                 >
                   {copied === 'list' ? <><Check className="w-3 h-3" /> Copied</> : <><Copy className="w-3 h-3" /> Copy</>}
                 </button>
@@ -2298,7 +2298,7 @@ function WiFiPasswordCheck() {
                 <code className="text-[11px] text-cyber-red font-mono break-all">netsh wlan show profile name="NETWORK_NAME" key=clear</code>
                 <button
                   onClick={() => copyCommand('netsh wlan show profile name="NETWORK_NAME" key=clear', 'view')}
-                  className="text-[10px] text-muted-foreground hover:text-cyber-red transition-colors flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-cyber-red/10 shrink-0"
+                  className="text-xs text-muted-foreground hover:text-cyber-red transition-colors flex items-center gap-1 px-2 py-2 rounded-lg hover:bg-cyber-red/10 min-h-[36px] shrink-0"
                 >
                   {copied === 'view' ? <><Check className="w-3 h-3" /> Copied</> : <><Copy className="w-3 h-3" /> Copy</>}
                 </button>
@@ -3517,7 +3517,7 @@ Data: ${new Date().toISOString().split('T')[0]}`,
                                 <button
                                   key={j}
                                   onClick={() => copyTemplate(action.template!)}
-                                  className={`flex-1 px-2 py-1.5 rounded-lg text-[10px] font-medium border transition-all ${
+                                  className={`flex-1 px-2 py-2 rounded-lg text-xs font-medium border transition-all min-h-[36px] ${
                                     copiedTemplate === action.template
                                       ? 'bg-cyber-red/20 text-cyber-red border-cyber-red/30'
                                       : 'bg-muted text-muted-foreground border-border hover:border-red-500/30'

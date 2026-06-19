@@ -84,7 +84,7 @@ function CertificateModal({ cert, onClose }: { cert: typeof certifications[0]; o
                 <button
                   onClick={() => setPageNumber(p => Math.max(1, p - 1))}
                   disabled={pageNumber <= 1}
-                  className="px-2 py-1 text-xs rounded bg-white/5 border border-white/10 text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
+                  className="px-2 py-2 text-xs rounded bg-white/5 border border-white/10 text-white disabled:opacity-30 hover:bg-white/10 transition-colors min-h-[36px]"
                 >
                   Prev
                 </button>
@@ -92,7 +92,7 @@ function CertificateModal({ cert, onClose }: { cert: typeof certifications[0]; o
                 <button
                   onClick={() => setPageNumber(p => Math.min(numPages, p + 1))}
                   disabled={pageNumber >= numPages}
-                  className="px-2 py-1 text-xs rounded bg-white/5 border border-white/10 text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
+                  className="px-2 py-2 text-xs rounded bg-white/5 border border-white/10 text-white disabled:opacity-30 hover:bg-white/10 transition-colors min-h-[36px]"
                 >
                   Next
                 </button>
@@ -102,14 +102,14 @@ function CertificateModal({ cert, onClose }: { cert: typeof certifications[0]; o
               href={cert.file}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 text-xs border text-[var(--cyber-red)] rounded-lg hover:bg-[var(--cyber-red)]/20 transition-colors flex items-center gap-1"
+              className="px-3 py-2 text-xs border text-[var(--cyber-red)] rounded-lg hover:bg-[var(--cyber-red)]/20 transition-colors flex items-center gap-1 min-h-[36px]"
               style={{ backgroundColor: `${RED}1a`, borderColor: `${RED}4d` }}
             >
               <ExternalLink className="w-3 h-3" /> Open
             </a>
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors"
+              className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors"
             >
               <X className="w-4 h-4 text-white" />
             </button>

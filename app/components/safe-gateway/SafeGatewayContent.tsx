@@ -299,7 +299,7 @@ function SecureBrowserLaunch({ onComplete }: { onComplete: () => void }) {
 
           <div className="mt-4 bg-[#0a0a0a] rounded-lg p-3 border border-[#2C3E50] text-left max-h-32 overflow-y-auto">
             {logs.map((log, i) => (
-              <p key={i} className="text-[10px] text-[#7F8C8D] font-mono leading-relaxed">{log}</p>
+              <p key={i} className="text-xs text-[#7F8C8D] font-mono leading-relaxed">{log}</p>
             ))}
           </div>
 
@@ -388,12 +388,12 @@ function LandingPage({ onEnter }: { onEnter: () => void }) {
             </div>
             <div>
               <h1 className="text-lg font-bold text-[#ECF0F1] tracking-tight">The Hidden Wiki</h1>
-              <p className="text-[10px] text-[#7F8C8D]">SIMULATION — EDUCATIONAL PURPOSE ONLY</p>
+              <p className="text-xs text-[#7F8C8D]">SIMULATION — EDUCATIONAL PURPOSE ONLY</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
             <button onClick={() => { setSearchOpen(true); setTimeout(() => searchInputRef.current?.focus(), 100); }}
-              className="flex items-center gap-2 px-3 py-1.5 bg-[#111111] border border-[#2C3E50] rounded-lg text-xs text-[#7F8C8D] hover:border-[#9B59B6]/50 transition-colors">
+              className="flex items-center gap-2 px-3 py-2 bg-[#111111] border border-[#2C3E50] rounded-lg text-xs text-[#7F8C8D] hover:border-[#9B59B6]/50 transition-colors">
               <Search className="w-3 h-3" />
               <span>Search...</span>
               <kbd className="text-[8px] bg-[#2C3E50] px-1.5 py-0.5 rounded ml-2 font-mono">Ctrl+K</kbd>
@@ -448,12 +448,12 @@ function LandingPage({ onEnter }: { onEnter: () => void }) {
                   )}
                   {searchResults.wiki.length > 0 && (
                     <div className="mb-4">
-                      <p className="text-[10px] text-[#9B59B6] font-bold uppercase tracking-wider mb-2">Hidden Wiki</p>
+                      <p className="text-xs text-[#9B59B6] font-bold uppercase tracking-wider mb-2">Hidden Wiki</p>
                       {searchResults.wiki.map(cat => cat.links.map(link => (
                         <div key={link.title} className="flex items-center justify-between py-2 px-2 hover:bg-[#2C3E50]/30 rounded transition-colors">
                           <div className="flex-1 min-w-0">
                             <p className="text-xs text-[#ECF0F1] truncate">{link.title}</p>
-                            <p className="text-[10px] text-[#7F8C8D] truncate">{link.description}</p>
+                            <p className="text-xs text-[#7F8C8D] truncate">{link.description}</p>
                           </div>
                           <span className={`ml-2 text-[8px] font-bold px-1.5 py-0.5 rounded shrink-0 ${
                             link.status === 'online' ? 'text-[#27AE60]' : link.status === 'seized' ? 'text-[#E74C3C]' : link.status === 'scam' ? 'text-[#F39C12]' : 'text-[#7F8C8D]'
@@ -464,12 +464,12 @@ function LandingPage({ onEnter }: { onEnter: () => void }) {
                   )}
                   {searchResults.products.length > 0 && (
                     <div className="mb-4">
-                      <p className="text-[10px] text-[#E67E22] font-bold uppercase tracking-wider mb-2">Marketplace</p>
+                      <p className="text-xs text-[#E67E22] font-bold uppercase tracking-wider mb-2">Marketplace</p>
                       {searchResults.products.map(p => (
                         <div key={p.id} className="flex items-center justify-between py-2 px-2 hover:bg-[#2C3E50]/30 rounded transition-colors">
                           <div className="flex-1 min-w-0">
                             <p className="text-xs text-[#ECF0F1] truncate">{p.name}</p>
-                            <p className="text-[10px] text-[#7F8C8D]">{p.vendor} • ⭐ {p.rating}</p>
+                            <p className="text-xs text-[#7F8C8D]">{p.vendor} • ⭐ {p.rating}</p>
                           </div>
                           <span className="ml-2 text-xs text-[#F7931A] font-mono shrink-0">{p.price}</span>
                         </div>
@@ -478,12 +478,12 @@ function LandingPage({ onEnter }: { onEnter: () => void }) {
                   )}
                   {searchResults.threads.length > 0 && (
                     <div>
-                      <p className="text-[10px] text-[#3498DB] font-bold uppercase tracking-wider mb-2">Forum</p>
+                      <p className="text-xs text-[#3498DB] font-bold uppercase tracking-wider mb-2">Forum</p>
                       {searchResults.threads.map(t => (
                         <div key={t.id} className="flex items-center justify-between py-2 px-2 hover:bg-[#2C3E50]/30 rounded transition-colors">
                           <div className="flex-1 min-w-0">
                             <p className="text-xs text-[#ECF0F1] truncate">{t.title}</p>
-                            <p className="text-[10px] text-[#7F8C8D]">{t.author} • {t.replies} replies • {t.views.toLocaleString()} views</p>
+                            <p className="text-xs text-[#7F8C8D]">{t.author} • {t.replies} replies • {t.views.toLocaleString()} views</p>
                           </div>
                         </div>
                       ))}
@@ -510,7 +510,7 @@ function LandingPage({ onEnter }: { onEnter: () => void }) {
               className="bg-[#111111] border border-[#2C3E50] rounded-xl p-4 cursor-default hover:border-[#9B59B6]/30 transition-colors">
               <div className="mb-2" style={{ color: cat.color }}>{cat.icon}</div>
               <p className="text-xs font-bold text-[#ECF0F1] mb-1">{cat.name}</p>
-              <p className="text-[10px] text-[#7F8C8D]">{cat.count} links</p>
+              <p className="text-xs text-[#7F8C8D]">{cat.count} links</p>
             </motion.div>
           ))}
         </div>
@@ -521,24 +521,24 @@ function LandingPage({ onEnter }: { onEnter: () => void }) {
         <div className="max-w-5xl mx-auto px-6 py-6 flex items-center justify-center gap-8 md:gap-16">
           <div className="text-center">
             <p className="text-lg font-bold text-[#ECF0F1]">1,247</p>
-            <p className="text-[10px] text-[#7F8C8D]">online users</p>
+            <p className="text-xs text-[#7F8C8D]">online users</p>
           </div>
           <div className="w-px h-8 bg-[#2C3E50]" />
           <div className="text-center">
             <p className="text-lg font-bold text-[#ECF0F1]">45,892</p>
-            <p className="text-[10px] text-[#7F8C8D]">hidden services</p>
+            <p className="text-xs text-[#7F8C8D]">hidden services</p>
           </div>
           <div className="w-px h-8 bg-[#2C3E50]" />
           <div className="text-center">
             <p className="text-lg font-bold text-[#27AE60]">Last updated: 2 min ago</p>
-            <p className="text-[10px] text-[#7F8C8D]">all data simulated</p>
+            <p className="text-xs text-[#7F8C8D]">all data simulated</p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-[#1a1a2e] py-6 text-center">
-        <p className="text-[10px] text-[#7F8C8D]">
+        <p className="text-xs text-[#7F8C8D]">
           This is an educational simulation. No real dark web content is displayed. All data is fictional and generated locally.
         </p>
       </footer>
@@ -581,10 +581,10 @@ function BrowserShell({
         </div>
 
         <div className="flex items-center gap-2 px-3 py-2">
-          <button onClick={() => onNavigate('wiki')} className="p-1.5 rounded hover:bg-[#2C3E50] text-[#95A5A6] hover:text-[#ECF0F1]">
+          <button onClick={() => onNavigate('wiki')} className="p-2 rounded hover:bg-[#2C3E50] text-[#95A5A6] hover:text-[#ECF0F1]">
             <ArrowLeft className="w-4 h-4" />
           </button>
-          <button className="p-1.5 rounded hover:bg-[#2C3E50] text-[#95A5A6] hover:text-[#ECF0F1]">↻</button>
+          <button className="p-2 rounded hover:bg-[#2C3E50] text-[#95A5A6] hover:text-[#ECF0F1]">↻</button>
 
           <div className="flex-1 flex items-center bg-[#0a0a0a] rounded-lg px-3 py-1.5 border border-[#2C3E50]">
             <Lock className="w-3 h-3 text-[#27AE60] mr-2 shrink-0" />
@@ -594,18 +594,18 @@ function BrowserShell({
           </div>
 
           <button onClick={() => setShowCircuit(!showCircuit)}
-            className="p-1.5 rounded hover:bg-[#2C3E50] text-[#95A5A6] hover:text-[#ECF0F1] relative"
+            className="p-2 rounded hover:bg-[#2C3E50] text-[#95A5A6] hover:text-[#ECF0F1] relative"
             title="Network Circuit">
             <span className="text-xs">⚡</span>
           </button>
-          <button className="p-1.5 rounded hover:bg-[#2C3E50] text-[#95A5A6] hover:text-[#ECF0F1]"
+          <button className="p-2 rounded hover:bg-[#2C3E50] text-[#95A5A6] hover:text-[#ECF0F1]"
             title="Security Level" onClick={() => {
               const levels = ['Standard', 'Safer', 'Safest'];
               setSecurityLevel(levels[(levels.indexOf(securityLevel) + 1) % levels.length]);
             }}>
             <Shield className="w-4 h-4" />
           </button>
-          <button onClick={onExit} className="p-1.5 rounded hover:bg-[#E74C3C]/20 text-[#E74C3C] text-xs font-bold">
+          <button onClick={onExit} className="p-2 rounded hover:bg-[#E74C3C]/20 text-[#E74C3C] text-xs font-bold">
             EXIT
           </button>
         </div>
@@ -642,7 +642,7 @@ function BrowserShell({
         ].map((tab) => (
           <button key={tab.id}
             onClick={() => handleTab(tab.id)}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded text-[10px] transition-all ${
+            className={`flex items-center gap-1 px-2.5 py-2 rounded text-xs transition-all ${
               activeTab === tab.id
                 ? 'bg-[#9B59B6]/20 text-[#9B59B6] border border-[#9B59B6]/30'
                 : 'text-[#7F8C8D] hover:text-[#95A5A6] hover:bg-[#2C3E50]/30'
@@ -707,7 +707,7 @@ function HiddenWikiPage({ onNavigate, onNavigateLink }: { onNavigate: (url: stri
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold text-[#ECF0F1] mb-1">The Hidden Wiki</h1>
-      <p className="text-[10px] text-[#7F8C8D]">Last updated: 2024-03-15 | Status indicators show real-world equivalents</p>
+      <p className="text-xs text-[#7F8C8D]">Last updated: 2024-03-15 | Status indicators show real-world equivalents</p>
         </div>
 
         {/* Wiki Search */}
@@ -745,7 +745,7 @@ function HiddenWikiPage({ onNavigate, onNavigateLink }: { onNavigate: (url: stri
                           {link.title}
                           {visitedLinks.has(link.title) && <span className="text-[#27AE60] text-[10px] shrink-0">✓</span>}
                         </p>
-                        <p className="text-[10px] text-[#7F8C8D] truncate">{link.description}</p>
+                        <p className="text-xs text-[#7F8C8D] truncate">{link.description}</p>
                         <div className="flex items-center gap-3 mt-1">
                           <span className="text-[9px] text-[#9B59B6]">▲ {link.upvotes}</span>
                           <span className="text-[9px] text-[#7F8C8D] flex items-center gap-0.5">
@@ -773,19 +773,19 @@ function HiddenWikiPage({ onNavigate, onNavigateLink }: { onNavigate: (url: stri
           <div className="grid grid-cols-4 gap-4 text-center">
             <div>
               <p className="text-lg font-bold text-[#E74C3C]">{visitedLinks.size}</p>
-              <p className="text-[10px] text-[#7F8C8D]">Links Visited</p>
+              <p className="text-xs text-[#7F8C8D]">Links Visited</p>
             </div>
             <div>
               <p className="text-lg font-bold text-[#F7931A]">{wikiCategories.reduce((a, c) => a + c.links.length, 0)}</p>
-              <p className="text-[10px] text-[#7F8C8D]">Total Links</p>
+              <p className="text-xs text-[#7F8C8D]">Total Links</p>
             </div>
             <div>
               <p className="text-lg font-bold text-[#27AE60]">3</p>
-              <p className="text-[10px] text-[#7F8C8D]">Relays Active</p>
+              <p className="text-xs text-[#7F8C8D]">Relays Active</p>
             </div>
             <div>
               <p className="text-lg font-bold text-[#9B59B6]">256-bit</p>
-              <p className="text-[10px] text-[#7F8C8D]">Encryption</p>
+              <p className="text-xs text-[#7F8C8D]">Encryption</p>
             </div>
           </div>
         </div>
@@ -823,7 +823,7 @@ function HiddenWikiPage({ onNavigate, onNavigateLink }: { onNavigate: (url: stri
                 </div>
                 <div className="bg-[#E74C3C]/10 border border-[#E74C3C]/30 rounded-lg p-3 mb-4">
                   <p className="text-xs text-[#E74C3C] font-semibold mb-1">Why this is dangerous in reality:</p>
-                  <ul className="space-y-1 text-[10px] text-[#95A5A6]">
+                  <ul className="space-y-1 text-xs text-[#95A5A6]">
                     <li>• Most dark web links lead to scam pages or phishing sites</li>
                     <li>• Many are law enforcement honeypots designed to catch criminals</li>
                     <li>• Clicking can expose your IP and identity even through encrypted browsers</li>
@@ -886,8 +886,8 @@ function MarketplacePage() {
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#E74C3C]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <h3 className="text-sm font-bold text-[#ECF0F1] mb-1 truncate">{product.name}</h3>
-                <p className="text-[10px] text-[#7F8C8D] mb-2 line-clamp-2">{product.description}</p>
-                <div className="flex items-center gap-2 text-[10px] text-[#7F8C8D] mb-2">
+                <p className="text-xs text-[#7F8C8D] mb-2 line-clamp-2">{product.description}</p>
+                <div className="flex items-center gap-2 text-xs text-[#7F8C8D] mb-2">
                   <span>Vendor: {product.vendor}</span>
                   <span>•</span>
                   <span>⭐ {product.rating}</span>
@@ -904,7 +904,7 @@ function MarketplacePage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-bold text-[#F7931A] font-mono">{product.price}</span>
-                  <span className="text-[10px] text-[#7F8C8D]">{product.category}</span>
+                  <span className="text-xs text-[#7F8C8D]">{product.category}</span>
                 </div>
               </CardContent>
             </Card>
@@ -937,7 +937,7 @@ function MarketplacePage() {
                 </div>
                 <div className="bg-[#F39C12]/10 border border-[#F39C12]/30 rounded-lg p-3 mb-4">
                   <p className="text-xs text-[#F39C12] font-semibold mb-1">Vendor Reputation Analysis:</p>
-                  <p className="text-[10px] text-[#95A5A6]">
+                  <p className="text-xs text-[#95A5A6]">
                     {selectedProduct.rating >= 4.5 ? 'High rating — but in the real dark web, ratings are easily faked with shill accounts.' :
                      selectedProduct.rating >= 3.0 ? 'Moderate rating — many scammers maintain decent ratings by completing small orders first.' :
                      'Low rating — a clear warning sign. In reality, even 5-star vendors can be law enforcement.'}
@@ -945,7 +945,7 @@ function MarketplacePage() {
                 </div>
                 <div className="bg-[#E74C3C]/10 border border-[#E74C3C]/30 rounded-lg p-3 mb-4">
                   <p className="text-xs text-[#E74C3C] font-semibold mb-1">⚠️ Real-World Consequences:</p>
-                  <ul className="space-y-1 text-[10px] text-[#95A5A6]">
+                  <ul className="space-y-1 text-xs text-[#95A5A6]">
                     {selectedProduct.realConsequences.map((c, i) => (
                       <li key={i}>• {c}</li>
                     ))}
@@ -953,11 +953,11 @@ function MarketplacePage() {
                 </div>
                 <div className="bg-[#F7931A]/10 border border-[#F7931A]/30 rounded-lg p-3 mb-4">
                   <p className="text-xs text-[#F7931A] font-semibold">Price: {selectedProduct.price} BTC</p>
-                  <p className="text-[10px] text-[#7F8C8D] font-mono mt-1">Address: {generateBitcoinAddress()}</p>
+                  <p className="text-xs text-[#7F8C8D] font-mono mt-1">Address: {generateBitcoinAddress()}</p>
                 </div>
                 <div className="bg-[#E74C3C]/10 border border-[#E74C3C]/30 rounded-lg p-3 mb-4">
                   <p className="text-xs text-[#E74C3C] font-semibold mb-1">Educational Warning:</p>
-                  <p className="text-[10px] text-[#95A5A6]">{selectedProduct.educationalWarning}</p>
+                  <p className="text-xs text-[#95A5A6]">{selectedProduct.educationalWarning}</p>
                 </div>
                 <div className="flex gap-2">
                   <button onClick={() => setSelectedProduct(null)}
@@ -991,13 +991,13 @@ function MarketplacePage() {
                 </div>
                 <div className="bg-[#0a0a0a] rounded-lg p-4 mb-4 border border-[#2C3E50]">
                   <p className="text-xs text-[#95A5A6] mb-2">Payment would be in Bitcoin:</p>
-                  <div className="bg-[#111111] rounded p-2 font-mono text-[10px] text-[#7F8C8D] break-all">
+                  <div className="bg-[#111111] rounded p-2 font-mono text-xs text-[#7F8C8D] break-all">
                     {generateBitcoinAddress()}
                   </div>
                 </div>
                 <div className="bg-[#E74C3C]/10 border border-[#E74C3C]/30 rounded-lg p-3 mb-4">
                   <p className="text-xs text-[#E74C3C] font-semibold mb-1">⚠️ SCAM WARNING:</p>
-                  <p className="text-[10px] text-[#95A5A6]">
+                  <p className="text-xs text-[#95A5A6]">
                     In reality, 99% of dark web marketplace purchases are scams. Once you send Bitcoin, you never see it again.
                     The &quot;vendor&quot; is likely law enforcement or a scammer. Your payment is permanently traceable on the blockchain.
                   </p>
@@ -1049,7 +1049,7 @@ function MarketplacePage() {
                 </div>
                 <div className="bg-[#0a0a0a] rounded-lg p-4 mb-4 border border-[#2C3E50]">
                   <p className="text-xs text-[#E74C3C] font-semibold mb-2">This is what REALLY happened:</p>
-                  <ul className="space-y-1 text-[10px] text-[#95A5A6]">
+                  <ul className="space-y-1 text-xs text-[#95A5A6]">
                     <li>• Your Bitcoin would be gone forever</li>
                     <li>• The &quot;vendor&quot; would disappear immediately</li>
                     <li>• No refund, no recourse, no way to recover funds</li>
@@ -1059,7 +1059,7 @@ function MarketplacePage() {
                 </div>
                 <div className="bg-[#27AE60]/10 border border-[#27AE60]/30 rounded-lg p-3 mb-4">
                   <p className="text-xs text-[#27AE60] font-semibold">📚 What you learned:</p>
-                  <p className="text-[10px] text-[#95A5A6]">
+                  <p className="text-xs text-[#95A5A6]">
                     Dark web marketplaces are designed to steal your money. Even &quot;trusted&quot; vendors can be law enforcement honeypots.
                     Blockchain analysis makes every transaction traceable.
                   </p>
@@ -1136,7 +1136,7 @@ function ForumPage() {
           ].map((stat) => (
             <div key={stat.label} className="bg-[#111111] border border-[#2C3E50] rounded-lg p-3 text-center">
               <p className="text-lg font-bold" style={{ color: stat.color }}>{stat.value}</p>
-              <p className="text-[10px] text-[#7F8C8D]">{stat.label}</p>
+              <p className="text-xs text-[#7F8C8D]">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -1441,7 +1441,7 @@ function LinkPage({ link, onBack }: { link: { title: string; description: string
         <div className="text-center">
           <div className="w-10 h-10 border-2 border-[#9B59B6] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-xs text-[#7F8C8D] font-mono">Establishing encrypted connection...</p>
-          <p className="text-[10px] text-[#9B59B6] mt-2 font-mono">Routing through 3 relays...</p>
+          <p className="text-xs text-[#9B59B6] mt-2 font-mono">Routing through 3 relays...</p>
         </div>
       </div>
     );
@@ -1492,22 +1492,22 @@ function LinkPage({ link, onBack }: { link: { title: string; description: string
             <div className="grid grid-cols-3 gap-4 mb-4">
               <div className="bg-[#0a0a0a] rounded-lg p-3 text-center">
                 <p className="text-lg font-bold text-[#27AE60]">4.8</p>
-                <p className="text-[10px] text-[#7F8C8D]">Rating</p>
+                <p className="text-xs text-[#7F8C8D]">Rating</p>
               </div>
               <div className="bg-[#0a0a0a] rounded-lg p-3 text-center">
                 <p className="text-lg font-bold text-[#9B59B6]">1,247</p>
-                <p className="text-[10px] text-[#7F8C8D]">Sales</p>
+                <p className="text-xs text-[#7F8C8D]">Sales</p>
               </div>
               <div className="bg-[#0a0a0a] rounded-lg p-3 text-center">
                 <p className="text-lg font-bold text-[#F39C12]">98%</p>
-                <p className="text-[10px] text-[#7F8C8D]">Positive</p>
+                <p className="text-xs text-[#7F8C8D]">Positive</p>
               </div>
             </div>
             <div className="space-y-2 mb-4">
               {['Premium Account — $50', 'VIP Access — $150', 'Lifetime — $300'].map((item, i) => (
                 <div key={i} className="flex items-center justify-between bg-[#0a0a0a] rounded-lg p-3">
                   <span className="text-xs text-[#ECF0F1]">{item}</span>
-                  <button className="px-3 py-1 bg-[#9B59B6] text-white rounded text-[10px] font-bold hover:bg-[#8E44AD]">
+                  <button className="px-3 py-2 bg-[#9B59B6] text-white rounded text-xs font-bold hover:bg-[#8E44AD]">
                     Buy Now
                   </button>
                 </div>
@@ -1555,7 +1555,7 @@ function LinkPage({ link, onBack }: { link: { title: string; description: string
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] text-[#7F8C8D] font-mono">PGP Verified</span>
+            <span className="text-xs text-[#7F8C8D] font-mono">PGP Verified</span>
             <span className="text-[10px] text-[#27AE60]">✓</span>
           </div>
         </div>
@@ -1583,15 +1583,15 @@ function LinkPage({ link, onBack }: { link: { title: string; description: string
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="bg-[#0a0a0a] rounded-lg p-4 text-center">
               <p className="text-2xl font-bold" style={{ color: template.color }}>4.9</p>
-              <p className="text-[10px] text-[#7F8C8D]">Rating</p>
+              <p className="text-xs text-[#7F8C8D]">Rating</p>
             </div>
             <div className="bg-[#0a0a0a] rounded-lg p-4 text-center">
               <p className="text-2xl font-bold text-[#9B59B6]">2,847</p>
-              <p className="text-[10px] text-[#7F8C8D]">Reviews</p>
+              <p className="text-xs text-[#7F8C8D]">Reviews</p>
             </div>
             <div className="bg-[#0a0a0a] rounded-lg p-4 text-center">
               <p className="text-2xl font-bold text-[#27AE60]">99%</p>
-              <p className="text-[10px] text-[#7F8C8D]">Uptime</p>
+              <p className="text-xs text-[#7F8C8D]">Uptime</p>
             </div>
           </div>
 
@@ -1606,8 +1606,8 @@ function LinkPage({ link, onBack }: { link: { title: string; description: string
                 <div key={i} className="flex items-center justify-between py-1 border-b border-[#2C3E50]/50 last:border-0">
                   <span className="text-xs text-[#95A5A6]">{update.text}</span>
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-[#7F8C8D]">{update.user}</span>
-                    <span className="text-[10px] text-[#7F8C8D]">{update.time}</span>
+                    <span className="text-xs text-[#7F8C8D]">{update.user}</span>
+                    <span className="text-xs text-[#7F8C8D]">{update.time}</span>
                   </div>
                 </div>
               ))}
@@ -1818,7 +1818,7 @@ export function SafeGatewayContent() {
 
       {(page === 'hidden-wiki' || page === 'marketplace' || page === 'forum' || page === 'mixer' || page === 'education' || page === 'link-page') && (
         <div className="fixed bottom-0 left-0 right-0 z-[90] bg-[#0a0a0a]/80 border-t border-[#2C3E50] px-4 py-2 text-center">
-          <p className="text-[10px] text-[#7F8C8D] font-mono">
+          <p className="text-xs text-[#7F8C8D] font-mono">
             {currentUrl} | Encrypted Connection | 3 Relays Active
           </p>
         </div>

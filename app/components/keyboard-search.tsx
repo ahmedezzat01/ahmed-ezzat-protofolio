@@ -220,7 +220,7 @@ export function KeyboardSearch() {
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            className="w-full max-w-2xl mx-4 bg-card border border-border rounded-2xl shadow-2xl overflow-hidden"
+            className="w-full max-w-2xl mx-2 sm:mx-4 bg-card border border-border rounded-2xl shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 px-4 py-3 border-b border-border">
@@ -238,7 +238,7 @@ export function KeyboardSearch() {
               </button>
             </div>
 
-            <div className="max-h-[400px] overflow-y-auto">
+            <div className="max-h-[50vh] overflow-y-auto">
               {results.length > 0 ? (
                 <div className="p-2">
                   {results.map((result, index) => (
