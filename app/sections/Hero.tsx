@@ -17,25 +17,134 @@ class SplineErrorBoundary extends Component<{ children: ReactNode; fallback: Rea
 }
 
 function CyberRobotFallback() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const size = 400;
+    canvas.width = size;
+    canvas.height = size;
+    const cx = size / 2;
+    const cy = size / 2;
+    let frame = 0;
+    let animId: number;
+
+    const draw = () => {
+      frame++;
+      ctx.clearRect(0, 0, size, size);
+      const time = frame * 0.02;
+
+      // Outer rotating ring
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(time * 0.3);
+      ctx.strokeStyle = 'rgba(223, 37, 49, 0.15)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 160, 160, 0, 0, Math.PI * 2);
+      ctx.stroke();
+      for (let i = 0; i < 24; i++) {
+        const angle = (i / 24) * Math.PI * 2;
+        const x = Math.cos(angle) * 160;
+        const y = Math.sin(angle) * 160;
+        ctx.fillStyle = `rgba(223, 37, 49, ${0.3 + Math.sin(time + i) * 0.2})`;
+        ctx.beginPath();
+        ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // Inner ring
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(-time * 0.5);
+      ctx.strokeStyle = 'rgba(223, 37, 49, 0.1)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 120, 120, 0, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+
+      // Grid
+      ctx.strokeStyle = 'rgba(223, 37, 49, 0.06)';
+      ctx.lineWidth = 0.5;
+      for (let i = -200; i <= 200; i += 40) {
+        ctx.beginPath();
+        ctx.moveTo(cx + i, 0);
+        ctx.lineTo(cx + i, size);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, cy + i);
+        ctx.lineTo(size, cy + i);
+        ctx.stroke();
+      }
+
+      // Glow
+      const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 80);
+      grd.addColorStop(0, 'rgba(223, 37, 49, 0.2)');
+      grd.addColorStop(0.5, 'rgba(223, 37, 49, 0.05)');
+      grd.addColorStop(1, 'transparent');
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, size, size);
+
+      // Shield
+      ctx.save();
+      ctx.translate(cx, cy);
+      const pulse = 1 + Math.sin(time * 2) * 0.03;
+      ctx.scale(pulse, pulse);
+      ctx.strokeStyle = 'rgba(223, 37, 49, 0.9)';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(0, -35);
+      ctx.lineTo(28, -20);
+      ctx.lineTo(28, 8);
+      ctx.quadraticCurveTo(28, 30, 0, 40);
+      ctx.quadraticCurveTo(-28, 30, -28, 8);
+      ctx.lineTo(-28, -20);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.fillStyle = 'rgba(223, 37, 49, 0.1)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(223, 37, 49, 0.6)';
+      ctx.lineWidth = 1.5;
+      for (let i = 0; i < 4; i++) {
+        const y = -15 + i * 12;
+        const w = 20 - Math.abs(i - 1.5) * 4;
+        ctx.beginPath();
+        ctx.moveTo(-w, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // Particles
+      for (let i = 0; i < 6; i++) {
+        const angle = time * 0.5 + (i / 6) * Math.PI * 2;
+        const r = 100 + Math.sin(time + i * 2) * 20;
+        const px = Math.cos(angle) * r;
+        const py = Math.sin(angle) * r;
+        ctx.fillStyle = `rgba(223, 37, 49, ${0.3 + Math.sin(time * 2 + i) * 0.2})`;
+        ctx.beginPath();
+        ctx.arc(px, py, 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+
+      animId = requestAnimationFrame(draw);
+    };
+
+    animId = requestAnimationFrame(draw);
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
   return (
-    <div className="w-full h-full flex items-center justify-center relative">
-      <div className="relative" style={{ width: 280, height: 280 }}>
-        <div className="absolute inset-0 rounded-full border-2 border-[#df2531]/20 animate-[spin_20s_linear_infinite]" />
-        <div className="absolute inset-4 rounded-full border border-[#df2531]/15 animate-[spin_15s_linear_infinite_reverse]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-[#df2531] to-[#8b1520] shadow-[0_0_60px_rgba(223,37,49,0.3)] flex items-center justify-center animate-pulse">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
-          </svg>
-        </div>
-        <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 280 280">
-          <line x1="140" y1="0" x2="140" y2="280" stroke="#df2531" strokeWidth="0.5" />
-          <line x1="0" y1="140" x2="280" y2="140" stroke="#df2531" strokeWidth="0.5" />
-          <circle cx="140" cy="140" r="80" stroke="#df2531" strokeWidth="0.5" fill="none" />
-          <circle cx="140" cy="140" r="120" stroke="#df2531" strokeWidth="0.3" fill="none" />
-        </svg>
-      </div>
+    <div className="w-full h-full flex items-center justify-center">
+      <canvas ref={canvasRef} style={{ width: 400, height: 400, maxWidth: '100%' }} />
     </div>
   );
 }
@@ -51,32 +160,18 @@ function SplineLoader() {
     return () => { cancelled = true; };
   }, []);
 
-  if (!Comp) {
-    return (
-      <div className="w-full h-full flex items-center justify-center">
-        <div className="w-24 h-24 border-4 border-cyber-red/20 border-t-cyber-red rounded-full animate-spin" />
-      </div>
-    );
-  }
-
+  if (!Comp) return <CyberRobotFallback />;
   return <Comp scene="/scene.splinecode" className="w-full h-full" />;
 }
 
 function SplineDeferred() {
   const [load, setLoad] = useState(false);
-
   useEffect(() => {
     const t = setTimeout(() => setLoad(true), 100);
     return () => clearTimeout(t);
   }, []);
 
-  if (!load) {
-    return (
-      <div className="w-full h-full flex items-center justify-center">
-        <div className="w-24 h-24 border-4 border-cyber-red/20 border-t-cyber-red rounded-full animate-spin" />
-      </div>
-    );
-  }
+  if (!load) return <CyberRobotFallback />;
 
   return (
     <SplineErrorBoundary fallback={<CyberRobotFallback />}>
