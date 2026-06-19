@@ -1,7 +1,16 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, Component, ReactNode } from 'react';
 
-const ShaderBackground = () => {
+class WebGLBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+  static getDerivedStateFromError() { return { hasError: true }; }
+  render() {
+    if (this.state.hasError) return <div className="fixed inset-0 -z-10 bg-[#0a0a0a]" />;
+    return this.props.children;
+  }
+}
+
+const ShaderBackgroundInner = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const vsSource = `
@@ -198,4 +207,6 @@ const ShaderBackground = () => {
   return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />;
 };
 
-export default ShaderBackground;
+export default function ShaderBackground() {
+  return <WebGLBoundary><ShaderBackgroundInner /></WebGLBoundary>;
+}
